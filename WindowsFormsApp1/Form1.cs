@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -54,7 +55,7 @@ namespace ProjetoProg
             this.LblUser = new System.Windows.Forms.Label();
             this.LblPassword = new System.Windows.Forms.Label();
             this.TxbUser = new System.Windows.Forms.TextBox();
-            this.TxtPassword = new System.Windows.Forms.TextBox();
+            this.TxbPassword = new System.Windows.Forms.TextBox();
             this.BtnLogin = new System.Windows.Forms.Button();
             this.LblCreateAccount = new System.Windows.Forms.Label();
             this.LinkLblCreateAccount = new System.Windows.Forms.LinkLabel();
@@ -96,17 +97,17 @@ namespace ProjetoProg
             this.TxbUser.TabIndex = 3;
             this.TxbUser.TextChanged += new System.EventHandler(this.TxbUser_TextChanged);
             // 
-            // TxtPassword
+            // TxbPassword
             // 
-            this.TxtPassword.BackColor = System.Drawing.Color.PaleGoldenrod;
-            this.TxtPassword.Font = new System.Drawing.Font("Noto Sans", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtPassword.Location = new System.Drawing.Point(763, 672);
-            this.TxtPassword.Multiline = true;
-            this.TxtPassword.Name = "TxtPassword";
-            this.TxtPassword.PasswordChar = '•';
-            this.TxtPassword.Size = new System.Drawing.Size(380, 40);
-            this.TxtPassword.TabIndex = 4;
-            this.TxtPassword.TextChanged += new System.EventHandler(this.TxtPassword_TextChanged);
+            this.TxbPassword.BackColor = System.Drawing.Color.PaleGoldenrod;
+            this.TxbPassword.Font = new System.Drawing.Font("Noto Sans", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxbPassword.Location = new System.Drawing.Point(763, 672);
+            this.TxbPassword.Multiline = true;
+            this.TxbPassword.Name = "TxbPassword";
+            this.TxbPassword.PasswordChar = '•';
+            this.TxbPassword.Size = new System.Drawing.Size(380, 40);
+            this.TxbPassword.TabIndex = 4;
+            this.TxbPassword.TextChanged += new System.EventHandler(this.TxtPassword_TextChanged);
             // 
             // BtnLogin
             // 
@@ -156,7 +157,7 @@ namespace ProjetoProg
             this.Controls.Add(this.LinkLblCreateAccount);
             this.Controls.Add(this.LblCreateAccount);
             this.Controls.Add(this.BtnLogin);
-            this.Controls.Add(this.TxtPassword);
+            this.Controls.Add(this.TxbPassword);
             this.Controls.Add(this.TxbUser);
             this.Controls.Add(this.LblPassword);
             this.Controls.Add(this.LblUser);
@@ -181,12 +182,52 @@ namespace ProjetoProg
 
         private void BtnLogin_Click(object sender, EventArgs e)
         {
+            string usuario = TxbUser.Text.Trim();
+            string senha = TxbPassword.Text.Trim();
 
+            string connectionString = @"Data Source=sqlexpress;Initial Catalog=CJ3027317PR2;User ID=aluno;Password=aluno";
 
-            FrmDisciplinas  disciplinas = new FrmDisciplinas();
-            this.Visible = false;
-            disciplinas.ShowDialog();
-            this.Visible = true;
+            try
+            {
+                using (SqlConnection cnn = new SqlConnection(connectionString))
+                {
+                    cnn.Open();
+
+                    string sql = "SELECT COUNT(1) FROM CONTAS WHERE ID_USER = @usuario AND SENHA = @senha";
+
+                    using (SqlCommand cmd = new SqlCommand(sql, cnn))
+                    {
+                        cmd.Parameters.AddWithValue("@usuario", usuario);
+                        cmd.Parameters.AddWithValue("@senha", senha);
+
+                        int count = (int)cmd.ExecuteScalar();
+
+                        if (count == 1)
+                        {
+                            MessageBox.Show("Login feito com sucesso!");
+
+                            FrmDisciplinas disciplinas = new FrmDisciplinas();
+                            this.Visible = false;
+                            disciplinas.ShowDialog();
+                            this.Visible = true;
+
+                        }
+                        else
+                        {
+                            MessageBox.Show("Usuário ou senha incorretos.",
+                                "Erro",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+                        }
+                    }
+                }
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao conectar no banco: " + ex.Message);
+            }
+
         }
 
         private void PicLogin_Click(object sender, EventArgs e)

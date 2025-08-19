@@ -45,8 +45,15 @@ namespace WindowsFormsApp1
             string email = TxbEmail.Text;
             string password = TxbCreatePassword.Text;
 
-            
+            if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password))
+            {
+                MessageBox.Show("Não podem existir campos vazios!",
+                "Aviso",
+                MessageBoxButtons.OK, 
+                MessageBoxIcon.Exclamation);
 
+                return;
+            }
             string connectionString = @"Data Source=sqlexpress;Initial Catalog=CJ3027317PR2;User ID=aluno;Password=aluno";
 
             try
@@ -67,11 +74,16 @@ namespace WindowsFormsApp1
 
                         if (linhasAfetadas > 0)
                         {
-                            MessageBox.Show("Conta criada com sucesso!");
+                            MessageBox.Show("Conta criada com sucesso!",
+                                "Sucesso",
+                                MessageBoxButtons.OK);
                         }
                         else
                         {
-                            MessageBox.Show("Erro ao criar conta.");
+                            MessageBox.Show("Erro ao criar conta.",
+                                "Erro",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
                         }
                     }
                 }
@@ -93,6 +105,11 @@ namespace WindowsFormsApp1
             this.Visible = false;
             login.ShowDialog();
             this.Visible = true;
+        }
+
+        private void PicShow_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

@@ -97,7 +97,7 @@
             this.TxbCreatePassword.Location = new System.Drawing.Point(1034, 663);
             this.TxbCreatePassword.Multiline = true;
             this.TxbCreatePassword.Name = "TxbCreatePassword";
-            this.TxbCreatePassword.PasswordChar = '*';
+            this.TxbCreatePassword.PasswordChar = '•';
             this.TxbCreatePassword.Size = new System.Drawing.Size(386, 44);
             this.TxbCreatePassword.TabIndex = 5;
             // 
