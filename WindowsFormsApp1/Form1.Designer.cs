@@ -19,12 +19,12 @@
             }
             base.Dispose(disposing);
         }
-
-        private System.Windows.Forms.PictureBox PicLogin;
         private System.Windows.Forms.Label LblUser;
         private System.Windows.Forms.Label LblPassword;
         private System.Windows.Forms.TextBox TxbUser;
         private System.Windows.Forms.TextBox TxtPassword;
         private System.Windows.Forms.Button BtnLogin;
+        private System.Windows.Forms.Label LblCreateAccount;
+        private System.Windows.Forms.LinkLabel LinkLblCreateAccount;
     }
 }

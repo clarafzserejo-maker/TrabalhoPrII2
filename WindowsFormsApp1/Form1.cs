@@ -35,36 +35,24 @@ namespace ProjetoProg
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmLogin));
-            this.PicLogin = new System.Windows.Forms.PictureBox();
             this.LblUser = new System.Windows.Forms.Label();
             this.LblPassword = new System.Windows.Forms.Label();
             this.TxbUser = new System.Windows.Forms.TextBox();
             this.TxtPassword = new System.Windows.Forms.TextBox();
             this.BtnLogin = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.PicLogin)).BeginInit();
+            this.LblCreateAccount = new System.Windows.Forms.Label();
+            this.LinkLblCreateAccount = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
-            // 
-            // PicLogin
-            // 
-            this.PicLogin.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PicLogin.BackgroundImage")));
-            this.PicLogin.Image = ((System.Drawing.Image)(resources.GetObject("PicLogin.Image")));
-            this.PicLogin.Location = new System.Drawing.Point(1, 0);
-            this.PicLogin.Name = "PicLogin";
-            this.PicLogin.Size = new System.Drawing.Size(696, 401);
-            this.PicLogin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.PicLogin.TabIndex = 0;
-            this.PicLogin.TabStop = false;
-            this.PicLogin.Click += new System.EventHandler(this.PicLogin_Click);
             // 
             // LblUser
             // 
             this.LblUser.AutoSize = true;
             this.LblUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(222)))));
-            this.LblUser.Font = new System.Drawing.Font("Noto Sans", 8.249999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblUser.Font = new System.Drawing.Font("Noto Sans", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblUser.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.LblUser.Location = new System.Drawing.Point(272, 218);
+            this.LblUser.Location = new System.Drawing.Point(754, 535);
             this.LblUser.Name = "LblUser";
-            this.LblUser.Size = new System.Drawing.Size(52, 16);
+            this.LblUser.Size = new System.Drawing.Size(140, 44);
             this.LblUser.TabIndex = 1;
             this.LblUser.Text = "Usuário:";
             this.LblUser.Click += new System.EventHandler(this.LblUser_Click);
@@ -73,10 +61,10 @@ namespace ProjetoProg
             // 
             this.LblPassword.AutoSize = true;
             this.LblPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(222)))));
-            this.LblPassword.Font = new System.Drawing.Font("Noto Sans", 8.249999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblPassword.Location = new System.Drawing.Point(272, 252);
+            this.LblPassword.Font = new System.Drawing.Font("Noto Sans", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblPassword.Location = new System.Drawing.Point(755, 625);
             this.LblPassword.Name = "LblPassword";
-            this.LblPassword.Size = new System.Drawing.Size(44, 16);
+            this.LblPassword.Size = new System.Drawing.Size(116, 44);
             this.LblPassword.TabIndex = 2;
             this.LblPassword.Text = "Senha:";
             this.LblPassword.Click += new System.EventHandler(this.LblPassword_Click);
@@ -84,46 +72,80 @@ namespace ProjetoProg
             // TxbUser
             // 
             this.TxbUser.BackColor = System.Drawing.Color.PaleGoldenrod;
-            this.TxbUser.Location = new System.Drawing.Point(274, 232);
+            this.TxbUser.Font = new System.Drawing.Font("Noto Sans", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxbUser.Location = new System.Drawing.Point(762, 582);
             this.TxbUser.Multiline = true;
             this.TxbUser.Name = "TxbUser";
-            this.TxbUser.Size = new System.Drawing.Size(135, 19);
+            this.TxbUser.Size = new System.Drawing.Size(380, 40);
             this.TxbUser.TabIndex = 3;
+            this.TxbUser.TextChanged += new System.EventHandler(this.TxbUser_TextChanged);
             // 
             // TxtPassword
             // 
             this.TxtPassword.BackColor = System.Drawing.Color.PaleGoldenrod;
-            this.TxtPassword.Location = new System.Drawing.Point(275, 267);
+            this.TxtPassword.Font = new System.Drawing.Font("Noto Sans", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtPassword.Location = new System.Drawing.Point(763, 672);
             this.TxtPassword.Multiline = true;
             this.TxtPassword.Name = "TxtPassword";
             this.TxtPassword.PasswordChar = '•';
-            this.TxtPassword.Size = new System.Drawing.Size(135, 19);
+            this.TxtPassword.Size = new System.Drawing.Size(380, 40);
             this.TxtPassword.TabIndex = 4;
+            this.TxtPassword.TextChanged += new System.EventHandler(this.TxtPassword_TextChanged);
             // 
             // BtnLogin
             // 
             this.BtnLogin.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.BtnLogin.Font = new System.Drawing.Font("Noto Sans", 8.249999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnLogin.Location = new System.Drawing.Point(313, 304);
+            this.BtnLogin.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnLogin.Font = new System.Drawing.Font("Noto Sans", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnLogin.Location = new System.Drawing.Point(891, 727);
             this.BtnLogin.Name = "BtnLogin";
-            this.BtnLogin.Size = new System.Drawing.Size(80, 26);
+            this.BtnLogin.Size = new System.Drawing.Size(141, 54);
             this.BtnLogin.TabIndex = 5;
             this.BtnLogin.Text = "Entrar";
             this.BtnLogin.UseVisualStyleBackColor = false;
             this.BtnLogin.Click += new System.EventHandler(this.BtnLogin_Click);
             // 
+            // LblCreateAccount
+            // 
+            this.LblCreateAccount.AutoSize = true;
+            this.LblCreateAccount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(222)))));
+            this.LblCreateAccount.Font = new System.Drawing.Font("Noto Sans", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblCreateAccount.Location = new System.Drawing.Point(836, 784);
+            this.LblCreateAccount.Name = "LblCreateAccount";
+            this.LblCreateAccount.Size = new System.Drawing.Size(250, 88);
+            this.LblCreateAccount.TabIndex = 6;
+            this.LblCreateAccount.Text = "Não tem conta?\r\nCrie uma   ......";
+            this.LblCreateAccount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // LinkLblCreateAccount
+            // 
+            this.LinkLblCreateAccount.AutoSize = true;
+            this.LinkLblCreateAccount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(222)))));
+            this.LinkLblCreateAccount.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.LinkLblCreateAccount.Font = new System.Drawing.Font("Noto Sans", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LinkLblCreateAccount.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.LinkLblCreateAccount.Location = new System.Drawing.Point(991, 828);
+            this.LinkLblCreateAccount.Name = "LinkLblCreateAccount";
+            this.LinkLblCreateAccount.Size = new System.Drawing.Size(83, 44);
+            this.LinkLblCreateAccount.TabIndex = 7;
+            this.LinkLblCreateAccount.TabStop = true;
+            this.LinkLblCreateAccount.Text = "aqui";
+            this.LinkLblCreateAccount.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLblCreateAccount_LinkClicked);
+            // 
             // FrmLogin
             // 
-            this.ClientSize = new System.Drawing.Size(697, 402);
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.ClientSize = new System.Drawing.Size(1924, 1061);
+            this.Controls.Add(this.LinkLblCreateAccount);
+            this.Controls.Add(this.LblCreateAccount);
             this.Controls.Add(this.BtnLogin);
             this.Controls.Add(this.TxtPassword);
             this.Controls.Add(this.TxbUser);
             this.Controls.Add(this.LblPassword);
             this.Controls.Add(this.LblUser);
-            this.Controls.Add(this.PicLogin);
             this.Name = "FrmLogin";
+            this.Text = "Login";
             this.Load += new System.EventHandler(this.FrmLogin_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.PicLogin)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -142,7 +164,7 @@ namespace ProjetoProg
         private void BtnLogin_Click(object sender, EventArgs e)
         {
             FrmDisciplinas  disciplinas = new FrmDisciplinas();
-
+            this.Visible = false;
             disciplinas.ShowDialog();
             this.Visible = true;
         }
@@ -155,6 +177,24 @@ namespace ProjetoProg
         private void FrmLogin_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void TxbUser_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TxtPassword_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LinkLblCreateAccount_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            FrmCreateAccount criarconta = new FrmCreateAccount();
+            this.Visible = false;
+            criarconta.ShowDialog();
+            this.Visible = true;
         }
     }
 }
