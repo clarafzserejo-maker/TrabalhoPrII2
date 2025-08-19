@@ -32,9 +32,9 @@
             this.LblCreateUser = new System.Windows.Forms.Label();
             this.LblCreateEmail = new System.Windows.Forms.Label();
             this.LblCreatePassword = new System.Windows.Forms.Label();
-            this.TxbUser = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.TxbCreateUser = new System.Windows.Forms.TextBox();
+            this.TxbCreatePassword = new System.Windows.Forms.TextBox();
+            this.TxbEmail = new System.Windows.Forms.TextBox();
             this.BtnCreateAccount = new System.Windows.Forms.Button();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.PickBack = new System.Windows.Forms.PictureBox();
@@ -79,37 +79,38 @@
             this.LblCreatePassword.TabIndex = 2;
             this.LblCreatePassword.Text = "Senha:";
             // 
-            // TxbUser
+            // TxbCreateUser
             // 
-            this.TxbUser.BackColor = System.Drawing.Color.PaleGoldenrod;
-            this.TxbUser.Font = new System.Drawing.Font("Noto Sans", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxbUser.Location = new System.Drawing.Point(1034, 473);
-            this.TxbUser.Multiline = true;
-            this.TxbUser.Name = "TxbUser";
-            this.TxbUser.Size = new System.Drawing.Size(386, 44);
-            this.TxbUser.TabIndex = 4;
-            this.TxbUser.TextChanged += new System.EventHandler(this.TxbUser_TextChanged);
+            this.TxbCreateUser.BackColor = System.Drawing.Color.PaleGoldenrod;
+            this.TxbCreateUser.Font = new System.Drawing.Font("Noto Sans", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxbCreateUser.Location = new System.Drawing.Point(1034, 473);
+            this.TxbCreateUser.Multiline = true;
+            this.TxbCreateUser.Name = "TxbCreateUser";
+            this.TxbCreateUser.Size = new System.Drawing.Size(386, 44);
+            this.TxbCreateUser.TabIndex = 4;
+            this.TxbCreateUser.TextChanged += new System.EventHandler(this.TxbUser_TextChanged);
             // 
-            // textBox1
+            // TxbCreatePassword
             // 
-            this.textBox1.BackColor = System.Drawing.Color.PaleGoldenrod;
-            this.textBox1.Font = new System.Drawing.Font("Noto Sans", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(1034, 663);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(386, 44);
-            this.textBox1.TabIndex = 5;
+            this.TxbCreatePassword.BackColor = System.Drawing.Color.PaleGoldenrod;
+            this.TxbCreatePassword.Font = new System.Drawing.Font("Noto Sans", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxbCreatePassword.Location = new System.Drawing.Point(1034, 663);
+            this.TxbCreatePassword.Multiline = true;
+            this.TxbCreatePassword.Name = "TxbCreatePassword";
+            this.TxbCreatePassword.PasswordChar = '*';
+            this.TxbCreatePassword.Size = new System.Drawing.Size(386, 44);
+            this.TxbCreatePassword.TabIndex = 5;
             // 
-            // textBox2
+            // TxbEmail
             // 
-            this.textBox2.BackColor = System.Drawing.Color.PaleGoldenrod;
-            this.textBox2.Font = new System.Drawing.Font("Noto Sans", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(1034, 562);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(386, 44);
-            this.textBox2.TabIndex = 6;
-            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            this.TxbEmail.BackColor = System.Drawing.Color.PaleGoldenrod;
+            this.TxbEmail.Font = new System.Drawing.Font("Noto Sans", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxbEmail.Location = new System.Drawing.Point(1034, 562);
+            this.TxbEmail.Multiline = true;
+            this.TxbEmail.Name = "TxbEmail";
+            this.TxbEmail.Size = new System.Drawing.Size(386, 44);
+            this.TxbEmail.TabIndex = 6;
+            this.TxbEmail.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // BtnCreateAccount
             // 
@@ -145,14 +146,15 @@
             this.ClientSize = new System.Drawing.Size(1924, 1061);
             this.Controls.Add(this.PickBack);
             this.Controls.Add(this.BtnCreateAccount);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.TxbUser);
+            this.Controls.Add(this.TxbEmail);
+            this.Controls.Add(this.TxbCreatePassword);
+            this.Controls.Add(this.TxbCreateUser);
             this.Controls.Add(this.LblCreatePassword);
             this.Controls.Add(this.LblCreateEmail);
             this.Controls.Add(this.LblCreateUser);
             this.Name = "FrmCreateAccount";
             this.Text = "Criar Conta";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.PickBack)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -164,9 +166,9 @@
         private System.Windows.Forms.Label LblCreateUser;
         private System.Windows.Forms.Label LblCreateEmail;
         private System.Windows.Forms.Label LblCreatePassword;
-        private System.Windows.Forms.TextBox TxbUser;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox TxbCreateUser;
+        private System.Windows.Forms.TextBox TxbCreatePassword;
+        private System.Windows.Forms.TextBox TxbEmail;
         private System.Windows.Forms.Button BtnCreateAccount;
         private System.Windows.Forms.ColorDialog colorDialog1;
         private System.Windows.Forms.PictureBox PickBack;

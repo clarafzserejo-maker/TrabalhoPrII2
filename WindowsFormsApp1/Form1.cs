@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -16,6 +17,21 @@ namespace ProjetoProg
         public FrmLogin()
         {
             InitializeComponent();
+            try
+            {
+                string connetionString;
+                SqlConnection cnn;
+                connetionString = @"Data Source=sqlexpress;Initial Catalog=CJ3027317PR2;User ID=aluno;Password=aluno";
+                cnn = new SqlConnection(connetionString);
+                cnn.Open();
+                MessageBox.Show("Connection Open !");
+                cnn.Close();
+            }
+            catch (SqlException erro)
+            {
+                MessageBox.Show("Erro ao se conectar no banco de dados \n" +
+                "Verifique os dados informados" + erro);
+            }
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -116,6 +132,7 @@ namespace ProjetoProg
             this.LblCreateAccount.TabIndex = 6;
             this.LblCreateAccount.Text = "Não tem conta?\r\nCrie uma   ......";
             this.LblCreateAccount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LblCreateAccount.Click += new System.EventHandler(this.LblCreateAccount_Click);
             // 
             // LinkLblCreateAccount
             // 
@@ -145,6 +162,7 @@ namespace ProjetoProg
             this.Controls.Add(this.LblUser);
             this.Name = "FrmLogin";
             this.Text = "Login";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FrmLogin_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -163,6 +181,8 @@ namespace ProjetoProg
 
         private void BtnLogin_Click(object sender, EventArgs e)
         {
+
+
             FrmDisciplinas  disciplinas = new FrmDisciplinas();
             this.Visible = false;
             disciplinas.ShowDialog();
@@ -195,6 +215,11 @@ namespace ProjetoProg
             this.Visible = false;
             criarconta.ShowDialog();
             this.Visible = true;
+        }
+
+        private void LblCreateAccount_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
