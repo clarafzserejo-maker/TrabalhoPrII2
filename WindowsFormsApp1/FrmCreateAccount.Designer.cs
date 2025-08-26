@@ -44,12 +44,12 @@
             // LblCreateUser
             // 
             this.LblCreateUser.AutoSize = true;
-            this.LblCreateUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(130)))), ((int)(((byte)(169)))));
-            this.LblCreateUser.Font = new System.Drawing.Font("Noto Sans", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblCreateUser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(222)))));
-            this.LblCreateUser.Location = new System.Drawing.Point(1025, 430);
+            this.LblCreateUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(222)))));
+            this.LblCreateUser.Font = new System.Drawing.Font("Swis721 Blk BT", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblCreateUser.ForeColor = System.Drawing.Color.Black;
+            this.LblCreateUser.Location = new System.Drawing.Point(1028, 435);
             this.LblCreateUser.Name = "LblCreateUser";
-            this.LblCreateUser.Size = new System.Drawing.Size(156, 49);
+            this.LblCreateUser.Size = new System.Drawing.Size(149, 35);
             this.LblCreateUser.TabIndex = 0;
             this.LblCreateUser.Text = "Usuário:";
             this.LblCreateUser.Click += new System.EventHandler(this.label1_Click);
@@ -57,12 +57,12 @@
             // LblCreateEmail
             // 
             this.LblCreateEmail.AutoSize = true;
-            this.LblCreateEmail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(130)))), ((int)(((byte)(169)))));
-            this.LblCreateEmail.Font = new System.Drawing.Font("Noto Sans", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblCreateEmail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(222)))));
-            this.LblCreateEmail.Location = new System.Drawing.Point(1025, 520);
+            this.LblCreateEmail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(222)))));
+            this.LblCreateEmail.Font = new System.Drawing.Font("Swis721 Blk BT", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblCreateEmail.ForeColor = System.Drawing.Color.Black;
+            this.LblCreateEmail.Location = new System.Drawing.Point(1028, 530);
             this.LblCreateEmail.Name = "LblCreateEmail";
-            this.LblCreateEmail.Size = new System.Drawing.Size(129, 49);
+            this.LblCreateEmail.Size = new System.Drawing.Size(125, 35);
             this.LblCreateEmail.TabIndex = 1;
             this.LblCreateEmail.Text = "E-mail:";
             this.LblCreateEmail.Click += new System.EventHandler(this.LblCreateEmail_Click);
@@ -70,45 +70,45 @@
             // LblCreatePassword
             // 
             this.LblCreatePassword.AutoSize = true;
-            this.LblCreatePassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(130)))), ((int)(((byte)(169)))));
-            this.LblCreatePassword.Font = new System.Drawing.Font("Noto Sans", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblCreatePassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(222)))));
-            this.LblCreatePassword.Location = new System.Drawing.Point(1025, 621);
+            this.LblCreatePassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(222)))));
+            this.LblCreatePassword.Font = new System.Drawing.Font("Swis721 Blk BT", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblCreatePassword.ForeColor = System.Drawing.Color.Black;
+            this.LblCreatePassword.Location = new System.Drawing.Point(1028, 625);
             this.LblCreatePassword.Name = "LblCreatePassword";
-            this.LblCreatePassword.Size = new System.Drawing.Size(129, 49);
+            this.LblCreatePassword.Size = new System.Drawing.Size(125, 35);
             this.LblCreatePassword.TabIndex = 2;
             this.LblCreatePassword.Text = "Senha:";
             // 
             // TxbCreateUser
             // 
             this.TxbCreateUser.BackColor = System.Drawing.Color.PaleGoldenrod;
-            this.TxbCreateUser.Font = new System.Drawing.Font("Noto Sans", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxbCreateUser.Font = new System.Drawing.Font("Swis721 Blk BT", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxbCreateUser.Location = new System.Drawing.Point(1034, 473);
             this.TxbCreateUser.Multiline = true;
             this.TxbCreateUser.Name = "TxbCreateUser";
-            this.TxbCreateUser.Size = new System.Drawing.Size(386, 44);
+            this.TxbCreateUser.Size = new System.Drawing.Size(556, 44);
             this.TxbCreateUser.TabIndex = 4;
             this.TxbCreateUser.TextChanged += new System.EventHandler(this.TxbUser_TextChanged);
             // 
             // TxbCreatePassword
             // 
             this.TxbCreatePassword.BackColor = System.Drawing.Color.PaleGoldenrod;
-            this.TxbCreatePassword.Font = new System.Drawing.Font("Noto Sans", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxbCreatePassword.Font = new System.Drawing.Font("Swis721 Blk BT", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxbCreatePassword.Location = new System.Drawing.Point(1034, 663);
             this.TxbCreatePassword.Multiline = true;
             this.TxbCreatePassword.Name = "TxbCreatePassword";
             this.TxbCreatePassword.PasswordChar = '•';
-            this.TxbCreatePassword.Size = new System.Drawing.Size(386, 44);
+            this.TxbCreatePassword.Size = new System.Drawing.Size(556, 44);
             this.TxbCreatePassword.TabIndex = 5;
             // 
             // TxbEmail
             // 
             this.TxbEmail.BackColor = System.Drawing.Color.PaleGoldenrod;
-            this.TxbEmail.Font = new System.Drawing.Font("Noto Sans", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxbEmail.Location = new System.Drawing.Point(1034, 562);
+            this.TxbEmail.Font = new System.Drawing.Font("Swis721 Blk BT", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxbEmail.Location = new System.Drawing.Point(1034, 569);
             this.TxbEmail.Multiline = true;
             this.TxbEmail.Name = "TxbEmail";
-            this.TxbEmail.Size = new System.Drawing.Size(386, 44);
+            this.TxbEmail.Size = new System.Drawing.Size(556, 44);
             this.TxbEmail.TabIndex = 6;
             this.TxbEmail.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
@@ -116,12 +116,12 @@
             // 
             this.BtnCreateAccount.BackColor = System.Drawing.Color.LightSkyBlue;
             this.BtnCreateAccount.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnCreateAccount.Font = new System.Drawing.Font("Noto Sans", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnCreateAccount.Location = new System.Drawing.Point(1279, 764);
+            this.BtnCreateAccount.Font = new System.Drawing.Font("Swis721 Blk BT", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnCreateAccount.Location = new System.Drawing.Point(1274, 743);
             this.BtnCreateAccount.Name = "BtnCreateAccount";
-            this.BtnCreateAccount.Size = new System.Drawing.Size(141, 54);
+            this.BtnCreateAccount.Size = new System.Drawing.Size(191, 54);
             this.BtnCreateAccount.TabIndex = 7;
-            this.BtnCreateAccount.Text = "Criar";
+            this.BtnCreateAccount.Text = "CRIAR";
             this.BtnCreateAccount.UseVisualStyleBackColor = false;
             this.BtnCreateAccount.Click += new System.EventHandler(this.BtnCreateAccount_Click);
             // 
@@ -132,7 +132,7 @@
             this.PickBack.InitialImage = ((System.Drawing.Image)(resources.GetObject("PickBack.InitialImage")));
             this.PickBack.Location = new System.Drawing.Point(3, 0);
             this.PickBack.Name = "PickBack";
-            this.PickBack.Size = new System.Drawing.Size(129, 114);
+            this.PickBack.Size = new System.Drawing.Size(93, 92);
             this.PickBack.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.PickBack.TabIndex = 8;
             this.PickBack.TabStop = false;

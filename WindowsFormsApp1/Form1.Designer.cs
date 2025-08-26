@@ -26,5 +26,6 @@
         private System.Windows.Forms.Button BtnLogin;
         private System.Windows.Forms.Label LblCreateAccount;
         private System.Windows.Forms.LinkLabel LinkLblCreateAccount;
+        private System.Windows.Forms.LinkLabel LinkLblForgotAccount;
     }
 }
