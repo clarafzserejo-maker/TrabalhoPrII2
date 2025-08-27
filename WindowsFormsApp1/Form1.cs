@@ -10,6 +10,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApp1;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace ProjetoProg
 {
@@ -224,6 +226,15 @@ namespace ProjetoProg
                             disciplinas.ShowDialog();
                             this.Visible = true;
 
+                        }
+                        else if (string.IsNullOrEmpty(usuario) || string.IsNullOrEmpty(senha))
+                        {
+                            MessageBox.Show("Não podem existir campos vazios!",
+                            "Aviso",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Exclamation);
+
+                            return;
                         }
                         else
                         {

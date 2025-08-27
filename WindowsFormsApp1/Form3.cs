@@ -140,5 +140,10 @@ namespace WindowsFormsApp1
                 this.Visible = true;
             }
         }
+
+        private void Form3_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

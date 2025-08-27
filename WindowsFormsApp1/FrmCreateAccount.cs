@@ -48,12 +48,12 @@ namespace WindowsFormsApp1
             if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password))
             {
                 MessageBox.Show("Não podem existir campos vazios!",
-                "Aviso",
-                MessageBoxButtons.OK, 
-                MessageBoxIcon.Exclamation);
-
+                    "Aviso",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Exclamation);
                 return;
             }
+
             string connectionString = @"Data Source=sqlexpress;Initial Catalog=CJ3027317PR2;User ID=aluno;Password=aluno";
 
             try
@@ -62,15 +62,34 @@ namespace WindowsFormsApp1
                 {
                     cnn.Open();
 
-                    string sql = "INSERT INTO CONTAS (ID_USER, EMAIL, SENHA) VALUES (@username, @email, @password)";
-
-                    using (SqlCommand cmd = new SqlCommand(sql, cnn))
+                    // Verifica se o nome de usuário OU o email já existem
+                    string queryVerificar = "SELECT COUNT(*) FROM CONTAS WHERE ID_USER = @username OR EMAIL = @email";
+                    using (SqlCommand cmdVerificar = new SqlCommand(queryVerificar, cnn))
                     {
-                        cmd.Parameters.AddWithValue("@username", username);
-                        cmd.Parameters.AddWithValue("@email", email);
-                        cmd.Parameters.AddWithValue("@password", password);
+                        cmdVerificar.Parameters.AddWithValue("@username", username);
+                        cmdVerificar.Parameters.AddWithValue("@email", email);
 
-                        int linhasAfetadas = cmd.ExecuteNonQuery();
+                        int count = (int)cmdVerificar.ExecuteScalar();
+
+                        if (count > 0)
+                        {
+                            MessageBox.Show("Já existe uma conta com esse nome de usuário ou email.",
+                                "Erro",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
+                            return;
+                        }
+                    }
+
+                    // Inserir nova conta
+                    string sql = "INSERT INTO CONTAS (ID_USER, EMAIL, SENHA) VALUES (@username, @email, @password)";
+                    using (SqlCommand cmdInserir = new SqlCommand(sql, cnn))
+                    {
+                        cmdInserir.Parameters.AddWithValue("@username", username);
+                        cmdInserir.Parameters.AddWithValue("@email", email);
+                        cmdInserir.Parameters.AddWithValue("@password", password);
+
+                        int linhasAfetadas = cmdInserir.ExecuteNonQuery();
 
                         if (linhasAfetadas > 0)
                         {
@@ -110,6 +129,11 @@ namespace WindowsFormsApp1
         private void PicShow_Click(object sender, EventArgs e)
         {
             
+        }
+
+        private void FrmCreateAccount_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

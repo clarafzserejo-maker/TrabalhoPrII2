@@ -155,6 +155,7 @@
             this.Name = "FrmCreateAccount";
             this.Text = "Criar Conta";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.FrmCreateAccount_Load);
             ((System.ComponentModel.ISupportInitialize)(this.PickBack)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -150,6 +150,7 @@
             this.Controls.Add(this.LblForgotUser);
             this.Name = "Form3";
             this.Text = "Form3";
+            this.Load += new System.EventHandler(this.Form3_Load);
             ((System.ComponentModel.ISupportInitialize)(this.PickBack2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
