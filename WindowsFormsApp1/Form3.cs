@@ -57,7 +57,10 @@ namespace WindowsFormsApp1
                     conexao.Open();
 
                     // 1. Verifica se existe o usuário com o e-mail correspondente
-                    string queryVerificar = "SELECT COUNT(*) FROM ALUNOS WHERE ID_ALUNO = @username AND Email = @email";
+                    string queryVerificar = @"SELECT COUNT(*) FROM (    SELECT ID_ALUNO AS ID, EMAIL FROM ALUNOS WHERE ID_ALUNO = @username OR EMAIL = @email
+    UNION ALL
+    SELECT ID_PROFESSOR AS ID, EMAIL FROM PROFESSORES WHERE ID_PROFESSOR = @username OR EMAIL = @email
+) AS Usuarios";
 
                     using (SqlCommand cmdVerificar = new SqlCommand(queryVerificar, conexao))
                     {
@@ -77,7 +80,7 @@ namespace WindowsFormsApp1
                     }
 
                     // 2. Busca a senha atual no banco
-                    string querySenha = "SELECT SENHA FROM ALUNOS WHERE ID_ALUNO = @username AND Email = @email";
+                    string querySenha = "SELECT SENHA FROM ALUNOS WHERE ID_ALUNO = @username AND Email = @email UNION ALL SELECT SENHA FROM PROFESSORES WHERE ID_PROFESSOR = @username AND Email = @email";
 
                     using (SqlCommand cmdSenha = new SqlCommand(querySenha, conexao))
                     {

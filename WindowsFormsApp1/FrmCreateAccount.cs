@@ -65,7 +65,10 @@ namespace WindowsFormsApp1
                     cnn.Open();
 
                     // Verifica se o nome de usuário OU o email já existem
-                    string queryVerificar = "SELECT COUNT(*) FROM ALUNOS WHERE ID_ALUNO = @username OR EMAIL = @email";
+                    string queryVerificar = @"SELECT COUNT(*) FROM (    SELECT ID_ALUNO AS ID, EMAIL FROM ALUNOS WHERE ID_ALUNO = @username OR EMAIL = @email
+    UNION ALL
+    SELECT ID_PROFESSOR AS ID, EMAIL FROM PROFESSORES WHERE ID_PROFESSOR = @username OR EMAIL = @email
+) AS Usuarios";
                     using (SqlCommand cmdVerificar = new SqlCommand(queryVerificar, cnn))
                     {
                         cmdVerificar.Parameters.AddWithValue("@username", username);
