@@ -26,7 +26,7 @@ namespace WindowsFormsApp1
 
         private void PickBack2_Click(object sender, EventArgs e)
         {
-            FrmLogin login = new FrmLogin();
+            Btn login = new Btn();
             this.Visible = false;
             login.ShowDialog();
             this.Visible = true;
@@ -57,7 +57,7 @@ namespace WindowsFormsApp1
                     conexao.Open();
 
                     // 1. Verifica se existe o usuário com o e-mail correspondente
-                    string queryVerificar = "SELECT COUNT(*) FROM CONTAS WHERE ID_USER = @username AND Email = @email";
+                    string queryVerificar = "SELECT COUNT(*) FROM ALUNOS WHERE ID_ALUNO = @username AND Email = @email";
 
                     using (SqlCommand cmdVerificar = new SqlCommand(queryVerificar, conexao))
                     {
@@ -77,7 +77,7 @@ namespace WindowsFormsApp1
                     }
 
                     // 2. Busca a senha atual no banco
-                    string querySenha = "SELECT SENHA FROM CONTAS WHERE ID_USER = @username AND Email = @email";
+                    string querySenha = "SELECT SENHA FROM ALUNOS WHERE ID_ALUNO = @username AND Email = @email";
 
                     using (SqlCommand cmdSenha = new SqlCommand(querySenha, conexao))
                     {
@@ -100,7 +100,7 @@ namespace WindowsFormsApp1
                     }
 
                     // 4. Atualiza a senha
-                    string queryAtualizar = "UPDATE CONTAS SET SENHA = @password2 WHERE ID_USER = @username AND EMAIL = @email";
+                    string queryAtualizar = "UPDATE ALUNOS SET SENHA = @password2 WHERE ID_ALUNO = @username AND EMAIL = @email";
 
                     using (SqlCommand cmdAtualizar = new SqlCommand(queryAtualizar, conexao))
                     {
@@ -134,7 +134,7 @@ namespace WindowsFormsApp1
                 }
 
                 // Volta para a tela de login
-                FrmLogin login = new FrmLogin();
+                Btn login = new Btn();
                 this.Visible = false;
                 login.ShowDialog();
                 this.Visible = true;

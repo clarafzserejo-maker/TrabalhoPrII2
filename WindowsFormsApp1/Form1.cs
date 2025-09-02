@@ -15,9 +15,9 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace ProjetoProg
 {
-    public partial class FrmLogin : Form
+    public partial class Btn : Form
     {
-        public FrmLogin()
+        public Btn()
         {
             InitializeComponent();
             try
@@ -50,7 +50,7 @@ namespace ProjetoProg
 
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmLogin));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Btn));
             this.LblUser = new System.Windows.Forms.Label();
             this.LblPassword = new System.Windows.Forms.Label();
             this.TxbUser = new System.Windows.Forms.TextBox();
@@ -59,6 +59,7 @@ namespace ProjetoProg
             this.LblCreateAccount = new System.Windows.Forms.Label();
             this.LinkLblCreateAccount = new System.Windows.Forms.LinkLabel();
             this.LinkLblForgotAccount = new System.Windows.Forms.LinkLabel();
+            this.CheckBoxTeacher = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // LblUser
@@ -93,7 +94,7 @@ namespace ProjetoProg
             this.TxbUser.Location = new System.Drawing.Point(294, 431);
             this.TxbUser.Multiline = true;
             this.TxbUser.Name = "TxbUser";
-            this.TxbUser.Size = new System.Drawing.Size(495, 40);
+            this.TxbUser.Size = new System.Drawing.Size(546, 40);
             this.TxbUser.TabIndex = 3;
             this.TxbUser.TextChanged += new System.EventHandler(this.TxbUser_TextChanged);
             // 
@@ -105,7 +106,7 @@ namespace ProjetoProg
             this.TxbPassword.Multiline = true;
             this.TxbPassword.Name = "TxbPassword";
             this.TxbPassword.PasswordChar = '•';
-            this.TxbPassword.Size = new System.Drawing.Size(495, 40);
+            this.TxbPassword.Size = new System.Drawing.Size(546, 40);
             this.TxbPassword.TabIndex = 4;
             this.TxbPassword.TextChanged += new System.EventHandler(this.TxtPassword_TextChanged);
             // 
@@ -114,7 +115,7 @@ namespace ProjetoProg
             this.BtnLogin.BackColor = System.Drawing.Color.LightSkyBlue;
             this.BtnLogin.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnLogin.Font = new System.Drawing.Font("Swis721 Blk BT", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnLogin.Location = new System.Drawing.Point(473, 703);
+            this.BtnLogin.Location = new System.Drawing.Point(473, 713);
             this.BtnLogin.Name = "BtnLogin";
             this.BtnLogin.Size = new System.Drawing.Size(200, 57);
             this.BtnLogin.TabIndex = 5;
@@ -126,12 +127,12 @@ namespace ProjetoProg
             // 
             this.LblCreateAccount.AutoSize = true;
             this.LblCreateAccount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(222)))));
-            this.LblCreateAccount.Font = new System.Drawing.Font("Swis721 Blk BT", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblCreateAccount.Location = new System.Drawing.Point(412, 796);
+            this.LblCreateAccount.Font = new System.Drawing.Font("Swis721 Blk BT", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblCreateAccount.Location = new System.Drawing.Point(472, 791);
             this.LblCreateAccount.Name = "LblCreateAccount";
-            this.LblCreateAccount.Size = new System.Drawing.Size(324, 58);
+            this.LblCreateAccount.Size = new System.Drawing.Size(202, 48);
             this.LblCreateAccount.TabIndex = 6;
-            this.LblCreateAccount.Text = "Não possui uma conta?\r\nClique aqui para criar.\r\n";
+            this.LblCreateAccount.Text = "Clique aqui para \r\ncriar uma conta\r\n";
             this.LblCreateAccount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.LblCreateAccount.Click += new System.EventHandler(this.LblCreateAccount_Click);
             // 
@@ -140,11 +141,11 @@ namespace ProjetoProg
             this.LinkLblCreateAccount.AutoSize = true;
             this.LinkLblCreateAccount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(222)))));
             this.LinkLblCreateAccount.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.LinkLblCreateAccount.Font = new System.Drawing.Font("Swis721 Blk BT", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LinkLblCreateAccount.Font = new System.Drawing.Font("Swis721 Blk BT", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LinkLblCreateAccount.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(153)))), ((int)(((byte)(204)))));
-            this.LinkLblCreateAccount.Location = new System.Drawing.Point(508, 825);
+            this.LinkLblCreateAccount.Location = new System.Drawing.Point(549, 791);
             this.LinkLblCreateAccount.Name = "LinkLblCreateAccount";
-            this.LinkLblCreateAccount.Size = new System.Drawing.Size(70, 29);
+            this.LinkLblCreateAccount.Size = new System.Drawing.Size(59, 24);
             this.LinkLblCreateAccount.TabIndex = 7;
             this.LinkLblCreateAccount.TabStop = true;
             this.LinkLblCreateAccount.Text = "aqui";
@@ -154,20 +155,37 @@ namespace ProjetoProg
             // 
             this.LinkLblForgotAccount.AutoSize = true;
             this.LinkLblForgotAccount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(222)))));
-            this.LinkLblForgotAccount.Font = new System.Drawing.Font("Swis721 Blk BT", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LinkLblForgotAccount.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.LinkLblForgotAccount.Font = new System.Drawing.Font("Swis721 Blk BT", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LinkLblForgotAccount.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(153)))), ((int)(((byte)(204)))));
-            this.LinkLblForgotAccount.Location = new System.Drawing.Point(289, 613);
+            this.LinkLblForgotAccount.Location = new System.Drawing.Point(290, 604);
             this.LinkLblForgotAccount.Name = "LinkLblForgotAccount";
-            this.LinkLblForgotAccount.Size = new System.Drawing.Size(257, 25);
+            this.LinkLblForgotAccount.Size = new System.Drawing.Size(247, 24);
             this.LinkLblForgotAccount.TabIndex = 8;
             this.LinkLblForgotAccount.TabStop = true;
             this.LinkLblForgotAccount.Text = "Esqueci minha senha";
             this.LinkLblForgotAccount.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLblForgotAccount_LinkClicked);
             // 
-            // FrmLogin
+            // CheckBoxTeacher
+            // 
+            this.CheckBoxTeacher.AutoSize = true;
+            this.CheckBoxTeacher.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(222)))));
+            this.CheckBoxTeacher.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CheckBoxTeacher.Font = new System.Drawing.Font("Swis721 Blk BT", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckBoxTeacher.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(153)))), ((int)(((byte)(204)))));
+            this.CheckBoxTeacher.Location = new System.Drawing.Point(294, 638);
+            this.CheckBoxTeacher.Name = "CheckBoxTeacher";
+            this.CheckBoxTeacher.Size = new System.Drawing.Size(272, 28);
+            this.CheckBoxTeacher.TabIndex = 12;
+            this.CheckBoxTeacher.Text = "Entrar como educador";
+            this.CheckBoxTeacher.UseVisualStyleBackColor = false;
+            this.CheckBoxTeacher.CheckedChanged += new System.EventHandler(this.CheckBoxTeacher_CheckedChanged);
+            // 
+            // Btn
             // 
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1924, 1061);
+            this.Controls.Add(this.CheckBoxTeacher);
             this.Controls.Add(this.LinkLblForgotAccount);
             this.Controls.Add(this.LinkLblCreateAccount);
             this.Controls.Add(this.LblCreateAccount);
@@ -176,7 +194,7 @@ namespace ProjetoProg
             this.Controls.Add(this.TxbUser);
             this.Controls.Add(this.LblPassword);
             this.Controls.Add(this.LblUser);
-            this.Name = "FrmLogin";
+            this.Name = "Btn";
             this.Text = "ENTRAR";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FrmLogin_Load);
@@ -208,7 +226,9 @@ namespace ProjetoProg
                 {
                     cnn.Open();
 
-                    string sql = "SELECT COUNT(1) FROM CONTAS WHERE ID_USER = @usuario AND SENHA = @senha";
+                    string tabela = CheckBoxTeacher.Checked ? "PROFESSORES" : "ALUNOS";
+
+                    string sql = $"SELECT COUNT(1) FROM {tabela} WHERE ID_ALUNO = @usuario AND SENHA = @senha";
 
                     using (SqlCommand cmd = new SqlCommand(sql, cnn))
                     {
@@ -293,6 +313,11 @@ namespace ProjetoProg
             this.Visible = false;
             mudarsenha.ShowDialog();
             this.Visible = true;
+        }
+
+        private void CheckBoxTeacher_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

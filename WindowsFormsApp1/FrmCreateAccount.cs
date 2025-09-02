@@ -44,8 +44,10 @@ namespace WindowsFormsApp1
             string username = TxbCreateUser.Text;
             string email = TxbEmail.Text;
             string password = TxbCreatePassword.Text;
+            string name = TxbCreateName.Text;
+            bool isProfessor = CheckBoxTeacher2.Checked;
 
-            if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password))
+            if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password) || string.IsNullOrEmpty(name))
             {
                 MessageBox.Show("Não podem existir campos vazios!",
                     "Aviso",
@@ -63,7 +65,7 @@ namespace WindowsFormsApp1
                     cnn.Open();
 
                     // Verifica se o nome de usuário OU o email já existem
-                    string queryVerificar = "SELECT COUNT(*) FROM CONTAS WHERE ID_USER = @username OR EMAIL = @email";
+                    string queryVerificar = "SELECT COUNT(*) FROM ALUNOS WHERE ID_ALUNO = @username OR EMAIL = @email";
                     using (SqlCommand cmdVerificar = new SqlCommand(queryVerificar, cnn))
                     {
                         cmdVerificar.Parameters.AddWithValue("@username", username);
@@ -82,12 +84,21 @@ namespace WindowsFormsApp1
                     }
 
                     // Inserir nova conta
-                    string sql = "INSERT INTO CONTAS (ID_USER, EMAIL, SENHA) VALUES (@username, @email, @password)";
+                    string sql;
+                    if (isProfessor)
+                    {
+                        sql = "INSERT INTO PROFESSORES (ID_PROFESSOR, NOME, EMAIL, SENHA) VALUES (@username, @name, @email, @password)";
+                    }
+                    else
+                    {
+                        sql = "INSERT INTO ALUNOS (ID_ALUNO, NOME, EMAIL, SENHA) VALUES (@username, @name, @email, @password)";
+                    }
                     using (SqlCommand cmdInserir = new SqlCommand(sql, cnn))
                     {
                         cmdInserir.Parameters.AddWithValue("@username", username);
                         cmdInserir.Parameters.AddWithValue("@email", email);
                         cmdInserir.Parameters.AddWithValue("@password", password);
+                        cmdInserir.Parameters.AddWithValue("@name", name);
 
                         int linhasAfetadas = cmdInserir.ExecuteNonQuery();
 
@@ -112,7 +123,7 @@ namespace WindowsFormsApp1
                 MessageBox.Show("Erro ao conectar/inserir no banco: " + ex.Message);
             }
 
-            FrmLogin login = new FrmLogin();
+            Btn login = new Btn();
             this.Visible = false;
             login.ShowDialog();
             this.Visible = true;
@@ -120,7 +131,7 @@ namespace WindowsFormsApp1
 
         private void PickBack_Click(object sender, EventArgs e)
         {
-            FrmLogin login = new FrmLogin();
+            Btn login = new Btn();
             this.Visible = false;
             login.ShowDialog();
             this.Visible = true;
@@ -134,6 +145,11 @@ namespace WindowsFormsApp1
         private void FrmCreateAccount_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void LblCreateTeacherAccount_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+         
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace ProjetoProg
 {
-    partial class FrmLogin
+    partial class Btn
     {
         /// <summary>
         /// Variável de designer necessária.
@@ -27,5 +27,6 @@
         private System.Windows.Forms.Label LblCreateAccount;
         private System.Windows.Forms.LinkLabel LinkLblCreateAccount;
         private System.Windows.Forms.LinkLabel LinkLblForgotAccount;
+        private System.Windows.Forms.CheckBox CheckBoxTeacher;
     }
 }

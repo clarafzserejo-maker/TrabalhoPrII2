@@ -43,7 +43,7 @@
             // LblForgotUser
             // 
             this.LblForgotUser.AutoSize = true;
-            this.LblForgotUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(130)))), ((int)(((byte)(169)))));
+            this.LblForgotUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(188)))), ((int)(((byte)(199)))));
             this.LblForgotUser.Font = new System.Drawing.Font("Swis721 Blk BT", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblForgotUser.ForeColor = System.Drawing.Color.Black;
             this.LblForgotUser.Location = new System.Drawing.Point(988, 434);
@@ -66,7 +66,7 @@
             // LblForgotEmail
             // 
             this.LblForgotEmail.AutoSize = true;
-            this.LblForgotEmail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(130)))), ((int)(((byte)(169)))));
+            this.LblForgotEmail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(188)))), ((int)(((byte)(199)))));
             this.LblForgotEmail.Font = new System.Drawing.Font("Swis721 Blk BT", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblForgotEmail.ForeColor = System.Drawing.Color.Black;
             this.LblForgotEmail.Location = new System.Drawing.Point(988, 547);
@@ -88,7 +88,7 @@
             // LblNewPassword
             // 
             this.LblNewPassword.AutoSize = true;
-            this.LblNewPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(130)))), ((int)(((byte)(169)))));
+            this.LblNewPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(188)))), ((int)(((byte)(199)))));
             this.LblNewPassword.Font = new System.Drawing.Font("Swis721 Blk BT", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblNewPassword.ForeColor = System.Drawing.Color.Black;
             this.LblNewPassword.Location = new System.Drawing.Point(988, 673);
