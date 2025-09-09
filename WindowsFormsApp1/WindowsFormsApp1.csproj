@@ -61,11 +61,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Disciplinas.cs">
+    <Compile Include="RecuperacaoSenhaService.cs" />
+    <Compile Include="SegundaAluno.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Disciplinas.Designer.cs">
-      <DependentUpon>Disciplinas.cs</DependentUpon>
+    <Compile Include="SegundaAluno.Designer.cs">
+      <DependentUpon>SegundaAluno.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SegundaProf.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SegundaProf.Designer.cs">
+      <DependentUpon>SegundaProf.cs</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -87,8 +94,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Disciplinas.resx">
-      <DependentUpon>Disciplinas.cs</DependentUpon>
+    <EmbeddedResource Include="SegundaProf.resx">
+      <DependentUpon>SegundaProf.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

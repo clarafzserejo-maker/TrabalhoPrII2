@@ -65,9 +65,9 @@ namespace WindowsFormsApp1
                     cnn.Open();
 
                     // Verifica se o nome de usuário OU o email já existem
-                    string queryVerificar = @"SELECT COUNT(*) FROM (    SELECT ID_ALUNO AS ID, EMAIL FROM ALUNOS WHERE ID_ALUNO = @username OR EMAIL = @email
+                    string queryVerificar = @"SELECT COUNT(*) FROM (    SELECT ID_ALUNO AS ID, EMAIL_ALUNO FROM ALUNOS WHERE ID_ALUNO = @username OR EMAIL_ALUNO = @email
     UNION ALL
-    SELECT ID_PROFESSOR AS ID, EMAIL FROM PROFESSORES WHERE ID_PROFESSOR = @username OR EMAIL = @email
+    SELECT ID_PROFESSOR AS ID, EMAIL_PROFESSOR FROM PROFESSORES WHERE ID_PROFESSOR = @username OR EMAIL_PROFESSOR = @email
 ) AS Usuarios";
                     using (SqlCommand cmdVerificar = new SqlCommand(queryVerificar, cnn))
                     {
@@ -90,11 +90,11 @@ namespace WindowsFormsApp1
                     string sql;
                     if (isProfessor)
                     {
-                        sql = "INSERT INTO PROFESSORES (ID_PROFESSOR, NOME, EMAIL, SENHA) VALUES (@username, @name, @email, @password)";
+                        sql = "INSERT INTO PROFESSORES (ID_PROFESSOR, NOME_PROFESSOR, EMAIL_PROFESSOR, SENHA_PROFESSOR) VALUES (@username, @name, @email, @password)";
                     }
                     else
                     {
-                        sql = "INSERT INTO ALUNOS (ID_ALUNO, NOME, EMAIL, SENHA) VALUES (@username, @name, @email, @password)";
+                        sql = "INSERT INTO ALUNOS (ID_ALUNO, NOME_ALUNO, EMAIL_ALUNO, SENHA_ALUNO) VALUES (@username, @name, @email, @password)";
                     }
                     using (SqlCommand cmdInserir = new SqlCommand(sql, cnn))
                     {

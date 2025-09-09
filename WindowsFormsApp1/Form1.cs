@@ -218,6 +218,15 @@ namespace ProjetoProg
             string usuario = TxbUser.Text.Trim();
             string senha = TxbPassword.Text.Trim();
 
+            if (string.IsNullOrEmpty(usuario) || string.IsNullOrEmpty(senha))
+            {
+                MessageBox.Show("Não podem existir campos vazios!",
+                    "Aviso",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Exclamation);
+                return;
+            }
+
             string connectionString = @"Data Source=sqlexpress;Initial Catalog=CJ3027317PR2;User ID=aluno;Password=aluno";
 
             try
@@ -226,9 +235,18 @@ namespace ProjetoProg
                 {
                     cnn.Open();
 
-                    string tabela = CheckBoxTeacher.Checked ? "PROFESSORES" : "ALUNOS";
+                    // Detecta se é professor ou aluno
+                    bool isProfessor = CheckBoxTeacher.Checked;
 
-                    string sql = $"SELECT COUNT(1) FROM {tabela} WHERE ID_ALUNO = @usuario AND SENHA = @senha";
+                    string tabela = isProfessor ? "PROFESSORES" : "ALUNOS";
+                    string colunaId = isProfessor ? "ID_PROFESSOR" : "ID_ALUNO";
+                    string colunaSenha = isProfessor ? "SENHA_PROFESSOR" : "SENHA_ALUNO";
+
+                    string sql = $@"
+                SELECT COUNT(1) 
+                FROM {tabela} 
+                WHERE {colunaId} = @usuario AND {colunaSenha} = @senha
+            ";
 
                     using (SqlCommand cmd = new SqlCommand(sql, cnn))
                     {
@@ -245,16 +263,6 @@ namespace ProjetoProg
                             this.Visible = false;
                             disciplinas.ShowDialog();
                             this.Visible = true;
-
-                        }
-                        else if (string.IsNullOrEmpty(usuario) || string.IsNullOrEmpty(senha))
-                        {
-                            MessageBox.Show("Não podem existir campos vazios!",
-                            "Aviso",
-                            MessageBoxButtons.OK,
-                            MessageBoxIcon.Exclamation);
-
-                            return;
                         }
                         else
                         {
@@ -266,13 +274,12 @@ namespace ProjetoProg
                     }
                 }
             }
-
             catch (Exception ex)
             {
                 MessageBox.Show("Erro ao conectar no banco: " + ex.Message);
             }
-
         }
+
 
         private void PicLogin_Click(object sender, EventArgs e)
         {

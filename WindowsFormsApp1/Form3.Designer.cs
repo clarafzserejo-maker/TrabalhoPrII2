@@ -29,110 +29,100 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form3));
-            this.LblForgotUser = new System.Windows.Forms.Label();
-            this.TxbForgotUser = new System.Windows.Forms.TextBox();
-            this.LblForgotEmail = new System.Windows.Forms.Label();
+            this.LblForgotPassword = new System.Windows.Forms.Label();
             this.TxbForgotEmail = new System.Windows.Forms.TextBox();
-            this.LblNewPassword = new System.Windows.Forms.Label();
-            this.TxbNewPassword = new System.Windows.Forms.TextBox();
             this.PickBack2 = new System.Windows.Forms.PictureBox();
-            this.BtnChangePassword = new System.Windows.Forms.Button();
+            this.BtnSendCode = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.TxbEnterCode = new System.Windows.Forms.TextBox();
+            this.BtnConfirmCode = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.PickBack2)).BeginInit();
             this.SuspendLayout();
             // 
-            // LblForgotUser
+            // LblForgotPassword
             // 
-            this.LblForgotUser.AutoSize = true;
-            this.LblForgotUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(188)))), ((int)(((byte)(199)))));
-            this.LblForgotUser.Font = new System.Drawing.Font("Swis721 Blk BT", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblForgotUser.ForeColor = System.Drawing.Color.Black;
-            this.LblForgotUser.Location = new System.Drawing.Point(988, 434);
-            this.LblForgotUser.Name = "LblForgotUser";
-            this.LblForgotUser.Size = new System.Drawing.Size(149, 35);
-            this.LblForgotUser.TabIndex = 2;
-            this.LblForgotUser.Text = "Usuário:";
-            // 
-            // TxbForgotUser
-            // 
-            this.TxbForgotUser.BackColor = System.Drawing.Color.PaleGoldenrod;
-            this.TxbForgotUser.Font = new System.Drawing.Font("Swis721 Blk BT", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxbForgotUser.Location = new System.Drawing.Point(994, 472);
-            this.TxbForgotUser.Multiline = true;
-            this.TxbForgotUser.Name = "TxbForgotUser";
-            this.TxbForgotUser.Size = new System.Drawing.Size(556, 44);
-            this.TxbForgotUser.TabIndex = 5;
-            this.TxbForgotUser.TextChanged += new System.EventHandler(this.TxbCreateUser_TextChanged);
-            // 
-            // LblForgotEmail
-            // 
-            this.LblForgotEmail.AutoSize = true;
-            this.LblForgotEmail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(188)))), ((int)(((byte)(199)))));
-            this.LblForgotEmail.Font = new System.Drawing.Font("Swis721 Blk BT", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblForgotEmail.ForeColor = System.Drawing.Color.Black;
-            this.LblForgotEmail.Location = new System.Drawing.Point(988, 547);
-            this.LblForgotEmail.Name = "LblForgotEmail";
-            this.LblForgotEmail.Size = new System.Drawing.Size(125, 35);
-            this.LblForgotEmail.TabIndex = 6;
-            this.LblForgotEmail.Text = "E-mail:";
+            this.LblForgotPassword.AutoSize = true;
+            this.LblForgotPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(188)))), ((int)(((byte)(199)))));
+            this.LblForgotPassword.Font = new System.Drawing.Font("Swis721 Blk BT", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblForgotPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(222)))));
+            this.LblForgotPassword.Location = new System.Drawing.Point(766, 386);
+            this.LblForgotPassword.Name = "LblForgotPassword";
+            this.LblForgotPassword.Size = new System.Drawing.Size(498, 70);
+            this.LblForgotPassword.TabIndex = 6;
+            this.LblForgotPassword.Text = "Insira seu e-mail para receber\r\num código de verificação:";
+            this.LblForgotPassword.Click += new System.EventHandler(this.LblForgotEmail_Click);
             // 
             // TxbForgotEmail
             // 
             this.TxbForgotEmail.BackColor = System.Drawing.Color.PaleGoldenrod;
             this.TxbForgotEmail.Font = new System.Drawing.Font("Swis721 Blk BT", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxbForgotEmail.Location = new System.Drawing.Point(994, 585);
+            this.TxbForgotEmail.Location = new System.Drawing.Point(772, 459);
             this.TxbForgotEmail.Multiline = true;
             this.TxbForgotEmail.Name = "TxbForgotEmail";
-            this.TxbForgotEmail.Size = new System.Drawing.Size(556, 44);
+            this.TxbForgotEmail.Size = new System.Drawing.Size(556, 55);
             this.TxbForgotEmail.TabIndex = 7;
-            // 
-            // LblNewPassword
-            // 
-            this.LblNewPassword.AutoSize = true;
-            this.LblNewPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(188)))), ((int)(((byte)(199)))));
-            this.LblNewPassword.Font = new System.Drawing.Font("Swis721 Blk BT", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblNewPassword.ForeColor = System.Drawing.Color.Black;
-            this.LblNewPassword.Location = new System.Drawing.Point(988, 673);
-            this.LblNewPassword.Name = "LblNewPassword";
-            this.LblNewPassword.Size = new System.Drawing.Size(212, 35);
-            this.LblNewPassword.TabIndex = 8;
-            this.LblNewPassword.Text = "Nova senha:";
-            // 
-            // TxbNewPassword
-            // 
-            this.TxbNewPassword.BackColor = System.Drawing.Color.PaleGoldenrod;
-            this.TxbNewPassword.Font = new System.Drawing.Font("Swis721 Blk BT", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxbNewPassword.Location = new System.Drawing.Point(994, 711);
-            this.TxbNewPassword.Multiline = true;
-            this.TxbNewPassword.Name = "TxbNewPassword";
-            this.TxbNewPassword.PasswordChar = '•';
-            this.TxbNewPassword.Size = new System.Drawing.Size(556, 44);
-            this.TxbNewPassword.TabIndex = 9;
+            this.TxbForgotEmail.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // PickBack2
             // 
             this.PickBack2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.PickBack2.Image = ((System.Drawing.Image)(resources.GetObject("PickBack2.Image")));
             this.PickBack2.InitialImage = ((System.Drawing.Image)(resources.GetObject("PickBack2.InitialImage")));
-            this.PickBack2.Location = new System.Drawing.Point(174, 121);
+            this.PickBack2.Location = new System.Drawing.Point(12, 12);
             this.PickBack2.Name = "PickBack2";
-            this.PickBack2.Size = new System.Drawing.Size(93, 92);
+            this.PickBack2.Size = new System.Drawing.Size(139, 133);
             this.PickBack2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.PickBack2.TabIndex = 10;
             this.PickBack2.TabStop = false;
             this.PickBack2.Click += new System.EventHandler(this.PickBack2_Click);
             // 
-            // BtnChangePassword
+            // BtnSendCode
             // 
-            this.BtnChangePassword.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.BtnChangePassword.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnChangePassword.Font = new System.Drawing.Font("Swis721 Blk BT", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnChangePassword.Location = new System.Drawing.Point(1212, 797);
-            this.BtnChangePassword.Name = "BtnChangePassword";
-            this.BtnChangePassword.Size = new System.Drawing.Size(191, 54);
-            this.BtnChangePassword.TabIndex = 11;
-            this.BtnChangePassword.Text = "SALVAR";
-            this.BtnChangePassword.UseVisualStyleBackColor = false;
-            this.BtnChangePassword.Click += new System.EventHandler(this.BtnChangePassword_Click);
+            this.BtnSendCode.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.BtnSendCode.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnSendCode.Font = new System.Drawing.Font("Swis721 BlkCn BT", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnSendCode.Location = new System.Drawing.Point(918, 523);
+            this.BtnSendCode.Name = "BtnSendCode";
+            this.BtnSendCode.Size = new System.Drawing.Size(288, 52);
+            this.BtnSendCode.TabIndex = 11;
+            this.BtnSendCode.Text = "ENVIAR CÓDIGO";
+            this.BtnSendCode.UseVisualStyleBackColor = false;
+            this.BtnSendCode.Click += new System.EventHandler(this.BtnChangePassword_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(188)))), ((int)(((byte)(199)))));
+            this.label1.Font = new System.Drawing.Font("Swis721 Blk BT", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(222)))));
+            this.label1.Location = new System.Drawing.Point(766, 603);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(381, 35);
+            this.label1.TabIndex = 12;
+            this.label1.Text = "Insira aqui seu código:\r\n";
+            // 
+            // TxbEnterCode
+            // 
+            this.TxbEnterCode.BackColor = System.Drawing.Color.PaleGoldenrod;
+            this.TxbEnterCode.Font = new System.Drawing.Font("Swis721 Blk BT", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxbEnterCode.Location = new System.Drawing.Point(772, 641);
+            this.TxbEnterCode.Multiline = true;
+            this.TxbEnterCode.Name = "TxbEnterCode";
+            this.TxbEnterCode.Size = new System.Drawing.Size(556, 55);
+            this.TxbEnterCode.TabIndex = 13;
+            this.TxbEnterCode.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // BtnConfirmCode
+            // 
+            this.BtnConfirmCode.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.BtnConfirmCode.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnConfirmCode.Font = new System.Drawing.Font("Swis721 BlkCn BT", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnConfirmCode.Location = new System.Drawing.Point(918, 702);
+            this.BtnConfirmCode.Name = "BtnConfirmCode";
+            this.BtnConfirmCode.Size = new System.Drawing.Size(288, 52);
+            this.BtnConfirmCode.TabIndex = 14;
+            this.BtnConfirmCode.Text = "VERIFICAR";
+            this.BtnConfirmCode.UseVisualStyleBackColor = false;
             // 
             // Form3
             // 
@@ -140,14 +130,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1924, 1061);
-            this.Controls.Add(this.BtnChangePassword);
+            this.Controls.Add(this.BtnConfirmCode);
+            this.Controls.Add(this.TxbEnterCode);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.BtnSendCode);
             this.Controls.Add(this.PickBack2);
-            this.Controls.Add(this.TxbNewPassword);
-            this.Controls.Add(this.LblNewPassword);
             this.Controls.Add(this.TxbForgotEmail);
-            this.Controls.Add(this.LblForgotEmail);
-            this.Controls.Add(this.TxbForgotUser);
-            this.Controls.Add(this.LblForgotUser);
+            this.Controls.Add(this.LblForgotPassword);
             this.Name = "Form3";
             this.Text = "Form3";
             this.Load += new System.EventHandler(this.Form3_Load);
@@ -158,14 +147,12 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Label LblForgotUser;
-        private System.Windows.Forms.TextBox TxbForgotUser;
-        private System.Windows.Forms.Label LblForgotEmail;
+        private System.Windows.Forms.Label LblForgotPassword;
         private System.Windows.Forms.TextBox TxbForgotEmail;
-        private System.Windows.Forms.Label LblNewPassword;
-        private System.Windows.Forms.TextBox TxbNewPassword;
         private System.Windows.Forms.PictureBox PickBack2;
-        private System.Windows.Forms.Button BtnChangePassword;
+        private System.Windows.Forms.Button BtnSendCode;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox TxbEnterCode;
+        private System.Windows.Forms.Button BtnConfirmCode;
     }
 }
