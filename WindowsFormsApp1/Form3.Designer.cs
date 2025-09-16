@@ -61,7 +61,6 @@
             this.TxbForgotEmail.Name = "TxbForgotEmail";
             this.TxbForgotEmail.Size = new System.Drawing.Size(556, 55);
             this.TxbForgotEmail.TabIndex = 7;
-            this.TxbForgotEmail.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // PickBack2
             // 
@@ -110,7 +109,6 @@
             this.TxbEnterCode.Name = "TxbEnterCode";
             this.TxbEnterCode.Size = new System.Drawing.Size(556, 55);
             this.TxbEnterCode.TabIndex = 13;
-            this.TxbEnterCode.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // BtnConfirmCode
             // 
@@ -123,6 +121,7 @@
             this.BtnConfirmCode.TabIndex = 14;
             this.BtnConfirmCode.Text = "VERIFICAR";
             this.BtnConfirmCode.UseVisualStyleBackColor = false;
+            this.BtnConfirmCode.Click += new System.EventHandler(this.BtnConfirmCode_Click);
             // 
             // Form3
             // 
