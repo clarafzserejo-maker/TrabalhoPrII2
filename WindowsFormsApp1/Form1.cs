@@ -319,7 +319,7 @@ namespace ProjetoProg
             Form3 mudarsenha = new Form3();
             this.Visible = false;
             mudarsenha.ShowDialog();
-            this.Visible = true;
+           
         }
 
         private void CheckBoxTeacher_CheckedChanged(object sender, EventArgs e)

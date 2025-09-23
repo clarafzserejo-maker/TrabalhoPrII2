@@ -49,7 +49,7 @@ namespace WindowsFormsApp1
 
             SELECT SENHA
             FROM PROFESSORES
-            WHERE EMAIL = @Email";
+            WHERE EMAIL_PROFESSOR = @Email";
 
                 SqlCommand cmd = new SqlCommand(query, con);
                 cmd.Parameters.AddWithValue("@Email", email);
@@ -85,7 +85,7 @@ namespace WindowsFormsApp1
                 string updateProf = @"
             UPDATE PROFESSORES
             SET SENHA = @NovaSenha
-            WHERE EMAIL = @Email";
+            WHERE EMAIL_PROFESSOR = @Email";
 
                 SqlCommand cmdProf = new SqlCommand(updateProf, con);
                 cmdProf.Parameters.AddWithValue("@NovaSenha", novaSenha);
@@ -143,7 +143,7 @@ namespace WindowsFormsApp1
                 }
 
                 // Se não for aluno, verifica professor
-                string sqlProf = "SELECT ID_PROFESSOR FROM PROFESSORES WHERE EMAIL = @EMAIL";
+                string sqlProf = "SELECT ID_PROFESSOR FROM PROFESSORES WHERE EMAIL_PROFESSOR = @EMAIL";
                 SqlCommand cmdProf = new SqlCommand(sqlProf, con);
                 cmdProf.Parameters.AddWithValue("@EMAIL", emailUsuario);
 
@@ -160,8 +160,9 @@ namespace WindowsFormsApp1
 
                     MessageBox.Show("Senha atualizada com sucesso!");
                     this.Close();
+                   
                   Btn btn = new Btn();
-                    btn.Show();
+                    btn.Visible = true;
                 }
                 return;
                 }
