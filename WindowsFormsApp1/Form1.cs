@@ -15,6 +15,8 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace ProjetoProg
 {
+
+
     public partial class Btn : Form
     {
         public Btn()
@@ -33,7 +35,11 @@ namespace ProjetoProg
                 "Verifique os dados informados" + erro);
             }
         }
-
+        public static class SessaoUsuario
+        {
+            public static string Nome { get; set; }
+            public static string Email { get; set; }
+        }
         private void label1_Click(object sender, EventArgs e)
         {
 
@@ -235,43 +241,76 @@ namespace ProjetoProg
                 {
                     cnn.Open();
 
-                    // Detecta se é professor ou aluno
                     bool isProfessor = CheckBoxTeacher.Checked;
 
                     string tabela = isProfessor ? "PROFESSORES" : "ALUNOS";
                     string colunaId = isProfessor ? "ID_PROFESSOR" : "ID_ALUNO";
                     string colunaSenha = isProfessor ? "SENHA_PROFESSOR" : "SENHA_ALUNO";
+                    string colunaNome = isProfessor ? "NOME_PROFESSOR" : "NOME_ALUNO";
+                    string colunaEmail = isProfessor ? "EMAIL_PROFESSOR" : "EMAIL_ALUNO";
 
-                    string sql = $@"
+                    // 1. Verifica se login está correto
+                    string sqlLogin = $@"
                 SELECT COUNT(1) 
                 FROM {tabela} 
                 WHERE {colunaId} = @usuario AND {colunaSenha} = @senha
             ";
 
-                    using (SqlCommand cmd = new SqlCommand(sql, cnn))
+                    using (SqlCommand cmd = new SqlCommand(sqlLogin, cnn))
                     {
                         cmd.Parameters.AddWithValue("@usuario", usuario);
                         cmd.Parameters.AddWithValue("@senha", senha);
 
                         int count = (int)cmd.ExecuteScalar();
 
-                        if (count == 1)
-                        {
-                            MessageBox.Show("Login feito com sucesso!");
-
-                            FrmDisciplinas disciplinas = new FrmDisciplinas();
-                            this.Visible = false;
-                            disciplinas.ShowDialog();
-                            this.Visible = true;
-                        }
-                        else
+                        if (count != 1)
                         {
                             MessageBox.Show("Usuário ou senha incorretos.",
                                 "Erro",
                                 MessageBoxButtons.OK,
                                 MessageBoxIcon.Error);
+                            return;
                         }
                     }
+
+                    // 2. Busca nome e email do usuário logado
+                    string sqlDados = $@"
+                SELECT {colunaNome}, {colunaEmail}
+                FROM {tabela}
+                WHERE {colunaId} = @usuario
+            ";
+
+                    using (SqlCommand cmdDados = new SqlCommand(sqlDados, cnn))
+                    {
+                        cmdDados.Parameters.AddWithValue("@usuario", usuario);
+
+                        using (SqlDataReader reader = cmdDados.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                SessaoUsuario.Nome = reader.GetString(0);
+                                SessaoUsuario.Email = reader.GetString(1);
+                            }
+                        }
+                    }
+
+                    // 3. Abre a tela correta após login
+                    MessageBox.Show("Login feito com sucesso!");
+
+                    this.Visible = false;
+
+                    if (isProfessor)
+                    {
+                        SegundaProf perfilProf = new SegundaProf();
+                        perfilProf.ShowDialog();
+                    }
+                    else
+                    {
+                        SegundaAluno perfilAluno = new SegundaAluno();
+                        perfilAluno.ShowDialog();
+                    }
+
+                    this.Visible = true;
                 }
             }
             catch (Exception ex)
@@ -279,6 +318,7 @@ namespace ProjetoProg
                 MessageBox.Show("Erro ao conectar no banco: " + ex.Message);
             }
         }
+
 
 
         private void PicLogin_Click(object sender, EventArgs e)

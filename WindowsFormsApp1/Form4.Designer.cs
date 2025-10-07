@@ -57,6 +57,7 @@
             this.TxbChangePassword.Location = new System.Drawing.Point(675, 450);
             this.TxbChangePassword.Multiline = true;
             this.TxbChangePassword.Name = "TxbChangePassword";
+            this.TxbChangePassword.PasswordChar = '•';
             this.TxbChangePassword.Size = new System.Drawing.Size(556, 55);
             this.TxbChangePassword.TabIndex = 8;
             this.TxbChangePassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -81,6 +82,7 @@
             this.TxbChangePassword2.Location = new System.Drawing.Point(675, 578);
             this.TxbChangePassword2.Multiline = true;
             this.TxbChangePassword2.Name = "TxbChangePassword2";
+            this.TxbChangePassword2.PasswordChar = '•';
             this.TxbChangePassword2.Size = new System.Drawing.Size(556, 55);
             this.TxbChangePassword2.TabIndex = 10;
             this.TxbChangePassword2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -110,7 +112,9 @@
             this.Controls.Add(this.TxbChangePassword);
             this.Controls.Add(this.LblChangePassword);
             this.Name = "Form4";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form4";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form4_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

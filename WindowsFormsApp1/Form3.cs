@@ -266,9 +266,10 @@ namespace WindowsFormsApp1
 
                 // Abre a tela de atualização de senha
                 Form4 formAtualizarSenha = new Form4(email);
+                this.Visible = false;
+              
+                formAtualizarSenha.ShowDialog();
 
-                this.Close(); // Fecha ou esconde a tela atual
-                formAtualizarSenha.Show();
             }
             else
             {

@@ -137,7 +137,9 @@
             this.Controls.Add(this.TxbForgotEmail);
             this.Controls.Add(this.LblForgotPassword);
             this.Name = "Form3";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form3";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form3_Load);
             ((System.ComponentModel.ISupportInitialize)(this.PickBack2)).EndInit();
             this.ResumeLayout(false);

@@ -17,15 +17,44 @@ namespace WindowsFormsApp1
             try
             {
                 MailMessage mail = new MailMessage();
-                mail.From = new MailAddress("clarafserejo@gmail.com");
+                mail.From = new MailAddress("clarafzserejo@gmail.com");
                 mail.To.Add(emailDestino);
                 mail.Subject = "Redefinição de Senha";
-                mail.Body = $"Seu código para redefinir a senha é: {codigo}\n" +
-                            "Esse código expira em 15 minutos.";
 
-                // Servidor SMTP do Gmail
+                mail.Body = $@"
+            <html>
+            <body style='font-family: Arial, sans-serif; color: #333;'>
+                <h2 style='color: #386a8b;'>Redefinição de senha</h2>
+                <p>Olá 👋,</p>
+                <p>Você solicitou a redefinição de sua senha.</p>
+                <p>Use o código abaixo para continuar:</p>
+
+               <div style='
+    background-color: #8dbcc7; 
+    color: #386a8b;
+    padding: 10px 20px; 
+    display: inline-block;
+    font-size: 24px; 
+    font-weight: bold; 
+    border-radius: 5px; 
+    border: 1px solid #8dbcc7; 
+    margin: 20px 0;
+'>
+    {codigo}
+</div>
+
+                <p>Esse código expira em <strong>15 minutos</strong>.</p>
+                <p>Se você não solicitou isso, pode ignorar este e-mail.</p>
+                <p>Equipe IQverse 🤓! </p>
+
+                <p style='margin-top: 30px; font-size: 12px; color: #888;'>Este é um e-mail automático. Por favor, não responda.</p>
+            </body>
+            </html>";
+
+                mail.IsBodyHtml = true;
+
                 SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
-                smtp.Credentials = new NetworkCredential("clarafzserejo@gmail.com", "abwb qfmf oyzj xnab");
+                smtp.Credentials = new NetworkCredential("clarafzserejo@gmail.com", "bwyz ldvp bvpt gqyg");
                 smtp.EnableSsl = true;
 
                 smtp.Send(mail);
@@ -35,6 +64,8 @@ namespace WindowsFormsApp1
                 throw new Exception("Erro ao enviar e-mail: " + ex.Message);
             }
         }
+
+
 
         private void SalvarCodigoNoBanco(string usuario, string email, string codigo)
         {

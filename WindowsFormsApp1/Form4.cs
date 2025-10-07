@@ -100,7 +100,6 @@ namespace WindowsFormsApp1
 
         private void BtnChangePassword_Click(object sender, EventArgs e)
         {
-            // Exemplo: atualizar senha
             string novaSenha = TxbChangePassword.Text;
             string confirmarSenha = TxbChangePassword2.Text;
 
@@ -116,62 +115,91 @@ namespace WindowsFormsApp1
                 return;
             }
 
-            // Agora, usa o emailUsuario para descobrir se é aluno ou professor e atualizar
             using (SqlConnection con = new SqlConnection("Data Source=sqlexpress;Initial Catalog=CJ3027317PR2;User ID=aluno;Password=aluno"))
             {
                 con.Open();
 
                 // Verifica se é aluno
-                string sqlAluno = "SELECT ID_ALUNO FROM ALUNOS WHERE EMAIL_ALUNO = @EMAIL";
+                string sqlAluno = "SELECT ID_ALUNO, SENHA_ALUNO FROM ALUNOS WHERE EMAIL_ALUNO = @EMAIL";
                 SqlCommand cmdAluno = new SqlCommand(sqlAluno, con);
                 cmdAluno.Parameters.AddWithValue("@EMAIL", emailUsuario);
 
-                object idAluno = cmdAluno.ExecuteScalar();
-
-                if (idAluno != null)
+                using (SqlDataReader reader = cmdAluno.ExecuteReader())
                 {
-                    // Atualiza senha do aluno
-                    string update = "UPDATE ALUNOS SET SENHA_ALUNO = @SENHA WHERE ID_ALUNO = @ID";
-                    SqlCommand cmdUpdate = new SqlCommand(update, con);
-                    cmdUpdate.Parameters.AddWithValue("@SENHA", novaSenha);
-                    cmdUpdate.Parameters.AddWithValue("@ID", idAluno.ToString());
-                    cmdUpdate.ExecuteNonQuery();
+                    if (reader.Read())
+                    {
+                        string senhaAtual = reader["SENHA_ALUNO"].ToString();
+                        string idAluno = reader["ID_ALUNO"].ToString();
 
-                    MessageBox.Show("Senha atualizada com sucesso!");
-                    this.Close();
-                    return;
+                        // Verifica se a nova senha é igual à antiga
+                        if (senhaAtual == novaSenha)
+                        {
+                            MessageBox.Show("A nova senha não pode ser igual à senha antiga.");
+                            return;
+                        }
+
+                        reader.Close();
+
+                        // Atualiza senha do aluno
+                        string update = "UPDATE ALUNOS SET SENHA_ALUNO = @SENHA WHERE ID_ALUNO = @ID";
+                        SqlCommand cmdUpdate = new SqlCommand(update, con);
+                        cmdUpdate.Parameters.AddWithValue("@SENHA", novaSenha);
+                        cmdUpdate.Parameters.AddWithValue("@ID", idAluno);
+                        cmdUpdate.ExecuteNonQuery();
+
+                        MessageBox.Show("Senha atualizada com sucesso!");
+                        Btn login = new Btn();
+                        this.Visible = false;
+                        login.ShowDialog();
+                        this.Visible = true;
+                        return;
+                    }
                 }
 
                 // Se não for aluno, verifica professor
-                string sqlProf = "SELECT ID_PROFESSOR FROM PROFESSORES WHERE EMAIL_PROFESSOR = @EMAIL";
+                string sqlProf = "SELECT ID_PROFESSOR, SENHA FROM PROFESSORES WHERE EMAIL_PROFESSOR = @EMAIL";
                 SqlCommand cmdProf = new SqlCommand(sqlProf, con);
                 cmdProf.Parameters.AddWithValue("@EMAIL", emailUsuario);
 
-                object idProf = cmdProf.ExecuteScalar();
-
-                if (idProf != null)
+                using (SqlDataReader reader = cmdProf.ExecuteReader())
                 {
-                    // Atualiza senha do professor
-                    string update = "UPDATE PROFESSORES SET SENHA = @SENHA WHERE ID_PROFESSOR = @ID";
-                    SqlCommand cmdUpdate = new SqlCommand(update, con);
-                    cmdUpdate.Parameters.AddWithValue("@SENHA", novaSenha);
-                    cmdUpdate.Parameters.AddWithValue("@ID", idProf.ToString());
-                    cmdUpdate.ExecuteNonQuery();
+                    if (reader.Read())
+                    {
+                        string senhaAtual = reader["SENHA"].ToString();
+                        string idProf = reader["ID_PROFESSOR"].ToString();
 
-                    MessageBox.Show("Senha atualizada com sucesso!");
-                    this.Close();
-                   
-                  Btn btn = new Btn();
-                    btn.Visible = true;
-                }
-                return;
+                        // Verifica se a nova senha é igual à antiga
+                        if (senhaAtual == novaSenha)
+                        {
+                            MessageBox.Show("A nova senha não pode ser igual à senha antiga.");
+                            return;
+                        }
+
+                        reader.Close();
+
+                        // Atualiza senha do professor
+                        string update = "UPDATE PROFESSORES SET SENHA = @SENHA WHERE ID_PROFESSOR = @ID";
+                        SqlCommand cmdUpdate = new SqlCommand(update, con);
+                        cmdUpdate.Parameters.AddWithValue("@SENHA", novaSenha);
+                        cmdUpdate.Parameters.AddWithValue("@ID", idProf);
+                        cmdUpdate.ExecuteNonQuery();
+
+                        MessageBox.Show("Senha atualizada com sucesso!");
+                        Btn login = new Btn();
+                        this.Visible = false;
+                        login.ShowDialog();
+                        this.Visible = true;
+                        return;
+                    }
                 }
 
-                // Se chegou aqui, algo deu errado
+                // Se chegou aqui, usuário não encontrado
                 MessageBox.Show("Erro ao atualizar senha. Usuário não encontrado.");
             }
-
-
         }
 
+
+
     }
+
+}

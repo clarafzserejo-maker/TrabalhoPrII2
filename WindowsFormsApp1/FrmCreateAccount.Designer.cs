@@ -195,6 +195,7 @@
             this.Controls.Add(this.LblCreateEmail);
             this.Controls.Add(this.LblCreateUser);
             this.Name = "FrmCreateAccount";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Criar Conta";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FrmCreateAccount_Load);
