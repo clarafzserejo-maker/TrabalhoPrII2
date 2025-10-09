@@ -55,7 +55,7 @@
             // TxbForgotEmail
             // 
             this.TxbForgotEmail.BackColor = System.Drawing.Color.PaleGoldenrod;
-            this.TxbForgotEmail.Font = new System.Drawing.Font("Swis721 Blk BT", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxbForgotEmail.Font = new System.Drawing.Font("Microsoft JhengHei", 21.75F);
             this.TxbForgotEmail.Location = new System.Drawing.Point(772, 459);
             this.TxbForgotEmail.Multiline = true;
             this.TxbForgotEmail.Name = "TxbForgotEmail";
@@ -103,7 +103,7 @@
             // TxbEnterCode
             // 
             this.TxbEnterCode.BackColor = System.Drawing.Color.PaleGoldenrod;
-            this.TxbEnterCode.Font = new System.Drawing.Font("Swis721 Blk BT", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxbEnterCode.Font = new System.Drawing.Font("Microsoft JhengHei", 21.75F);
             this.TxbEnterCode.Location = new System.Drawing.Point(772, 641);
             this.TxbEnterCode.Multiline = true;
             this.TxbEnterCode.Name = "TxbEnterCode";

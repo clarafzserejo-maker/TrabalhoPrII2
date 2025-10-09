@@ -53,7 +53,7 @@
             // TxbChangePassword
             // 
             this.TxbChangePassword.BackColor = System.Drawing.Color.PaleGoldenrod;
-            this.TxbChangePassword.Font = new System.Drawing.Font("Swis721 Blk BT", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxbChangePassword.Font = new System.Drawing.Font("Microsoft JhengHei", 21.75F);
             this.TxbChangePassword.Location = new System.Drawing.Point(675, 450);
             this.TxbChangePassword.Multiline = true;
             this.TxbChangePassword.Name = "TxbChangePassword";
@@ -78,7 +78,7 @@
             // TxbChangePassword2
             // 
             this.TxbChangePassword2.BackColor = System.Drawing.Color.PaleGoldenrod;
-            this.TxbChangePassword2.Font = new System.Drawing.Font("Swis721 Blk BT", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxbChangePassword2.Font = new System.Drawing.Font("Microsoft JhengHei", 21.75F);
             this.TxbChangePassword2.Location = new System.Drawing.Point(675, 578);
             this.TxbChangePassword2.Multiline = true;
             this.TxbChangePassword2.Name = "TxbChangePassword2";

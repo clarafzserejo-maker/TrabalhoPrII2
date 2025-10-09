@@ -49,7 +49,7 @@
             this.LblCreateUser.AutoSize = true;
             this.LblCreateUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(222)))));
             this.LblCreateUser.Font = new System.Drawing.Font("Swis721 Blk BT", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblCreateUser.ForeColor = System.Drawing.Color.Black;
+            this.LblCreateUser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(188)))), ((int)(((byte)(199)))));
             this.LblCreateUser.Location = new System.Drawing.Point(1028, 396);
             this.LblCreateUser.Name = "LblCreateUser";
             this.LblCreateUser.Size = new System.Drawing.Size(149, 35);
@@ -62,7 +62,7 @@
             this.LblCreateEmail.AutoSize = true;
             this.LblCreateEmail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(222)))));
             this.LblCreateEmail.Font = new System.Drawing.Font("Swis721 Blk BT", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblCreateEmail.ForeColor = System.Drawing.Color.Black;
+            this.LblCreateEmail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(188)))), ((int)(((byte)(199)))));
             this.LblCreateEmail.Location = new System.Drawing.Point(1028, 598);
             this.LblCreateEmail.Name = "LblCreateEmail";
             this.LblCreateEmail.Size = new System.Drawing.Size(125, 35);
@@ -75,7 +75,7 @@
             this.LblCreatePassword.AutoSize = true;
             this.LblCreatePassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(222)))));
             this.LblCreatePassword.Font = new System.Drawing.Font("Swis721 Blk BT", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblCreatePassword.ForeColor = System.Drawing.Color.Black;
+            this.LblCreatePassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(188)))), ((int)(((byte)(199)))));
             this.LblCreatePassword.Location = new System.Drawing.Point(1028, 693);
             this.LblCreatePassword.Name = "LblCreatePassword";
             this.LblCreatePassword.Size = new System.Drawing.Size(125, 35);
@@ -85,7 +85,7 @@
             // TxbCreateUser
             // 
             this.TxbCreateUser.BackColor = System.Drawing.Color.PaleGoldenrod;
-            this.TxbCreateUser.Font = new System.Drawing.Font("Swis721 Blk BT", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxbCreateUser.Font = new System.Drawing.Font("Microsoft JhengHei", 21.75F);
             this.TxbCreateUser.Location = new System.Drawing.Point(1034, 434);
             this.TxbCreateUser.Multiline = true;
             this.TxbCreateUser.Name = "TxbCreateUser";
@@ -96,7 +96,7 @@
             // TxbCreatePassword
             // 
             this.TxbCreatePassword.BackColor = System.Drawing.Color.PaleGoldenrod;
-            this.TxbCreatePassword.Font = new System.Drawing.Font("Swis721 Blk BT", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxbCreatePassword.Font = new System.Drawing.Font("Microsoft JhengHei", 21.75F);
             this.TxbCreatePassword.Location = new System.Drawing.Point(1034, 731);
             this.TxbCreatePassword.Multiline = true;
             this.TxbCreatePassword.Name = "TxbCreatePassword";
@@ -107,7 +107,7 @@
             // TxbEmail
             // 
             this.TxbEmail.BackColor = System.Drawing.Color.PaleGoldenrod;
-            this.TxbEmail.Font = new System.Drawing.Font("Swis721 Blk BT", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxbEmail.Font = new System.Drawing.Font("Microsoft JhengHei", 21.75F);
             this.TxbEmail.Location = new System.Drawing.Point(1034, 637);
             this.TxbEmail.Multiline = true;
             this.TxbEmail.Name = "TxbEmail";
@@ -160,7 +160,7 @@
             this.LblName.AutoSize = true;
             this.LblName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(222)))));
             this.LblName.Font = new System.Drawing.Font("Swis721 Blk BT", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblName.ForeColor = System.Drawing.Color.Black;
+            this.LblName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(188)))), ((int)(((byte)(199)))));
             this.LblName.Location = new System.Drawing.Point(1028, 498);
             this.LblName.Name = "LblName";
             this.LblName.Size = new System.Drawing.Size(117, 35);
@@ -170,7 +170,7 @@
             // TxbCreateName
             // 
             this.TxbCreateName.BackColor = System.Drawing.Color.PaleGoldenrod;
-            this.TxbCreateName.Font = new System.Drawing.Font("Swis721 Blk BT", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxbCreateName.Font = new System.Drawing.Font("Microsoft JhengHei", 21.75F);
             this.TxbCreateName.Location = new System.Drawing.Point(1034, 536);
             this.TxbCreateName.Multiline = true;
             this.TxbCreateName.Name = "TxbCreateName";

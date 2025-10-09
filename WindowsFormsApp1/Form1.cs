@@ -73,7 +73,7 @@ namespace ProjetoProg
             this.LblUser.AutoSize = true;
             this.LblUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(222)))));
             this.LblUser.Font = new System.Drawing.Font("Swis721 Blk BT", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblUser.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.LblUser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(188)))), ((int)(((byte)(199)))));
             this.LblUser.Location = new System.Drawing.Point(288, 393);
             this.LblUser.Name = "LblUser";
             this.LblUser.Size = new System.Drawing.Size(149, 35);
@@ -86,6 +86,7 @@ namespace ProjetoProg
             this.LblPassword.AutoSize = true;
             this.LblPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(222)))));
             this.LblPassword.Font = new System.Drawing.Font("Swis721 Blk BT", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(188)))), ((int)(((byte)(199)))));
             this.LblPassword.Location = new System.Drawing.Point(288, 523);
             this.LblPassword.Name = "LblPassword";
             this.LblPassword.Size = new System.Drawing.Size(125, 35);
@@ -96,7 +97,7 @@ namespace ProjetoProg
             // TxbUser
             // 
             this.TxbUser.BackColor = System.Drawing.Color.PaleGoldenrod;
-            this.TxbUser.Font = new System.Drawing.Font("Swis721 Blk BT", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxbUser.Font = new System.Drawing.Font("Microsoft JhengHei", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxbUser.Location = new System.Drawing.Point(294, 431);
             this.TxbUser.Multiline = true;
             this.TxbUser.Name = "TxbUser";
@@ -107,7 +108,7 @@ namespace ProjetoProg
             // TxbPassword
             // 
             this.TxbPassword.BackColor = System.Drawing.Color.PaleGoldenrod;
-            this.TxbPassword.Font = new System.Drawing.Font("Swis721 Blk BT", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxbPassword.Font = new System.Drawing.Font("Microsoft JhengHei", 21.75F);
             this.TxbPassword.Location = new System.Drawing.Point(294, 561);
             this.TxbPassword.Multiline = true;
             this.TxbPassword.Name = "TxbPassword";
@@ -134,6 +135,7 @@ namespace ProjetoProg
             this.LblCreateAccount.AutoSize = true;
             this.LblCreateAccount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(222)))));
             this.LblCreateAccount.Font = new System.Drawing.Font("Swis721 Blk BT", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblCreateAccount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(188)))), ((int)(((byte)(199)))));
             this.LblCreateAccount.Location = new System.Drawing.Point(472, 791);
             this.LblCreateAccount.Name = "LblCreateAccount";
             this.LblCreateAccount.Size = new System.Drawing.Size(202, 48);
