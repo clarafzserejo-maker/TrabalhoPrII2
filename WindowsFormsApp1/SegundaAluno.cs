@@ -42,11 +42,53 @@ namespace WindowsFormsApp1
                 var posicao = LblArrow.PointToScreen(new Point(0, LblArrow.Height));
                 menuPerfil.Show(posicao); // abre exatamente abaixo da seta
             };
+
+            ContextMenuStrip cursos = new ContextMenuStrip();
+            cursos.BackColor = Color.WhiteSmoke;
+            cursos.RenderMode = ToolStripRenderMode.System;
+            cursos.ShowImageMargin = false;
+            cursos.Items.Add("Minhas matrículas", null, (s, e) =>
+            {
+                CarregarTela(new VerCursosAlunoUserControl());
+            });
+
+            // 🔹 Corrige a posição — abre logo abaixo da seta
+            LblArrow3.Click += (s, e) =>
+            {
+                // converte a posição da seta para coordenadas de tela
+                var posicao = LblArrow3.PointToScreen(new Point(0, LblArrow3.Height));
+                cursos.Show(posicao); // abre exatamente abaixo da seta
+            };
+
+            cursos.Items.Add("Nova matrícula", null, (s, e) =>
+            {
+                CarregarTela(new AdicionarCursoAlunoUserControl());
+            });
+
+            // 🔹 Corrige a posição — abre logo abaixo da seta
+            LblArrow3.Click += (s, e) =>
+            {
+                // converte a posição da seta para coordenadas de tela
+                var posicao = LblArrow3.PointToScreen(new Point(0, LblArrow3.Height));
+                cursos.Show(posicao); // abre exatamente abaixo da seta
+            };
         }
 
         private void SegundaAluno_Load(object sender, EventArgs e)
         {
+            PadraoControl telaInicial = new PadraoControl();
+            telaInicial.Dock = DockStyle.Fill;
 
+            // Adiciona ao painel principal
+            Panel5.Controls.Clear();
+            Panel5.Controls.Add(telaInicial);
+        }
+
+        private void CarregarTela(UserControl tela)
+        {
+            Panel5.Controls.Clear(); // limpa o painel
+            tela.Dock = DockStyle.Fill;     // faz o controle preencher o painel
+            Panel5.Controls.Add(tela);
         }
 
         private void LblProfile_Click(object sender, EventArgs e)
@@ -70,6 +112,11 @@ namespace WindowsFormsApp1
         }
 
         private void Panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void LblArrow3_Click(object sender, EventArgs e)
         {
 
         }

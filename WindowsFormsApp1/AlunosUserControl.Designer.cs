@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApp1
 {
-    partial class PadraoControl
+    partial class AlunosUserControl
     {
         /// <summary> 
         /// Variável de designer necessária.
@@ -28,36 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Swis721 Blk BT", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.label1.Location = new System.Drawing.Point(468, 408);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(759, 84);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Bem vindo!\r\nSelecione uma opção no menu lateral.";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // PadraoControl
+            // AlunosUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.label1);
-            this.Name = "PadraoControl";
+            this.Name = "AlunosUserControl";
             this.Size = new System.Drawing.Size(1940, 1100);
-            this.Load += new System.EventHandler(this.PadraoControl_Load);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label1;
     }
 }

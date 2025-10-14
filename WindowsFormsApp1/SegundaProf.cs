@@ -101,5 +101,15 @@ namespace WindowsFormsApp1
         {
 
         }
+
+        private void Lblteacher_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LblArrow3_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

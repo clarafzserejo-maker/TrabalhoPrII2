@@ -30,20 +30,22 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SegundaProf));
             this.Panel3 = new System.Windows.Forms.Panel();
+            this.LblArrow3 = new System.Windows.Forms.Label();
+            this.LblCursos = new System.Windows.Forms.Label();
+            this.LblPic3 = new System.Windows.Forms.Label();
             this.LblArrow2 = new System.Windows.Forms.Label();
             this.LblEmailUser2 = new System.Windows.Forms.Label();
             this.LblNameUser2 = new System.Windows.Forms.Label();
             this.LblPic2 = new System.Windows.Forms.Label();
             this.Panel4 = new System.Windows.Forms.Panel();
-            this.LblPic3 = new System.Windows.Forms.Label();
-            this.LblCursos = new System.Windows.Forms.Label();
-            this.LblArrow3 = new System.Windows.Forms.Label();
+            this.Lblteacher = new System.Windows.Forms.Label();
             this.Panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // Panel3
             // 
             this.Panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(188)))), ((int)(((byte)(199)))));
+            this.Panel3.Controls.Add(this.Lblteacher);
             this.Panel3.Controls.Add(this.LblArrow3);
             this.Panel3.Controls.Add(this.LblCursos);
             this.Panel3.Controls.Add(this.LblPic3);
@@ -57,6 +59,40 @@
             this.Panel3.Name = "Panel3";
             this.Panel3.Size = new System.Drawing.Size(494, 1061);
             this.Panel3.TabIndex = 1;
+            // 
+            // LblArrow3
+            // 
+            this.LblArrow3.AutoSize = true;
+            this.LblArrow3.Font = new System.Drawing.Font("Swis721 Blk BT", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblArrow3.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.LblArrow3.Location = new System.Drawing.Point(222, 249);
+            this.LblArrow3.Name = "LblArrow3";
+            this.LblArrow3.Size = new System.Drawing.Size(33, 32);
+            this.LblArrow3.TabIndex = 6;
+            this.LblArrow3.Text = "▼";
+            this.LblArrow3.Click += new System.EventHandler(this.LblArrow3_Click);
+            // 
+            // LblCursos
+            // 
+            this.LblCursos.AutoSize = true;
+            this.LblCursos.Font = new System.Drawing.Font("Swis721 Blk BT", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblCursos.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.LblCursos.Location = new System.Drawing.Point(90, 246);
+            this.LblCursos.Name = "LblCursos";
+            this.LblCursos.Size = new System.Drawing.Size(126, 35);
+            this.LblCursos.TabIndex = 5;
+            this.LblCursos.Text = "Cursos";
+            // 
+            // LblPic3
+            // 
+            this.LblPic3.AutoSize = true;
+            this.LblPic3.Font = new System.Drawing.Font("Swis721 Blk BT", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblPic3.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.LblPic3.Location = new System.Drawing.Point(2, 212);
+            this.LblPic3.Name = "LblPic3";
+            this.LblPic3.Size = new System.Drawing.Size(110, 77);
+            this.LblPic3.TabIndex = 4;
+            this.LblPic3.Text = "📚";
             // 
             // LblArrow2
             // 
@@ -115,38 +151,17 @@
             this.Panel4.Size = new System.Drawing.Size(1430, 1061);
             this.Panel4.TabIndex = 2;
             // 
-            // LblPic3
+            // Lblteacher
             // 
-            this.LblPic3.AutoSize = true;
-            this.LblPic3.Font = new System.Drawing.Font("Swis721 Blk BT", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblPic3.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.LblPic3.Location = new System.Drawing.Point(2, 212);
-            this.LblPic3.Name = "LblPic3";
-            this.LblPic3.Size = new System.Drawing.Size(110, 77);
-            this.LblPic3.TabIndex = 4;
-            this.LblPic3.Text = "📚";
-            // 
-            // LblCursos
-            // 
-            this.LblCursos.AutoSize = true;
-            this.LblCursos.Font = new System.Drawing.Font("Swis721 Blk BT", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblCursos.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.LblCursos.Location = new System.Drawing.Point(90, 246);
-            this.LblCursos.Name = "LblCursos";
-            this.LblCursos.Size = new System.Drawing.Size(126, 35);
-            this.LblCursos.TabIndex = 5;
-            this.LblCursos.Text = "Cursos";
-            // 
-            // LblArrow3
-            // 
-            this.LblArrow3.AutoSize = true;
-            this.LblArrow3.Font = new System.Drawing.Font("Swis721 Blk BT", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblArrow3.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.LblArrow3.Location = new System.Drawing.Point(222, 249);
-            this.LblArrow3.Name = "LblArrow3";
-            this.LblArrow3.Size = new System.Drawing.Size(33, 32);
-            this.LblArrow3.TabIndex = 6;
-            this.LblArrow3.Text = "▼";
+            this.Lblteacher.AutoSize = true;
+            this.Lblteacher.Font = new System.Drawing.Font("Swis721 Blk BT", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lblteacher.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.Lblteacher.Location = new System.Drawing.Point(15, 60);
+            this.Lblteacher.Name = "Lblteacher";
+            this.Lblteacher.Size = new System.Drawing.Size(322, 57);
+            this.Lblteacher.TabIndex = 7;
+            this.Lblteacher.Text = "EDUCADOR";
+            this.Lblteacher.Click += new System.EventHandler(this.Lblteacher_Click);
             // 
             // SegundaProf
             // 
@@ -178,5 +193,6 @@
         private System.Windows.Forms.Label LblCursos;
         private System.Windows.Forms.Label LblPic3;
         private System.Windows.Forms.Label LblArrow3;
+        private System.Windows.Forms.Label Lblteacher;
     }
 }

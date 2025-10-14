@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
-    public partial class PadraoControl : UserControl
+    public partial class VerCursosAlunoUserControl : UserControl
     {
-        public PadraoControl()
+        public VerCursosAlunoUserControl()
         {
             InitializeComponent();
-        }
-
-        private void PadraoControl_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

@@ -61,11 +61,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdicionarCursoAlunoUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AdicionarCursoAlunoUserControl.Designer.cs">
+      <DependentUpon>AdicionarCursoAlunoUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="AdicionarCursoControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="AdicionarCursoControl.Designer.cs">
       <DependentUpon>AdicionarCursoControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AlunosUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AlunosUserControl.Designer.cs">
+      <DependentUpon>AlunosUserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Form4.cs">
       <SubType>Form</SubType>
@@ -118,8 +130,20 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="VerCursosAlunoUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="VerCursosAlunoUserControl.Designer.cs">
+      <DependentUpon>VerCursosAlunoUserControl.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AdicionarCursoAlunoUserControl.resx">
+      <DependentUpon>AdicionarCursoAlunoUserControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AdicionarCursoControl.resx">
       <DependentUpon>AdicionarCursoControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AlunosUserControl.resx">
+      <DependentUpon>AlunosUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form4.resx">
       <DependentUpon>Form4.cs</DependentUpon>
@@ -154,10 +178,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <None Include="MeusCursosControl.Designer.sc" />
-    <None Include="MeusCursosControl.sc">
-      <SubType>UserControl</SubType>
-    </None>
+    <EmbeddedResource Include="VerCursosAlunoUserControl.resx">
+      <DependentUpon>VerCursosAlunoUserControl.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -87,7 +87,7 @@ namespace ProjetoProg
             this.LblPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(222)))));
             this.LblPassword.Font = new System.Drawing.Font("Swis721 Blk BT", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(188)))), ((int)(((byte)(199)))));
-            this.LblPassword.Location = new System.Drawing.Point(288, 523);
+            this.LblPassword.Location = new System.Drawing.Point(288, 501);
             this.LblPassword.Name = "LblPassword";
             this.LblPassword.Size = new System.Drawing.Size(125, 35);
             this.LblPassword.TabIndex = 2;
@@ -101,7 +101,7 @@ namespace ProjetoProg
             this.TxbUser.Location = new System.Drawing.Point(294, 431);
             this.TxbUser.Multiline = true;
             this.TxbUser.Name = "TxbUser";
-            this.TxbUser.Size = new System.Drawing.Size(546, 40);
+            this.TxbUser.Size = new System.Drawing.Size(546, 47);
             this.TxbUser.TabIndex = 3;
             this.TxbUser.TextChanged += new System.EventHandler(this.TxbUser_TextChanged);
             // 
@@ -109,11 +109,11 @@ namespace ProjetoProg
             // 
             this.TxbPassword.BackColor = System.Drawing.Color.PaleGoldenrod;
             this.TxbPassword.Font = new System.Drawing.Font("Microsoft JhengHei", 21.75F);
-            this.TxbPassword.Location = new System.Drawing.Point(294, 561);
+            this.TxbPassword.Location = new System.Drawing.Point(294, 539);
             this.TxbPassword.Multiline = true;
             this.TxbPassword.Name = "TxbPassword";
             this.TxbPassword.PasswordChar = '•';
-            this.TxbPassword.Size = new System.Drawing.Size(546, 40);
+            this.TxbPassword.Size = new System.Drawing.Size(546, 47);
             this.TxbPassword.TabIndex = 4;
             this.TxbPassword.TextChanged += new System.EventHandler(this.TxtPassword_TextChanged);
             // 
@@ -166,7 +166,7 @@ namespace ProjetoProg
             this.LinkLblForgotAccount.Cursor = System.Windows.Forms.Cursors.Hand;
             this.LinkLblForgotAccount.Font = new System.Drawing.Font("Swis721 Blk BT", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LinkLblForgotAccount.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(153)))), ((int)(((byte)(204)))));
-            this.LinkLblForgotAccount.Location = new System.Drawing.Point(290, 604);
+            this.LinkLblForgotAccount.Location = new System.Drawing.Point(290, 591);
             this.LinkLblForgotAccount.Name = "LinkLblForgotAccount";
             this.LinkLblForgotAccount.Size = new System.Drawing.Size(247, 24);
             this.LinkLblForgotAccount.TabIndex = 8;
@@ -181,7 +181,7 @@ namespace ProjetoProg
             this.CheckBoxTeacher.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CheckBoxTeacher.Font = new System.Drawing.Font("Swis721 Blk BT", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckBoxTeacher.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(153)))), ((int)(((byte)(204)))));
-            this.CheckBoxTeacher.Location = new System.Drawing.Point(294, 638);
+            this.CheckBoxTeacher.Location = new System.Drawing.Point(294, 625);
             this.CheckBoxTeacher.Name = "CheckBoxTeacher";
             this.CheckBoxTeacher.Size = new System.Drawing.Size(272, 28);
             this.CheckBoxTeacher.TabIndex = 12;

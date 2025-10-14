@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApp1
 {
-    partial class MeusCursosControl
+    partial class VerCursosAlunoUserControl
     {
         /// <summary> 
         /// Variável de designer necessária.
@@ -28,8 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
-                        this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.SuspendLayout();
+            // 
+            // VerCursosAlunoUserControl
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Name = "VerCursosAlunoUserControl";
+            this.Size = new System.Drawing.Size(1940, 1100);
+            this.ResumeLayout(false);
+
         }
 
         #endregion
