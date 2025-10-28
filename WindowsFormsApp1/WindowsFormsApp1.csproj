@@ -136,6 +136,12 @@
     <Compile Include="VerCursosAlunoUserControl.Designer.cs">
       <DependentUpon>VerCursosAlunoUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="VIsualizarAlunosUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="VIsualizarAlunosUserControl.Designer.cs">
+      <DependentUpon>VIsualizarAlunosUserControl.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AdicionarCursoAlunoUserControl.resx">
       <DependentUpon>AdicionarCursoAlunoUserControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -180,6 +186,9 @@
     </Compile>
     <EmbeddedResource Include="VerCursosAlunoUserControl.resx">
       <DependentUpon>VerCursosAlunoUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VIsualizarAlunosUserControl.resx">
+      <DependentUpon>VIsualizarAlunosUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

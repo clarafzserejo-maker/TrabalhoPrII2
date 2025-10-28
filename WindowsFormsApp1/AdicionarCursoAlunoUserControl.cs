@@ -18,11 +18,14 @@ namespace WindowsFormsApp1
     public partial class AdicionarCursoAlunoUserControl : UserControl
     {
         string connectionString = @"Data Source=sqlexpress;Initial Catalog=CJ3027317PR2;User ID=aluno;Password=aluno";
+        // Variável de classe para armazenar os dados brutos (não filtrados)
+        private DataTable dtCursos = new DataTable();
 
         public AdicionarCursoAlunoUserControl()
         {
             InitializeComponent();
             CarregarCursos2();
+            this.TxbPesquisa.TextChanged += TxbPesquisa_TextChanged_TextChanged;
         }
 
         private void CarregarCursos2()
@@ -31,44 +34,39 @@ namespace WindowsFormsApp1
             {
                 // A query faz uma junção (JOIN) para criar uma linha para CADA par (Curso, Professor).
                 string query = @"
-            SELECT 
-                CP.ID_CURSO,            
-                C.NOME_CURSO,          
-                C.CARGA_HORARIA,      
-                P.NOME_PROFESSOR AS NOME_PROFESSOR, 
+                    SELECT 
+                        CP.ID_CURSO,       
+                        C.NOME_CURSO,      
+                        C.CARGA_HORARIA,   
+                        P.NOME_PROFESSOR AS NOME_PROFESSOR, 
                         P.ID_PROFESSOR
-            FROM
-                        CURSOS_PROFESSORES CP    
+                    FROM
+                        CURSOS_PROFESSORES CP   
                     INNER JOIN
                         CURSOS C ON CP.ID_CURSO = C.ID_CURSO
                     INNER JOIN
                         PROFESSORES P ON CP.ID_PROFESSOR = P.ID_PROFESSOR
                     ORDER BY
-                        C.NOME_CURSO, P.NOME_PROFESSOR"; // Ordena para agrupar as mesmas disciplinas
-        
+                        C.NOME_CURSO, P.NOME_PROFESSOR";
 
-        SqlDataAdapter da = new SqlDataAdapter(query, conn);
-                DataTable dt = new DataTable();
-                da.Fill(dt);
+                SqlDataAdapter da = new SqlDataAdapter(query, conn);
 
-                dataGridView1.DataSource = dt;
+                // 1. Preenche a variável de classe (dtCursos) com os dados brutos
+                dtCursos.Clear();
+                da.Fill(dtCursos);
+
+                // 2. Cria uma DataView para a filtragem e a define como DataSource
+                DataView dv = new DataView(dtCursos);
+                dataGridView1.DataSource = dv;
 
                 // Configuração dos cabeçalhos
-
-                // Colunas essenciais para o usuário
                 dataGridView1.Columns["NOME_CURSO"].HeaderText = "CURSO";
                 dataGridView1.Columns["CARGA_HORARIA"].HeaderText = "CARGA HORÁRIA";
-                dataGridView1.Columns["NOME_PROFESSOR"].HeaderText = "PROFESSOR"; // O nome da turma
+                dataGridView1.Columns["NOME_PROFESSOR"].HeaderText = "PROFESSOR";
 
-                // Colunas essenciais para a Matrícula, mas ocultas
+                // Colunas ocultas
                 dataGridView1.Columns["ID_CURSO"].Visible = false;
-
-                // Ocultar o ID do Professor, mas mantê-lo na Grid caso você precise
-                // dele para uma lógica futura (ex: verificar se a turma tem vagas)
                 dataGridView1.Columns["ID_PROFESSOR"].Visible = false;
-
-                // Adicionar uma coluna de "Turma" se desejar, concatenando NOME_CURSO e NOME_PROFESSOR
-                // (Isso seria feito no código C# se preferir)
             }
         }
 
@@ -138,6 +136,60 @@ namespace WindowsFormsApp1
 
                 MessageBox.Show("Matrícula realizada com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TxbPesquisa_TextChanged_TextChanged(object sender, EventArgs e)
+        {
+            AplicarFiltroPesquisa();
+        }
+
+        private void AplicarFiltroPesquisa()
+        {
+            // O nome "TxbPesquisa" deve ser o nome da sua TextBox no Designer
+            string filtro = TxbPesquisa.Text.Trim();
+
+            // Certifica-se de que estamos trabalhando com uma DataView
+            if (dataGridView1.DataSource is DataView dv)
+            {
+                if (string.IsNullOrEmpty(filtro))
+                {
+                    // Se a pesquisa estiver vazia, remove o filtro
+                    dv.RowFilter = string.Empty;
+                }
+                else
+                {
+                    // Cria a expressão de filtro para buscar na coluna de Curso OU na de Professor
+                    // Usamos LIKE '%{filtro}%' para buscas parciais
+                    string expressaoFiltro =
+                        $"NOME_CURSO LIKE '%{filtro}%' OR NOME_PROFESSOR LIKE '%{filtro}%'";
+
+                    try
+                    {
+                        dv.RowFilter = expressaoFiltro;
+                    }
+                    catch (Exception ex)
+                    {
+                        // Mensagem de erro caso a sintaxe do filtro esteja incorreta
+                        MessageBox.Show("Erro ao aplicar filtro: " + ex.Message, "Erro de Filtro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        dv.RowFilter = string.Empty;
+                    }
+                }
+            }
+        }
+
+        private void pictureBox1_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
     }

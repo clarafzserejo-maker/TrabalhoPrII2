@@ -15,29 +15,44 @@ namespace WindowsFormsApp1
     public partial class AdicionarCursoControl : UserControl
     {
         string connectionString = @"Data Source=sqlexpress;Initial Catalog=CJ3027317PR2;User ID=aluno;Password=aluno";
+        private DataTable dtCursos = new DataTable();
 
         public AdicionarCursoControl()
         {
             InitializeComponent();
             CarregarCursos();
+            this.TxbPesquisa3.TextChanged += TxbPesquisa3_TextChanged_TextChanged;
         }
 
         private void CarregarCursos()
         {
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
-                string query = "SELECT ID_CURSO, NOME_CURSO, CARGA_HORARIA FROM Cursos";
+                string query = @"
+            SELECT CP.ID_CURSO, C.NOME_CURSO, C.CARGA_HORARIA, P.NOME_PROFESSOR AS NOME_PROFESSOR, P.ID_PROFESSOR
+            FROM CURSOS_PROFESSORES CP
+            INNER JOIN CURSOS C ON CP.ID_CURSO = C.ID_CURSO
+            INNER JOIN PROFESSORES P ON CP.ID_PROFESSOR = P.ID_PROFESSOR
+            ORDER BY C.NOME_CURSO, P.NOME_PROFESSOR";
+
                 SqlDataAdapter da = new SqlDataAdapter(query, conn);
-                DataTable dt = new DataTable();
-                da.Fill(dt);
-                dataGridView1.DataSource = dt;
-                dataGridView1.Columns["ID_CURSO"].HeaderText = "ID";
+
+                // 1. Preenche a variável de classe (dtCursos) com os dados brutos
+                dtCursos.Clear();
+                da.Fill(dtCursos);
+
+                // 2. Cria uma DataView para a filtragem e a define como DataSource
+                DataView dv = new DataView(dtCursos);
+                dataGridView1.DataSource = dv;
+
+                // Configuração dos cabeçalhos
                 dataGridView1.Columns["NOME_CURSO"].HeaderText = "CURSO";
                 dataGridView1.Columns["CARGA_HORARIA"].HeaderText = "CARGA HORÁRIA";
+                dataGridView1.Columns["NOME_PROFESSOR"].HeaderText = "PROFESSOR";
+                dataGridView1.Columns["ID_CURSO"].Visible = false;
+                dataGridView1.Columns["ID_PROFESSOR"].Visible = false;
 
             }
-
-
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -159,6 +174,50 @@ namespace WindowsFormsApp1
         }
 
         private void LblCargaHoraria_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TxbPesquisa3_TextChanged_TextChanged(object sender, EventArgs e)
+        {
+            AplicarFiltroPesquisa();
+        }
+
+        private void AplicarFiltroPesquisa()
+        {
+            // O nome "TxbPesquisa" deve ser o nome da sua TextBox no Designer
+            string filtro = TxbPesquisa3.Text.Trim();
+
+            // Certifica-se de que estamos trabalhando com uma DataView
+            if (dataGridView1.DataSource is DataView dv)
+            {
+                if (string.IsNullOrEmpty(filtro))
+                {
+                    // Se a pesquisa estiver vazia, remove o filtro
+                    dv.RowFilter = string.Empty;
+                }
+                else
+                {
+                    // Cria a expressão de filtro para buscar na coluna de Curso OU na de Professor
+                    // Usamos LIKE '%{filtro}%' para buscas parciais
+                    string expressaoFiltro =
+                        $"NOME_CURSO LIKE '%{filtro}%' OR NOME_PROFESSOR LIKE '%{filtro}%'";
+
+                    try
+                    {
+                        dv.RowFilter = expressaoFiltro;
+                    }
+                    catch (Exception ex)
+                    {
+                        // Mensagem de erro caso a sintaxe do filtro esteja incorreta
+                        MessageBox.Show("Erro ao aplicar filtro: " + ex.Message, "Erro de Filtro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        dv.RowFilter = string.Empty;
+                    }
+                }
+            }
+        }
+
+        private void AdicionarCursoControl_Load(object sender, EventArgs e)
         {
 
         }
