@@ -28,17 +28,52 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridViewAlunos = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAlunos)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridViewAlunos
             // 
+            this.dataGridViewAlunos.AllowUserToAddRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft JhengHei", 10F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.LightCyan;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.SteelBlue;
+            this.dataGridViewAlunos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridViewAlunos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewAlunos.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridViewAlunos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dataGridViewAlunos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.LightCyan;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft JhengHei", 10F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.LightCyan;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewAlunos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewAlunos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewAlunos.Location = new System.Drawing.Point(279, 291);
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft JhengHei", 10F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.LightCyan;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewAlunos.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dataGridViewAlunos.EnableHeadersVisualStyles = false;
+            this.dataGridViewAlunos.GridColor = System.Drawing.Color.LightCyan;
+            this.dataGridViewAlunos.Location = new System.Drawing.Point(269, 272);
             this.dataGridViewAlunos.Name = "dataGridViewAlunos";
-            this.dataGridViewAlunos.Size = new System.Drawing.Size(490, 365);
-            this.dataGridViewAlunos.TabIndex = 0;
+            this.dataGridViewAlunos.RowHeadersVisible = false;
+            this.dataGridViewAlunos.RowHeadersWidth = 28;
+            this.dataGridViewAlunos.Size = new System.Drawing.Size(490, 367);
+            this.dataGridViewAlunos.TabIndex = 14;
+            this.dataGridViewAlunos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewAlunos_CellContentClick_1);
             // 
             // VisualizarAlunosUserControl
             // 

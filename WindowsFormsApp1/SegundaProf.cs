@@ -111,5 +111,36 @@ namespace WindowsFormsApp1
         {
 
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LblAlunos_Click(object sender, EventArgs e)
+        {
+            TodosOsAlunosUserControl alunosControl = new TodosOsAlunosUserControl();
+
+            // 2. Assumindo que 'PainelPrincipal' é o Panel que hospeda os UserControls
+            Panel4.Controls.Clear();
+            Panel4.Controls.Add(alunosControl);
+            alunosControl.Dock = DockStyle.Fill;
+        }
+
+        private void AgendarAulas_Click(object sender, EventArgs e)
+        {
+            AdicionarAulasUserControl alunosControl = new AdicionarAulasUserControl();
+            Panel4.Controls.Clear();
+            Panel4.Controls.Add(alunosControl);
+            alunosControl.Dock = DockStyle.Fill;
+        }
+
+        private void LblVerAulas_Click(object sender, EventArgs e)
+        {
+            VisualizarAgendaUserControl alunosControl = new VisualizarAgendaUserControl();
+            Panel4.Controls.Clear();
+            Panel4.Controls.Add(alunosControl);
+            alunosControl.Dock = DockStyle.Fill;
+        }
     }
 }

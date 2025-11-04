@@ -40,8 +40,10 @@ namespace WindowsFormsApp1
         private void VisualizarAlunosUserControl_Load(object sender, EventArgs e)
         {
             CarregarAlunosDoCurso();
+            dataGridViewAlunos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewAlunos.AllowUserToAddRows = false; // <-- REMOVE A LINHA COM A SETA!
+            dataGridViewAlunos.RowHeadersVisible = false;  // <-- OPÇÃO EXTRA para garantir que a coluna lateral suma.
         }
-
         private void CarregarAlunosDoCurso()
         {
             using (SqlConnection conn = new SqlConnection(connectionString))
@@ -90,6 +92,16 @@ namespace WindowsFormsApp1
                     MessageBox.Show("Erro ao carregar lista de alunos: " + ex.Message);
                 }
             }
+        }
+
+        private void dataGridViewAlunos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dataGridViewAlunos_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

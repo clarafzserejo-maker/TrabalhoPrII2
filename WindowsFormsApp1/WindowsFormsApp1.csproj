@@ -61,6 +61,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdicionarAulasUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AdicionarAulasUserControl.Designer.cs">
+      <DependentUpon>AdicionarAulasUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="AdicionarCursoAlunoUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -130,11 +136,23 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TodosOsAlunosUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TodosOsAlunosUserControl.Designer.cs">
+      <DependentUpon>TodosOsAlunosUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="VerCursosAlunoUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="VerCursosAlunoUserControl.Designer.cs">
       <DependentUpon>VerCursosAlunoUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VisualizarAgendaUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="VisualizarAgendaUserControl.Designer.cs">
+      <DependentUpon>VisualizarAgendaUserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="VIsualizarAlunosUserControl.cs">
       <SubType>UserControl</SubType>
@@ -142,6 +160,15 @@
     <Compile Include="VIsualizarAlunosUserControl.Designer.cs">
       <DependentUpon>VIsualizarAlunosUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="VisualizarProfessorUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="VisualizarProfessorUserControl.Designer.cs">
+      <DependentUpon>VisualizarProfessorUserControl.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AdicionarAulasUserControl.resx">
+      <DependentUpon>AdicionarAulasUserControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AdicionarCursoAlunoUserControl.resx">
       <DependentUpon>AdicionarCursoAlunoUserControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -184,11 +211,20 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="TodosOsAlunosUserControl.resx">
+      <DependentUpon>TodosOsAlunosUserControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="VerCursosAlunoUserControl.resx">
       <DependentUpon>VerCursosAlunoUserControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="VisualizarAgendaUserControl.resx">
+      <DependentUpon>VisualizarAgendaUserControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="VIsualizarAlunosUserControl.resx">
       <DependentUpon>VIsualizarAlunosUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VisualizarProfessorUserControl.resx">
+      <DependentUpon>VisualizarProfessorUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

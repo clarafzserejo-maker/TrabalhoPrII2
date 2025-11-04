@@ -120,5 +120,15 @@ namespace WindowsFormsApp1
         {
 
         }
+
+        private void LblAlunos_Click(object sender, EventArgs e)
+        {
+            VisualizarProfessorUserControl alunosControl = new VisualizarProfessorUserControl();
+
+            // 2. Assumindo que 'PainelPrincipal' é o Panel que hospeda os UserControls
+            Panel5.Controls.Clear();
+            Panel5.Controls.Add(alunosControl);
+            alunosControl.Dock = DockStyle.Fill;
+        }
     }
 }

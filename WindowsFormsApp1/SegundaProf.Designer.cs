@@ -30,6 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SegundaProf));
             this.Panel3 = new System.Windows.Forms.Panel();
+            this.LblAlunos = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.Lblteacher = new System.Windows.Forms.Label();
             this.LblArrow3 = new System.Windows.Forms.Label();
             this.LblCursos = new System.Windows.Forms.Label();
             this.LblPic3 = new System.Windows.Forms.Label();
@@ -38,13 +41,22 @@
             this.LblNameUser2 = new System.Windows.Forms.Label();
             this.LblPic2 = new System.Windows.Forms.Label();
             this.Panel4 = new System.Windows.Forms.Panel();
-            this.Lblteacher = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.AgendarAulas = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.LblVerAulas = new System.Windows.Forms.Label();
             this.Panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // Panel3
             // 
             this.Panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(188)))), ((int)(((byte)(199)))));
+            this.Panel3.Controls.Add(this.LblVerAulas);
+            this.Panel3.Controls.Add(this.label3);
+            this.Panel3.Controls.Add(this.AgendarAulas);
+            this.Panel3.Controls.Add(this.label2);
+            this.Panel3.Controls.Add(this.LblAlunos);
+            this.Panel3.Controls.Add(this.label1);
             this.Panel3.Controls.Add(this.Lblteacher);
             this.Panel3.Controls.Add(this.LblArrow3);
             this.Panel3.Controls.Add(this.LblCursos);
@@ -59,6 +71,42 @@
             this.Panel3.Name = "Panel3";
             this.Panel3.Size = new System.Drawing.Size(494, 1061);
             this.Panel3.TabIndex = 1;
+            // 
+            // LblAlunos
+            // 
+            this.LblAlunos.AutoSize = true;
+            this.LblAlunos.Font = new System.Drawing.Font("Swis721 Blk BT", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblAlunos.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.LblAlunos.Location = new System.Drawing.Point(90, 310);
+            this.LblAlunos.Name = "LblAlunos";
+            this.LblAlunos.Size = new System.Drawing.Size(123, 35);
+            this.LblAlunos.TabIndex = 9;
+            this.LblAlunos.Text = "Alunos";
+            this.LblAlunos.Click += new System.EventHandler(this.LblAlunos_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Swis721 Blk BT", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.label1.Location = new System.Drawing.Point(3, 289);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(110, 77);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "🎓";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // Lblteacher
+            // 
+            this.Lblteacher.AutoSize = true;
+            this.Lblteacher.Font = new System.Drawing.Font("Swis721 Blk BT", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lblteacher.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.Lblteacher.Location = new System.Drawing.Point(15, 60);
+            this.Lblteacher.Name = "Lblteacher";
+            this.Lblteacher.Size = new System.Drawing.Size(322, 57);
+            this.Lblteacher.TabIndex = 7;
+            this.Lblteacher.Text = "EDUCADOR";
+            this.Lblteacher.Click += new System.EventHandler(this.Lblteacher_Click);
             // 
             // LblArrow3
             // 
@@ -151,17 +199,51 @@
             this.Panel4.Size = new System.Drawing.Size(1430, 1061);
             this.Panel4.TabIndex = 2;
             // 
-            // Lblteacher
+            // label2
             // 
-            this.Lblteacher.AutoSize = true;
-            this.Lblteacher.Font = new System.Drawing.Font("Swis721 Blk BT", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lblteacher.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.Lblteacher.Location = new System.Drawing.Point(15, 60);
-            this.Lblteacher.Name = "Lblteacher";
-            this.Lblteacher.Size = new System.Drawing.Size(322, 57);
-            this.Lblteacher.TabIndex = 7;
-            this.Lblteacher.Text = "EDUCADOR";
-            this.Lblteacher.Click += new System.EventHandler(this.Lblteacher_Click);
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Swis721 Blk BT", 39.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.label2.Location = new System.Drawing.Point(9, 366);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(93, 64);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "➕";
+            // 
+            // AgendarAulas
+            // 
+            this.AgendarAulas.AutoSize = true;
+            this.AgendarAulas.Font = new System.Drawing.Font("Swis721 Blk BT", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AgendarAulas.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.AgendarAulas.Location = new System.Drawing.Point(90, 380);
+            this.AgendarAulas.Name = "AgendarAulas";
+            this.AgendarAulas.Size = new System.Drawing.Size(246, 35);
+            this.AgendarAulas.TabIndex = 11;
+            this.AgendarAulas.Text = "Agendar aulas";
+            this.AgendarAulas.Click += new System.EventHandler(this.AgendarAulas_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Swis721 Blk BT", 39.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.label3.Location = new System.Drawing.Point(9, 440);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(93, 64);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "📅";
+            // 
+            // LblVerAulas
+            // 
+            this.LblVerAulas.AutoSize = true;
+            this.LblVerAulas.Font = new System.Drawing.Font("Swis721 Blk BT", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblVerAulas.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.LblVerAulas.Location = new System.Drawing.Point(91, 456);
+            this.LblVerAulas.Name = "LblVerAulas";
+            this.LblVerAulas.Size = new System.Drawing.Size(291, 35);
+            this.LblVerAulas.TabIndex = 13;
+            this.LblVerAulas.Text = "Aulas agendadas";
+            this.LblVerAulas.Click += new System.EventHandler(this.LblVerAulas_Click);
             // 
             // SegundaProf
             // 
@@ -194,5 +276,11 @@
         private System.Windows.Forms.Label LblPic3;
         private System.Windows.Forms.Label LblArrow3;
         private System.Windows.Forms.Label Lblteacher;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label LblAlunos;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label AgendarAulas;
+        private System.Windows.Forms.Label LblVerAulas;
+        private System.Windows.Forms.Label label3;
     }
 }

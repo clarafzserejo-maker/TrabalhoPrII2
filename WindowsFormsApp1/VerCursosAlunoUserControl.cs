@@ -26,7 +26,7 @@ namespace WindowsFormsApp1
             dataGridView3.ReadOnly = true; // Apenas visualização
 
             // Adiciona o evento para lidar com o clique na linha
-            dataGridView3.CellDoubleClick += dataGridView3_CellDoubleClick;
+           // dataGridView3.CellDoubleClick += dataGridView3_CellDoubleClick;
 
             this.TxbPesquisa2.TextChanged += TxbPesquisa2_TextChanged;
         }
@@ -122,41 +122,7 @@ namespace WindowsFormsApp1
             }
         }
 
-        private void dataGridView3_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            // Garante que o clique não foi no cabeçalho
-            if (e.RowIndex < 0) return;
-
-            try
-            {
-                // 1. Obtém o ID do curso da linha clicada
-                int idCursoSelecionado = Convert.ToInt32(
-                    dataGridView3.Rows[e.RowIndex].Cells["ID_CURSO"].Value
-                );
-
-                string nomeCurso = dataGridView3.Rows[e.RowIndex].Cells["NOME_CURSO"].Value.ToString();
-
-                // 2. Cria e exibe o novo UserControl de Alunos
-
-                // **IMPORTANTE**: Substitua 'VisualizarAlunosControl' pelo nome do seu UserControl
-                // que mostra a lista de alunos. Você precisa passar o ID_CURSO para ele.
-
-                // VisualizarAlunosControl alunosControl = new VisualizarAlunosControl(idCursoSelecionado);
-
-                // **Placeholder para a navegação**
-                MessageBox.Show($"Você selecionou o curso: {nomeCurso} (ID: {idCursoSelecionado}).\n" +
-                                "Próxima ação: Abrir tela de alunos.");
-
-                // Lógica de navegação:
-                // Exemplo, se o UserControl estiver em um Form principal chamado MainForm:
-                // ((MainForm)this.ParentForm).TrocarTela(alunosControl);
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Erro ao carregar dados do curso selecionado: " + ex.Message);
-            }
-        }
+      
 
         private void TxbPesquisa2_TextChanged(object sender, EventArgs e)
         {
@@ -205,6 +171,11 @@ namespace WindowsFormsApp1
         }
 
         private void LblSemCurso_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView3_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
 
         }

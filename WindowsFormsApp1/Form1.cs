@@ -37,6 +37,7 @@ namespace ProjetoProg
         }
         public static class SessaoUsuario
         {
+            public static string IdUsuario { get; set; }
             public static string Nome { get; set; }
             public static string Email { get; set; }
         }
@@ -277,10 +278,10 @@ namespace ProjetoProg
 
                     // 2. Busca nome e email do usuário logado
                     string sqlDados = $@"
-                SELECT {colunaNome}, {colunaEmail}
-                FROM {tabela}
-                WHERE {colunaId} = @usuario
-            ";
+    SELECT {colunaId}, {colunaNome}, {colunaEmail} -- 3 COLUNAS
+    FROM {tabela}
+    WHERE {colunaId} = @usuario
+";
 
                     using (SqlCommand cmdDados = new SqlCommand(sqlDados, cnn))
                     {
@@ -290,8 +291,10 @@ namespace ProjetoProg
                         {
                             if (reader.Read())
                             {
-                                SessaoUsuario.Nome = reader.GetString(0);
-                                SessaoUsuario.Email = reader.GetString(1);
+                                // O ID_PROFESSOR/ID_ALUNO deve ser SALVO aqui!
+                                SessaoUsuario.IdUsuario = reader[colunaId].ToString();
+                                SessaoUsuario.Nome = reader[colunaNome].ToString();
+                                SessaoUsuario.Email = reader[colunaEmail].ToString();
                             }
                         }
                     }
