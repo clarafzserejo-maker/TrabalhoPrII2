@@ -46,11 +46,11 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.LblSemCurso.AutoSize = true;
-            this.LblSemCurso.Font = new System.Drawing.Font("Swis721 Blk BT", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblSemCurso.Font = new System.Drawing.Font("Century Gothic", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblSemCurso.ForeColor = System.Drawing.SystemColors.AppWorkspace;
             this.LblSemCurso.Location = new System.Drawing.Point(503, 492);
             this.LblSemCurso.Name = "LblSemCurso";
-            this.LblSemCurso.Size = new System.Drawing.Size(659, 42);
+            this.LblSemCurso.Size = new System.Drawing.Size(581, 42);
             this.LblSemCurso.TabIndex = 1;
             this.LblSemCurso.Text = "Não existem cursos cadastrados.";
             this.LblSemCurso.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -68,9 +68,10 @@
             // 
             // TxbPesquisa2
             // 
-            this.TxbPesquisa2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(195)))), ((int)(((byte)(226)))));
+            this.TxbPesquisa2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(115)))), ((int)(((byte)(151)))));
             this.TxbPesquisa2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.TxbPesquisa2.Font = new System.Drawing.Font("Microsoft JhengHei", 21.75F);
+            this.TxbPesquisa2.Font = new System.Drawing.Font("Century Gothic", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxbPesquisa2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(213)))), ((int)(((byte)(202)))));
             this.TxbPesquisa2.Location = new System.Drawing.Point(128, 168);
             this.TxbPesquisa2.Multiline = true;
             this.TxbPesquisa2.Name = "TxbPesquisa2";
@@ -81,7 +82,7 @@
             // 
             this.dataGridView3.AllowUserToAddRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft JhengHei", 10F);
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.SteelBlue;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.LightCyan;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.SteelBlue;
@@ -92,7 +93,7 @@
             this.dataGridView3.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.LightCyan;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft JhengHei", 10F);
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.SteelBlue;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.LightCyan;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.SteelBlue;

@@ -39,7 +39,7 @@
             // 
             this.dataGridViewAlunos.AllowUserToAddRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft JhengHei", 10F);
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.SteelBlue;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.LightCyan;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.SteelBlue;
@@ -50,7 +50,7 @@
             this.dataGridViewAlunos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.LightCyan;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft JhengHei", 10F);
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.SteelBlue;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.LightCyan;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.SteelBlue;
@@ -59,7 +59,7 @@
             this.dataGridViewAlunos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft JhengHei", 10F);
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle3.ForeColor = System.Drawing.Color.SteelBlue;
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.LightCyan;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.SteelBlue;
