@@ -58,48 +58,20 @@ namespace ProjetoProg
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Btn));
-            this.LblUser = new System.Windows.Forms.Label();
-            this.LblPassword = new System.Windows.Forms.Label();
             this.TxbUser = new System.Windows.Forms.TextBox();
             this.TxbPassword = new System.Windows.Forms.TextBox();
             this.BtnLogin = new System.Windows.Forms.Button();
-            this.LblCreateAccount = new System.Windows.Forms.Label();
             this.LinkLblCreateAccount = new System.Windows.Forms.LinkLabel();
             this.LinkLblForgotAccount = new System.Windows.Forms.LinkLabel();
             this.CheckBoxTeacher = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
-            // LblUser
-            // 
-            this.LblUser.AutoSize = true;
-            this.LblUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(222)))));
-            this.LblUser.Font = new System.Drawing.Font("Swis721 Blk BT", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblUser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(188)))), ((int)(((byte)(199)))));
-            this.LblUser.Location = new System.Drawing.Point(288, 393);
-            this.LblUser.Name = "LblUser";
-            this.LblUser.Size = new System.Drawing.Size(149, 35);
-            this.LblUser.TabIndex = 1;
-            this.LblUser.Text = "Usuário:";
-            this.LblUser.Click += new System.EventHandler(this.LblUser_Click);
-            // 
-            // LblPassword
-            // 
-            this.LblPassword.AutoSize = true;
-            this.LblPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(222)))));
-            this.LblPassword.Font = new System.Drawing.Font("Swis721 Blk BT", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(188)))), ((int)(((byte)(199)))));
-            this.LblPassword.Location = new System.Drawing.Point(288, 501);
-            this.LblPassword.Name = "LblPassword";
-            this.LblPassword.Size = new System.Drawing.Size(125, 35);
-            this.LblPassword.TabIndex = 2;
-            this.LblPassword.Text = "Senha:";
-            this.LblPassword.Click += new System.EventHandler(this.LblPassword_Click);
-            // 
             // TxbUser
             // 
-            this.TxbUser.BackColor = System.Drawing.Color.PaleGoldenrod;
-            this.TxbUser.Font = new System.Drawing.Font("Microsoft JhengHei", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxbUser.Location = new System.Drawing.Point(294, 431);
+            this.TxbUser.BackColor = System.Drawing.Color.White;
+            this.TxbUser.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TxbUser.Font = new System.Drawing.Font("Century Gothic", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxbUser.Location = new System.Drawing.Point(1031, 468);
             this.TxbUser.Multiline = true;
             this.TxbUser.Name = "TxbUser";
             this.TxbUser.Size = new System.Drawing.Size(546, 47);
@@ -108,9 +80,10 @@ namespace ProjetoProg
             // 
             // TxbPassword
             // 
-            this.TxbPassword.BackColor = System.Drawing.Color.PaleGoldenrod;
-            this.TxbPassword.Font = new System.Drawing.Font("Microsoft JhengHei", 21.75F);
-            this.TxbPassword.Location = new System.Drawing.Point(294, 539);
+            this.TxbPassword.BackColor = System.Drawing.Color.White;
+            this.TxbPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TxbPassword.Font = new System.Drawing.Font("Century Gothic", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxbPassword.Location = new System.Drawing.Point(1031, 598);
             this.TxbPassword.Multiline = true;
             this.TxbPassword.Name = "TxbPassword";
             this.TxbPassword.PasswordChar = '•';
@@ -120,41 +93,28 @@ namespace ProjetoProg
             // 
             // BtnLogin
             // 
-            this.BtnLogin.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.BtnLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(115)))), ((int)(((byte)(151)))));
             this.BtnLogin.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnLogin.Font = new System.Drawing.Font("Swis721 Blk BT", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnLogin.Location = new System.Drawing.Point(473, 713);
+            this.BtnLogin.Font = new System.Drawing.Font("Century Gothic", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnLogin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(213)))), ((int)(((byte)(202)))));
+            this.BtnLogin.Location = new System.Drawing.Point(1248, 752);
             this.BtnLogin.Name = "BtnLogin";
-            this.BtnLogin.Size = new System.Drawing.Size(200, 57);
+            this.BtnLogin.Size = new System.Drawing.Size(281, 75);
             this.BtnLogin.TabIndex = 5;
-            this.BtnLogin.Text = "ENTRAR";
+            this.BtnLogin.Text = "Entrar";
             this.BtnLogin.UseVisualStyleBackColor = false;
             this.BtnLogin.Click += new System.EventHandler(this.BtnLogin_Click);
-            // 
-            // LblCreateAccount
-            // 
-            this.LblCreateAccount.AutoSize = true;
-            this.LblCreateAccount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(222)))));
-            this.LblCreateAccount.Font = new System.Drawing.Font("Swis721 Blk BT", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblCreateAccount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(188)))), ((int)(((byte)(199)))));
-            this.LblCreateAccount.Location = new System.Drawing.Point(472, 791);
-            this.LblCreateAccount.Name = "LblCreateAccount";
-            this.LblCreateAccount.Size = new System.Drawing.Size(202, 48);
-            this.LblCreateAccount.TabIndex = 6;
-            this.LblCreateAccount.Text = "Clique aqui para \r\ncriar uma conta\r\n";
-            this.LblCreateAccount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.LblCreateAccount.Click += new System.EventHandler(this.LblCreateAccount_Click);
             // 
             // LinkLblCreateAccount
             // 
             this.LinkLblCreateAccount.AutoSize = true;
-            this.LinkLblCreateAccount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(222)))));
+            this.LinkLblCreateAccount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(213)))), ((int)(((byte)(202)))));
             this.LinkLblCreateAccount.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.LinkLblCreateAccount.Font = new System.Drawing.Font("Swis721 Blk BT", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LinkLblCreateAccount.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(153)))), ((int)(((byte)(204)))));
-            this.LinkLblCreateAccount.Location = new System.Drawing.Point(549, 791);
+            this.LinkLblCreateAccount.Font = new System.Drawing.Font("Century Gothic", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LinkLblCreateAccount.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(76)))), ((int)(((byte)(125)))));
+            this.LinkLblCreateAccount.Location = new System.Drawing.Point(1131, 909);
             this.LinkLblCreateAccount.Name = "LinkLblCreateAccount";
-            this.LinkLblCreateAccount.Size = new System.Drawing.Size(59, 24);
+            this.LinkLblCreateAccount.Size = new System.Drawing.Size(94, 42);
             this.LinkLblCreateAccount.TabIndex = 7;
             this.LinkLblCreateAccount.TabStop = true;
             this.LinkLblCreateAccount.Text = "aqui";
@@ -163,13 +123,13 @@ namespace ProjetoProg
             // LinkLblForgotAccount
             // 
             this.LinkLblForgotAccount.AutoSize = true;
-            this.LinkLblForgotAccount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(222)))));
+            this.LinkLblForgotAccount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(213)))), ((int)(((byte)(202)))));
             this.LinkLblForgotAccount.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.LinkLblForgotAccount.Font = new System.Drawing.Font("Swis721 Blk BT", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LinkLblForgotAccount.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(153)))), ((int)(((byte)(204)))));
-            this.LinkLblForgotAccount.Location = new System.Drawing.Point(290, 591);
+            this.LinkLblForgotAccount.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LinkLblForgotAccount.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(76)))), ((int)(((byte)(125)))));
+            this.LinkLblForgotAccount.Location = new System.Drawing.Point(1435, 679);
             this.LinkLblForgotAccount.Name = "LinkLblForgotAccount";
-            this.LinkLblForgotAccount.Size = new System.Drawing.Size(247, 24);
+            this.LinkLblForgotAccount.Size = new System.Drawing.Size(288, 33);
             this.LinkLblForgotAccount.TabIndex = 8;
             this.LinkLblForgotAccount.TabStop = true;
             this.LinkLblForgotAccount.Text = "Esqueci minha senha";
@@ -178,13 +138,13 @@ namespace ProjetoProg
             // CheckBoxTeacher
             // 
             this.CheckBoxTeacher.AutoSize = true;
-            this.CheckBoxTeacher.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(222)))));
+            this.CheckBoxTeacher.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(213)))), ((int)(((byte)(202)))));
             this.CheckBoxTeacher.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CheckBoxTeacher.Font = new System.Drawing.Font("Swis721 Blk BT", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CheckBoxTeacher.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(153)))), ((int)(((byte)(204)))));
-            this.CheckBoxTeacher.Location = new System.Drawing.Point(294, 625);
+            this.CheckBoxTeacher.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckBoxTeacher.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(76)))), ((int)(((byte)(125)))));
+            this.CheckBoxTeacher.Location = new System.Drawing.Point(1031, 677);
             this.CheckBoxTeacher.Name = "CheckBoxTeacher";
-            this.CheckBoxTeacher.Size = new System.Drawing.Size(272, 28);
+            this.CheckBoxTeacher.Size = new System.Drawing.Size(331, 37);
             this.CheckBoxTeacher.TabIndex = 12;
             this.CheckBoxTeacher.Text = "Entrar como educador";
             this.CheckBoxTeacher.UseVisualStyleBackColor = false;
@@ -197,12 +157,10 @@ namespace ProjetoProg
             this.Controls.Add(this.CheckBoxTeacher);
             this.Controls.Add(this.LinkLblForgotAccount);
             this.Controls.Add(this.LinkLblCreateAccount);
-            this.Controls.Add(this.LblCreateAccount);
             this.Controls.Add(this.BtnLogin);
             this.Controls.Add(this.TxbPassword);
             this.Controls.Add(this.TxbUser);
-            this.Controls.Add(this.LblPassword);
-            this.Controls.Add(this.LblUser);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "Btn";
             this.Text = "ENTRAR";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

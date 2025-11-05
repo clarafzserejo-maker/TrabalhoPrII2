@@ -29,9 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCreateAccount));
-            this.LblCreateUser = new System.Windows.Forms.Label();
-            this.LblCreateEmail = new System.Windows.Forms.Label();
-            this.LblCreatePassword = new System.Windows.Forms.Label();
             this.TxbCreateUser = new System.Windows.Forms.TextBox();
             this.TxbCreatePassword = new System.Windows.Forms.TextBox();
             this.TxbEmail = new System.Windows.Forms.TextBox();
@@ -39,54 +36,16 @@
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.PickBack = new System.Windows.Forms.PictureBox();
             this.CheckBoxTeacher2 = new System.Windows.Forms.CheckBox();
-            this.LblName = new System.Windows.Forms.Label();
             this.TxbCreateName = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.PickBack)).BeginInit();
             this.SuspendLayout();
             // 
-            // LblCreateUser
-            // 
-            this.LblCreateUser.AutoSize = true;
-            this.LblCreateUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(222)))));
-            this.LblCreateUser.Font = new System.Drawing.Font("Swis721 Blk BT", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblCreateUser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(188)))), ((int)(((byte)(199)))));
-            this.LblCreateUser.Location = new System.Drawing.Point(1028, 396);
-            this.LblCreateUser.Name = "LblCreateUser";
-            this.LblCreateUser.Size = new System.Drawing.Size(149, 35);
-            this.LblCreateUser.TabIndex = 0;
-            this.LblCreateUser.Text = "Usuário:";
-            this.LblCreateUser.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // LblCreateEmail
-            // 
-            this.LblCreateEmail.AutoSize = true;
-            this.LblCreateEmail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(222)))));
-            this.LblCreateEmail.Font = new System.Drawing.Font("Swis721 Blk BT", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblCreateEmail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(188)))), ((int)(((byte)(199)))));
-            this.LblCreateEmail.Location = new System.Drawing.Point(1028, 598);
-            this.LblCreateEmail.Name = "LblCreateEmail";
-            this.LblCreateEmail.Size = new System.Drawing.Size(125, 35);
-            this.LblCreateEmail.TabIndex = 1;
-            this.LblCreateEmail.Text = "E-mail:";
-            this.LblCreateEmail.Click += new System.EventHandler(this.LblCreateEmail_Click);
-            // 
-            // LblCreatePassword
-            // 
-            this.LblCreatePassword.AutoSize = true;
-            this.LblCreatePassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(222)))));
-            this.LblCreatePassword.Font = new System.Drawing.Font("Swis721 Blk BT", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblCreatePassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(188)))), ((int)(((byte)(199)))));
-            this.LblCreatePassword.Location = new System.Drawing.Point(1028, 693);
-            this.LblCreatePassword.Name = "LblCreatePassword";
-            this.LblCreatePassword.Size = new System.Drawing.Size(125, 35);
-            this.LblCreatePassword.TabIndex = 2;
-            this.LblCreatePassword.Text = "Senha:";
-            // 
             // TxbCreateUser
             // 
-            this.TxbCreateUser.BackColor = System.Drawing.Color.PaleGoldenrod;
-            this.TxbCreateUser.Font = new System.Drawing.Font("Microsoft JhengHei", 21.75F);
-            this.TxbCreateUser.Location = new System.Drawing.Point(1034, 434);
+            this.TxbCreateUser.BackColor = System.Drawing.Color.White;
+            this.TxbCreateUser.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TxbCreateUser.Font = new System.Drawing.Font("Century Gothic", 21.75F);
+            this.TxbCreateUser.Location = new System.Drawing.Point(653, 331);
             this.TxbCreateUser.Multiline = true;
             this.TxbCreateUser.Name = "TxbCreateUser";
             this.TxbCreateUser.Size = new System.Drawing.Size(618, 44);
@@ -95,9 +54,10 @@
             // 
             // TxbCreatePassword
             // 
-            this.TxbCreatePassword.BackColor = System.Drawing.Color.PaleGoldenrod;
-            this.TxbCreatePassword.Font = new System.Drawing.Font("Microsoft JhengHei", 21.75F);
-            this.TxbCreatePassword.Location = new System.Drawing.Point(1034, 731);
+            this.TxbCreatePassword.BackColor = System.Drawing.Color.White;
+            this.TxbCreatePassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TxbCreatePassword.Font = new System.Drawing.Font("Century Gothic", 21.75F);
+            this.TxbCreatePassword.Location = new System.Drawing.Point(653, 772);
             this.TxbCreatePassword.Multiline = true;
             this.TxbCreatePassword.Name = "TxbCreatePassword";
             this.TxbCreatePassword.PasswordChar = '•';
@@ -106,9 +66,10 @@
             // 
             // TxbEmail
             // 
-            this.TxbEmail.BackColor = System.Drawing.Color.PaleGoldenrod;
-            this.TxbEmail.Font = new System.Drawing.Font("Microsoft JhengHei", 21.75F);
-            this.TxbEmail.Location = new System.Drawing.Point(1034, 637);
+            this.TxbEmail.BackColor = System.Drawing.Color.White;
+            this.TxbEmail.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TxbEmail.Font = new System.Drawing.Font("Century Gothic", 21.75F);
+            this.TxbEmail.Location = new System.Drawing.Point(653, 624);
             this.TxbEmail.Multiline = true;
             this.TxbEmail.Name = "TxbEmail";
             this.TxbEmail.Size = new System.Drawing.Size(618, 44);
@@ -117,14 +78,15 @@
             // 
             // BtnCreateAccount
             // 
-            this.BtnCreateAccount.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.BtnCreateAccount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(115)))), ((int)(((byte)(151)))));
             this.BtnCreateAccount.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnCreateAccount.Font = new System.Drawing.Font("Swis721 Blk BT", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnCreateAccount.Location = new System.Drawing.Point(1272, 828);
+            this.BtnCreateAccount.Font = new System.Drawing.Font("Century Gothic", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnCreateAccount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(213)))), ((int)(((byte)(202)))));
+            this.BtnCreateAccount.Location = new System.Drawing.Point(818, 901);
             this.BtnCreateAccount.Name = "BtnCreateAccount";
-            this.BtnCreateAccount.Size = new System.Drawing.Size(191, 54);
+            this.BtnCreateAccount.Size = new System.Drawing.Size(282, 73);
             this.BtnCreateAccount.TabIndex = 7;
-            this.BtnCreateAccount.Text = "CRIAR";
+            this.BtnCreateAccount.Text = "Criar conta";
             this.BtnCreateAccount.UseVisualStyleBackColor = false;
             this.BtnCreateAccount.Click += new System.EventHandler(this.BtnCreateAccount_Click);
             // 
@@ -133,9 +95,9 @@
             this.PickBack.Cursor = System.Windows.Forms.Cursors.Hand;
             this.PickBack.Image = ((System.Drawing.Image)(resources.GetObject("PickBack.Image")));
             this.PickBack.InitialImage = ((System.Drawing.Image)(resources.GetObject("PickBack.InitialImage")));
-            this.PickBack.Location = new System.Drawing.Point(3, 0);
+            this.PickBack.Location = new System.Drawing.Point(614, 71);
             this.PickBack.Name = "PickBack";
-            this.PickBack.Size = new System.Drawing.Size(93, 92);
+            this.PickBack.Size = new System.Drawing.Size(142, 88);
             this.PickBack.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.PickBack.TabIndex = 8;
             this.PickBack.TabStop = false;
@@ -144,34 +106,23 @@
             // CheckBoxTeacher2
             // 
             this.CheckBoxTeacher2.AutoSize = true;
-            this.CheckBoxTeacher2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(222)))));
+            this.CheckBoxTeacher2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(213)))), ((int)(((byte)(202)))));
             this.CheckBoxTeacher2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CheckBoxTeacher2.Font = new System.Drawing.Font("Swis721 Blk BT", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CheckBoxTeacher2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(153)))), ((int)(((byte)(204)))));
-            this.CheckBoxTeacher2.Location = new System.Drawing.Point(1034, 781);
+            this.CheckBoxTeacher2.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckBoxTeacher2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(115)))), ((int)(((byte)(151)))));
+            this.CheckBoxTeacher2.Location = new System.Drawing.Point(653, 836);
             this.CheckBoxTeacher2.Name = "CheckBoxTeacher2";
-            this.CheckBoxTeacher2.Size = new System.Drawing.Size(296, 28);
+            this.CheckBoxTeacher2.Size = new System.Drawing.Size(363, 37);
             this.CheckBoxTeacher2.TabIndex = 13;
             this.CheckBoxTeacher2.Text = "Criar conta de educador";
             this.CheckBoxTeacher2.UseVisualStyleBackColor = false;
             // 
-            // LblName
-            // 
-            this.LblName.AutoSize = true;
-            this.LblName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(222)))));
-            this.LblName.Font = new System.Drawing.Font("Swis721 Blk BT", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(188)))), ((int)(((byte)(199)))));
-            this.LblName.Location = new System.Drawing.Point(1028, 498);
-            this.LblName.Name = "LblName";
-            this.LblName.Size = new System.Drawing.Size(117, 35);
-            this.LblName.TabIndex = 14;
-            this.LblName.Text = "Nome:";
-            // 
             // TxbCreateName
             // 
-            this.TxbCreateName.BackColor = System.Drawing.Color.PaleGoldenrod;
-            this.TxbCreateName.Font = new System.Drawing.Font("Microsoft JhengHei", 21.75F);
-            this.TxbCreateName.Location = new System.Drawing.Point(1034, 536);
+            this.TxbCreateName.BackColor = System.Drawing.Color.White;
+            this.TxbCreateName.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TxbCreateName.Font = new System.Drawing.Font("Century Gothic", 21.75F);
+            this.TxbCreateName.Location = new System.Drawing.Point(653, 479);
             this.TxbCreateName.Multiline = true;
             this.TxbCreateName.Name = "TxbCreateName";
             this.TxbCreateName.Size = new System.Drawing.Size(618, 44);
@@ -184,16 +135,12 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1924, 1061);
             this.Controls.Add(this.TxbCreateName);
-            this.Controls.Add(this.LblName);
             this.Controls.Add(this.CheckBoxTeacher2);
             this.Controls.Add(this.PickBack);
             this.Controls.Add(this.BtnCreateAccount);
             this.Controls.Add(this.TxbEmail);
             this.Controls.Add(this.TxbCreatePassword);
             this.Controls.Add(this.TxbCreateUser);
-            this.Controls.Add(this.LblCreatePassword);
-            this.Controls.Add(this.LblCreateEmail);
-            this.Controls.Add(this.LblCreateUser);
             this.Name = "FrmCreateAccount";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Criar Conta";
@@ -206,10 +153,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Label LblCreateUser;
-        private System.Windows.Forms.Label LblCreateEmail;
-        private System.Windows.Forms.Label LblCreatePassword;
         private System.Windows.Forms.TextBox TxbCreateUser;
         private System.Windows.Forms.TextBox TxbCreatePassword;
         private System.Windows.Forms.TextBox TxbEmail;
@@ -217,7 +160,6 @@
         private System.Windows.Forms.ColorDialog colorDialog1;
         private System.Windows.Forms.PictureBox PickBack;
         private System.Windows.Forms.CheckBox CheckBoxTeacher2;
-        private System.Windows.Forms.Label LblName;
         private System.Windows.Forms.TextBox TxbCreateName;
     }
 }

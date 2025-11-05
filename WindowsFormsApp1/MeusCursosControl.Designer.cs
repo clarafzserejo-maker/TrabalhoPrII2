@@ -46,11 +46,11 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.LblSemCurso.AutoSize = true;
-            this.LblSemCurso.Font = new System.Drawing.Font("Swis721 Blk BT", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblSemCurso.Font = new System.Drawing.Font("Century Gothic", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblSemCurso.ForeColor = System.Drawing.SystemColors.AppWorkspace;
             this.LblSemCurso.Location = new System.Drawing.Point(500, 449);
             this.LblSemCurso.Name = "LblSemCurso";
-            this.LblSemCurso.Size = new System.Drawing.Size(659, 42);
+            this.LblSemCurso.Size = new System.Drawing.Size(581, 42);
             this.LblSemCurso.TabIndex = 0;
             this.LblSemCurso.Text = "Não existem cursos cadastrados.";
             this.LblSemCurso.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -60,7 +60,7 @@
             // 
             this.dataGridView2.AllowUserToAddRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft JhengHei", 10F);
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.SteelBlue;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.LightCyan;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.SteelBlue;
@@ -71,7 +71,7 @@
             this.dataGridView2.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.LightCyan;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft JhengHei", 10F);
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.SteelBlue;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.LightCyan;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.SteelBlue;
@@ -101,16 +101,17 @@
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(-605, -75);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1333, 344);
+            this.pictureBox1.Size = new System.Drawing.Size(1311, 331);
             this.pictureBox1.TabIndex = 12;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // TxbPesquisa4
             // 
-            this.TxbPesquisa4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(195)))), ((int)(((byte)(226)))));
+            this.TxbPesquisa4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(115)))), ((int)(((byte)(151)))));
             this.TxbPesquisa4.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.TxbPesquisa4.Font = new System.Drawing.Font("Microsoft JhengHei", 21.75F);
+            this.TxbPesquisa4.Font = new System.Drawing.Font("Century Gothic", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxbPesquisa4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(213)))), ((int)(((byte)(202)))));
             this.TxbPesquisa4.Location = new System.Drawing.Point(152, 170);
             this.TxbPesquisa4.Multiline = true;
             this.TxbPesquisa4.Name = "TxbPesquisa4";

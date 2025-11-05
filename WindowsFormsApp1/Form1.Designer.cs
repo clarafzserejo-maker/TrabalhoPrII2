@@ -19,12 +19,9 @@
             }
             base.Dispose(disposing);
         }
-        private System.Windows.Forms.Label LblUser;
-        private System.Windows.Forms.Label LblPassword;
         private System.Windows.Forms.TextBox TxbUser;
         private System.Windows.Forms.TextBox TxbPassword;
         private System.Windows.Forms.Button BtnLogin;
-        private System.Windows.Forms.Label LblCreateAccount;
         private System.Windows.Forms.LinkLabel LinkLblCreateAccount;
         private System.Windows.Forms.LinkLabel LinkLblForgotAccount;
         private System.Windows.Forms.CheckBox CheckBoxTeacher;

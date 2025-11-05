@@ -198,8 +198,10 @@ namespace WindowsFormsApp1
             }
         }
 
+        private void TxbChangePassword_TextChanged(object sender, EventArgs e)
+        {
 
-
+        }
     }
 
 }
