@@ -70,7 +70,7 @@ namespace ProjetoProg
             // 
             this.TxbUser.BackColor = System.Drawing.Color.White;
             this.TxbUser.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.TxbUser.Font = new System.Drawing.Font("Century Gothic", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxbUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxbUser.Location = new System.Drawing.Point(1031, 468);
             this.TxbUser.Multiline = true;
             this.TxbUser.Name = "TxbUser";
@@ -82,7 +82,7 @@ namespace ProjetoProg
             // 
             this.TxbPassword.BackColor = System.Drawing.Color.White;
             this.TxbPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.TxbPassword.Font = new System.Drawing.Font("Century Gothic", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxbPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxbPassword.Location = new System.Drawing.Point(1031, 598);
             this.TxbPassword.Multiline = true;
             this.TxbPassword.Name = "TxbPassword";
@@ -95,7 +95,7 @@ namespace ProjetoProg
             // 
             this.BtnLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(115)))), ((int)(((byte)(151)))));
             this.BtnLogin.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnLogin.Font = new System.Drawing.Font("Century Gothic", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnLogin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(213)))), ((int)(((byte)(202)))));
             this.BtnLogin.Location = new System.Drawing.Point(1248, 752);
             this.BtnLogin.Name = "BtnLogin";
@@ -110,11 +110,11 @@ namespace ProjetoProg
             this.LinkLblCreateAccount.AutoSize = true;
             this.LinkLblCreateAccount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(213)))), ((int)(((byte)(202)))));
             this.LinkLblCreateAccount.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.LinkLblCreateAccount.Font = new System.Drawing.Font("Century Gothic", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LinkLblCreateAccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LinkLblCreateAccount.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(76)))), ((int)(((byte)(125)))));
-            this.LinkLblCreateAccount.Location = new System.Drawing.Point(1131, 909);
+            this.LinkLblCreateAccount.Location = new System.Drawing.Point(1137, 912);
             this.LinkLblCreateAccount.Name = "LinkLblCreateAccount";
-            this.LinkLblCreateAccount.Size = new System.Drawing.Size(94, 42);
+            this.LinkLblCreateAccount.Size = new System.Drawing.Size(82, 39);
             this.LinkLblCreateAccount.TabIndex = 7;
             this.LinkLblCreateAccount.TabStop = true;
             this.LinkLblCreateAccount.Text = "aqui";
@@ -125,11 +125,11 @@ namespace ProjetoProg
             this.LinkLblForgotAccount.AutoSize = true;
             this.LinkLblForgotAccount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(213)))), ((int)(((byte)(202)))));
             this.LinkLblForgotAccount.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.LinkLblForgotAccount.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LinkLblForgotAccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LinkLblForgotAccount.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(76)))), ((int)(((byte)(125)))));
             this.LinkLblForgotAccount.Location = new System.Drawing.Point(1435, 679);
             this.LinkLblForgotAccount.Name = "LinkLblForgotAccount";
-            this.LinkLblForgotAccount.Size = new System.Drawing.Size(288, 33);
+            this.LinkLblForgotAccount.Size = new System.Drawing.Size(272, 31);
             this.LinkLblForgotAccount.TabIndex = 8;
             this.LinkLblForgotAccount.TabStop = true;
             this.LinkLblForgotAccount.Text = "Esqueci minha senha";
@@ -140,11 +140,11 @@ namespace ProjetoProg
             this.CheckBoxTeacher.AutoSize = true;
             this.CheckBoxTeacher.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(213)))), ((int)(((byte)(202)))));
             this.CheckBoxTeacher.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CheckBoxTeacher.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckBoxTeacher.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckBoxTeacher.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(76)))), ((int)(((byte)(125)))));
             this.CheckBoxTeacher.Location = new System.Drawing.Point(1031, 677);
             this.CheckBoxTeacher.Name = "CheckBoxTeacher";
-            this.CheckBoxTeacher.Size = new System.Drawing.Size(331, 37);
+            this.CheckBoxTeacher.Size = new System.Drawing.Size(297, 35);
             this.CheckBoxTeacher.TabIndex = 12;
             this.CheckBoxTeacher.Text = "Entrar como educador";
             this.CheckBoxTeacher.UseVisualStyleBackColor = false;
@@ -273,7 +273,9 @@ namespace ProjetoProg
                         perfilAluno.ShowDialog();
                     }
 
-                    this.Visible = true;
+                    this.Visible = false;
+                    TxbUser.Text = "";
+                    TxbPassword.Text = "";
                 }
             }
             catch (Exception ex)

@@ -45,12 +45,16 @@
             this.LblNameUser2 = new System.Windows.Forms.Label();
             this.LblPic2 = new System.Windows.Forms.Label();
             this.Panel4 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.Panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // Panel3
             // 
             this.Panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(76)))), ((int)(((byte)(125)))));
+            this.Panel3.Controls.Add(this.label5);
+            this.Panel3.Controls.Add(this.label4);
             this.Panel3.Controls.Add(this.LblVerAulas);
             this.Panel3.Controls.Add(this.label3);
             this.Panel3.Controls.Add(this.AgendarAulas);
@@ -75,11 +79,11 @@
             // LblVerAulas
             // 
             this.LblVerAulas.AutoSize = true;
-            this.LblVerAulas.Font = new System.Drawing.Font("Century Gothic", 21.75F);
+            this.LblVerAulas.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F);
             this.LblVerAulas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(213)))), ((int)(((byte)(202)))));
             this.LblVerAulas.Location = new System.Drawing.Point(91, 456);
             this.LblVerAulas.Name = "LblVerAulas";
-            this.LblVerAulas.Size = new System.Drawing.Size(267, 36);
+            this.LblVerAulas.Size = new System.Drawing.Size(239, 33);
             this.LblVerAulas.TabIndex = 13;
             this.LblVerAulas.Text = "Aulas agendadas";
             this.LblVerAulas.Click += new System.EventHandler(this.LblVerAulas_Click);
@@ -98,11 +102,11 @@
             // AgendarAulas
             // 
             this.AgendarAulas.AutoSize = true;
-            this.AgendarAulas.Font = new System.Drawing.Font("Century Gothic", 21.75F);
+            this.AgendarAulas.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F);
             this.AgendarAulas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(213)))), ((int)(((byte)(202)))));
             this.AgendarAulas.Location = new System.Drawing.Point(90, 380);
             this.AgendarAulas.Name = "AgendarAulas";
-            this.AgendarAulas.Size = new System.Drawing.Size(225, 36);
+            this.AgendarAulas.Size = new System.Drawing.Size(202, 33);
             this.AgendarAulas.TabIndex = 11;
             this.AgendarAulas.Text = "Agendar aulas";
             this.AgendarAulas.Click += new System.EventHandler(this.AgendarAulas_Click);
@@ -121,11 +125,11 @@
             // LblAlunos
             // 
             this.LblAlunos.AutoSize = true;
-            this.LblAlunos.Font = new System.Drawing.Font("Century Gothic", 21.75F);
+            this.LblAlunos.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F);
             this.LblAlunos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(213)))), ((int)(((byte)(202)))));
             this.LblAlunos.Location = new System.Drawing.Point(90, 310);
             this.LblAlunos.Name = "LblAlunos";
-            this.LblAlunos.Size = new System.Drawing.Size(108, 36);
+            this.LblAlunos.Size = new System.Drawing.Size(104, 33);
             this.LblAlunos.TabIndex = 9;
             this.LblAlunos.Text = "Alunos";
             this.LblAlunos.Click += new System.EventHandler(this.LblAlunos_Click);
@@ -145,11 +149,11 @@
             // Lblteacher
             // 
             this.Lblteacher.AutoSize = true;
-            this.Lblteacher.Font = new System.Drawing.Font("Century Gothic", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lblteacher.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Lblteacher.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(213)))), ((int)(((byte)(202)))));
             this.Lblteacher.Location = new System.Drawing.Point(15, 60);
             this.Lblteacher.Name = "Lblteacher";
-            this.Lblteacher.Size = new System.Drawing.Size(285, 56);
+            this.Lblteacher.Size = new System.Drawing.Size(334, 55);
             this.Lblteacher.TabIndex = 7;
             this.Lblteacher.Text = "PROFESSOR";
             this.Lblteacher.Click += new System.EventHandler(this.Lblteacher_Click);
@@ -169,11 +173,11 @@
             // LblCursos
             // 
             this.LblCursos.AutoSize = true;
-            this.LblCursos.Font = new System.Drawing.Font("Century Gothic", 21.75F);
+            this.LblCursos.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F);
             this.LblCursos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(213)))), ((int)(((byte)(202)))));
             this.LblCursos.Location = new System.Drawing.Point(90, 246);
             this.LblCursos.Name = "LblCursos";
-            this.LblCursos.Size = new System.Drawing.Size(107, 36);
+            this.LblCursos.Size = new System.Drawing.Size(108, 33);
             this.LblCursos.TabIndex = 5;
             this.LblCursos.Text = "Cursos";
             // 
@@ -205,22 +209,22 @@
             // 
             this.LblEmailUser2.AutoSize = true;
             this.LblEmailUser2.BackColor = System.Drawing.Color.Transparent;
-            this.LblEmailUser2.Font = new System.Drawing.Font("Century Gothic", 21.75F);
+            this.LblEmailUser2.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F);
             this.LblEmailUser2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(213)))), ((int)(((byte)(202)))));
             this.LblEmailUser2.Location = new System.Drawing.Point(90, 173);
             this.LblEmailUser2.Name = "LblEmailUser2";
-            this.LblEmailUser2.Size = new System.Drawing.Size(102, 36);
+            this.LblEmailUser2.Size = new System.Drawing.Size(93, 33);
             this.LblEmailUser2.TabIndex = 2;
             this.LblEmailUser2.Text = "label1";
             // 
             // LblNameUser2
             // 
             this.LblNameUser2.AutoSize = true;
-            this.LblNameUser2.Font = new System.Drawing.Font("Century Gothic", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblNameUser2.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblNameUser2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(213)))), ((int)(((byte)(202)))));
             this.LblNameUser2.Location = new System.Drawing.Point(90, 138);
             this.LblNameUser2.Name = "LblNameUser2";
-            this.LblNameUser2.Size = new System.Drawing.Size(102, 36);
+            this.LblNameUser2.Size = new System.Drawing.Size(93, 33);
             this.LblNameUser2.TabIndex = 1;
             this.LblNameUser2.Text = "label1";
             this.LblNameUser2.Click += new System.EventHandler(this.LblNameUser_Click);
@@ -244,6 +248,30 @@
             this.Panel4.Name = "Panel4";
             this.Panel4.Size = new System.Drawing.Size(1430, 1061);
             this.Panel4.TabIndex = 2;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 39.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(213)))), ((int)(((byte)(202)))));
+            this.label4.Location = new System.Drawing.Point(9, 928);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(87, 61);
+            this.label4.TabIndex = 14;
+            this.label4.Text = "🗑";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F);
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(213)))), ((int)(((byte)(202)))));
+            this.label5.Location = new System.Drawing.Point(90, 944);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(183, 33);
+            this.label5.TabIndex = 15;
+            this.label5.Text = "Excluir conta";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // SegundaProf
             // 
@@ -282,5 +310,7 @@
         private System.Windows.Forms.Label AgendarAulas;
         private System.Windows.Forms.Label LblVerAulas;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
     }
 }

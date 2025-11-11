@@ -44,7 +44,7 @@
             this.DgvAgenda.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DgvAgenda.Location = new System.Drawing.Point(26, 222);
             this.DgvAgenda.Name = "DgvAgenda";
-            this.DgvAgenda.Size = new System.Drawing.Size(240, 150);
+            this.DgvAgenda.Size = new System.Drawing.Size(479, 272);
             this.DgvAgenda.TabIndex = 1;
             // 
             // VisualizarAgendaUserControl

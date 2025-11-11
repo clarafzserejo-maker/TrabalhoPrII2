@@ -85,6 +85,18 @@
     <Compile Include="AlunosUserControl.Designer.cs">
       <DependentUpon>AlunosUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="ExcluirContaAlunoUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ExcluirContaAlunoUserControl.Designer.cs">
+      <DependentUpon>ExcluirContaAlunoUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ExcluirContaProfessorUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ExcluirContaProfessorUserControl.Designer.cs">
+      <DependentUpon>ExcluirContaProfessorUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form4.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -177,6 +189,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AlunosUserControl.resx">
       <DependentUpon>AlunosUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExcluirContaAlunoUserControl.resx">
+      <DependentUpon>ExcluirContaAlunoUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExcluirContaProfessorUserControl.resx">
+      <DependentUpon>ExcluirContaProfessorUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form4.resx">
       <DependentUpon>Form4.cs</DependentUpon>

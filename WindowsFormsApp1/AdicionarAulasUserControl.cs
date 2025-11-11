@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static ProjetoProg.Btn;
+using System.Globalization; // NECESSÁRIO para CultureInfo.InvariantCulture e TimeSpanStyles
 
 namespace WindowsFormsApp1
 {
@@ -92,6 +93,7 @@ namespace WindowsFormsApp1
 
             if (CmbCurso.SelectedValue != null && CmbCurso.SelectedValue != DBNull.Value)
             {
+                // Assumindo que ID_CURSO é um INT
                 if (int.TryParse(CmbCurso.SelectedValue.ToString(), out int idCursoSelecionado))
                 {
                     CarregarAlunosPorCurso(idCursoSelecionado);
@@ -181,7 +183,12 @@ namespace WindowsFormsApp1
                 MessageBox.Show("Selecione um curso antes de salvar.", "Aviso");
                 return;
             }
-            int idCurso = int.Parse(CmbCurso.SelectedValue.ToString());
+            // Assumindo que ID_CURSO é um INT
+            if (!int.TryParse(CmbCurso.SelectedValue.ToString(), out int idCurso))
+            {
+                MessageBox.Show("O ID do curso selecionado é inválido.", "Erro");
+                return;
+            }
 
             // 3. Coletar Alunos Selecionados (IDs Múltiplos) - AGORA COMO STRING
             List<string> idsAlunosSelecionados = new List<string>();
@@ -198,7 +205,7 @@ namespace WindowsFormsApp1
             // Itera sobre os itens selecionados para extrair o ID_ALUNO (STRING)
             foreach (DataRowView item in LstAlunos.SelectedItems)
             {
-                // Apenas coleta o valor como string, sem TryParse
+                // Apenas coleta o valor como string
                 string idAluno = item["ID_ALUNO"].ToString();
 
                 if (!string.IsNullOrEmpty(idAluno))
@@ -215,28 +222,94 @@ namespace WindowsFormsApp1
 
             // 4. Coletar Data e Hora
             DateTime dataAula = DtPickerDataAula.Value.Date;
-            string horaStr = TxbHoraAula.Text.Trim();
 
-            if (!TimeSpan.TryParse(horaStr, out TimeSpan horaAula))
+            // Tenta localizar a MaskedTextBox
+            MaskedTextBox TxbHoraAula = this.Controls.Find("TxbHoraAula", true).FirstOrDefault() as MaskedTextBox;
+
+            if (TxbHoraAula == null)
             {
-                MessageBox.Show("Hora inválida. Verifique se o formato é HH:mm (ex: 14:30).", "Aviso");
+                MessageBox.Show("Erro: O controle TxbHoraAula não foi encontrado.", "Erro de Componente");
                 return;
             }
 
+            // Coleta a string do MaskedTextBox
+            string horaStr = TxbHoraAula.Text;
+
+            // =======================================================================================
+            // CORREÇÃO PARA MASKEDTEXTBOX (V2 - Sem GetText()):
+            // Remove o caractere de prompt (geralmente '_') da string antes de fazer o parsing.
+            // Isso garante que "14:30_" se torne "14:30".
+            // =======================================================================================
+            horaStr = horaStr.Replace(TxbHoraAula.PromptChar, ' ').Trim(); // Remove o PromptChar (ex: '_') e corta espaços
+
+            TimeSpan horaAula; // Variável declarada para evitar o erro de contexto
+
+            // =======================================================================================
+            // LÓGICA ROBUSTA DE PARSING MANUAL (Ainda a melhor para ignorar problemas de formato)
+            // =======================================================================================
+            string[] partesHora = horaStr.Split(':');
+
+            // Valida se a string tem exatamente dois componentes (HH e MM)
+            if (partesHora.Length != 2)
+            {
+                MessageBox.Show(
+                   $"Hora inválida. Formato incorreto. Por favor, insira a hora no formato exato HH:mm (ex: 14:30). O valor inserido foi: '{horaStr}'",
+                   "Aviso - Formato Inválido");
+                return;
+            }
+
+            // Tenta converter Hora (HH)
+            // NOTA: É importante fazer o Trim() aqui caso a MaskedTextBox tenha inserido espaços
+            if (!int.TryParse(partesHora[0].Trim(), out int hora) || hora < 0 || hora > 23)
+            {
+                MessageBox.Show(
+                    $"Hora inválida ({partesHora[0].Trim()}). O valor deve ser um número entre 00 e 23.",
+                    "Aviso - Hora Inválida");
+                return;
+            }
+
+            // Tenta converter Minuto (MM)
+            if (!int.TryParse(partesHora[1].Trim(), out int minuto) || minuto < 0 || minuto > 59)
+            {
+                MessageBox.Show(
+                    $"Minuto inválido ({partesHora[1].Trim()}). O valor deve ser um número entre 00 e 59.",
+                    "Aviso - Minuto Inválido");
+                return;
+            }
+
+            // Se chegou aqui, a conversão funcionou. Cria o TimeSpan
+            try
+            {
+                horaAula = new TimeSpan(hora, minuto, 0);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show(
+                   $"Erro ao criar a hora com os valores: {hora}:{minuto}. Verifique se os números são válidos.",
+                   "Aviso - Erro de TimeSpan");
+                return;
+            }
+            // =======================================================================================
+
+
             DateTime dataEHora = dataAula.Add(horaAula);
 
+            // VALIDAÇÃO DE DATA E HORA NO PASSADO
+            if (dataEHora <= DateTime.Now)
+            {
+                MessageBox.Show("Não é possível agendar aulas em data ou horário que já passou. Selecione um horário futuro.", "Erro de Agendamento");
+                return;
+            }
+            // =======================================================================================
+
             // 5. Salvar no Banco
-            // CHAMADA CORRIGIDA: Passa List<string>
             SalvarAgendamento(idProfessorStr, idCurso, idsAlunosSelecionados, dataEHora);
         }
 
         // ASSINATURA CORRIGIDA: Agora recebe List<string> para os IDs dos alunos
         private void SalvarAgendamento(string idProfessorStr, int idCurso, List<string> idsAlunos, DateTime dataEHora)
         {
-            // O ID do professor JÁ É a string (VARCHAR). Removemos a tentativa de conversão para INT.
             string idProfessor = idProfessorStr;
-
-            // O código de conexão não muda
 
             string connectionString = @"Data Source=sqlexpress;Initial Catalog=CJ3027317PR2;User ID=aluno;Password=aluno";
             using (SqlConnection con = new SqlConnection(connectionString))

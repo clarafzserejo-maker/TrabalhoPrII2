@@ -65,7 +65,7 @@
             // 
             this.BtnSendCode.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(115)))), ((int)(((byte)(151)))));
             this.BtnSendCode.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnSendCode.Font = new System.Drawing.Font("Century Gothic", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnSendCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnSendCode.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(213)))), ((int)(((byte)(202)))));
             this.BtnSendCode.Location = new System.Drawing.Point(817, 597);
             this.BtnSendCode.Name = "BtnSendCode";
@@ -90,7 +90,7 @@
             // 
             this.BtnConfirmCode.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(115)))), ((int)(((byte)(151)))));
             this.BtnConfirmCode.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnConfirmCode.Font = new System.Drawing.Font("Century Gothic", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnConfirmCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnConfirmCode.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(213)))), ((int)(((byte)(202)))));
             this.BtnConfirmCode.Location = new System.Drawing.Point(817, 843);
             this.BtnConfirmCode.Name = "BtnConfirmCode";

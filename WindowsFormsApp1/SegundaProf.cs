@@ -142,5 +142,18 @@ namespace WindowsFormsApp1
             Panel4.Controls.Add(alunosControl);
             alunosControl.Dock = DockStyle.Fill;
         }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+            ExcluirContaProfessorUserControl alunosControl = new ExcluirContaProfessorUserControl();
+            Panel4.Controls.Clear();
+            Panel4.Controls.Add(alunosControl);
+            alunosControl.Dock = DockStyle.Fill;
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

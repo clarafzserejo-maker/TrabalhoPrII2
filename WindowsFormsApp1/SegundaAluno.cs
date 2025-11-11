@@ -130,5 +130,26 @@ namespace WindowsFormsApp1
             Panel5.Controls.Add(alunosControl);
             alunosControl.Dock = DockStyle.Fill;
         }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+            ExcluirContaAlunoUserControl alunosControl = new ExcluirContaAlunoUserControl();
+            Panel5.Controls.Clear();
+            Panel5.Controls.Add(alunosControl);
+            alunosControl.Dock = DockStyle.Fill;
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LblVerAulas_Click(object sender, EventArgs e)
+        {
+            VisualizarAgendaUserControl alunosControl = new VisualizarAgendaUserControl();
+            Panel5.Controls.Clear();
+            Panel5.Controls.Add(alunosControl);
+            alunosControl.Dock = DockStyle.Fill;
+        }
     }
 }

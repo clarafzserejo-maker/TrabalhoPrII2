@@ -48,22 +48,22 @@
             // LblNomedoCurso
             // 
             this.LblNomedoCurso.AutoSize = true;
-            this.LblNomedoCurso.Font = new System.Drawing.Font("Century Gothic", 21F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblNomedoCurso.Font = new System.Drawing.Font("Microsoft Sans Serif", 21F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblNomedoCurso.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(115)))), ((int)(((byte)(151)))));
             this.LblNomedoCurso.Location = new System.Drawing.Point(64, 365);
             this.LblNomedoCurso.Name = "LblNomedoCurso";
-            this.LblNomedoCurso.Size = new System.Drawing.Size(484, 34);
+            this.LblNomedoCurso.Size = new System.Drawing.Size(440, 32);
             this.LblNomedoCurso.TabIndex = 0;
             this.LblNomedoCurso.Text = "Digite o nome do curso/disciplina:";
             // 
             // LblCargaHoraria
             // 
             this.LblCargaHoraria.AutoSize = true;
-            this.LblCargaHoraria.Font = new System.Drawing.Font("Century Gothic", 21F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblCargaHoraria.Font = new System.Drawing.Font("Microsoft Sans Serif", 21F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblCargaHoraria.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(115)))), ((int)(((byte)(151)))));
             this.LblCargaHoraria.Location = new System.Drawing.Point(64, 491);
             this.LblCargaHoraria.Name = "LblCargaHoraria";
-            this.LblCargaHoraria.Size = new System.Drawing.Size(440, 34);
+            this.LblCargaHoraria.Size = new System.Drawing.Size(406, 32);
             this.LblCargaHoraria.TabIndex = 1;
             this.LblCargaHoraria.Text = "Carga horária do curso (horas):";
             this.LblCargaHoraria.Click += new System.EventHandler(this.LblCargaHoraria_Click);
@@ -72,8 +72,8 @@
             // 
             this.TxbNomeCurso.BackColor = System.Drawing.Color.White;
             this.TxbNomeCurso.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.TxbNomeCurso.Font = new System.Drawing.Font("Century Gothic", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxbNomeCurso.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(213)))), ((int)(((byte)(202)))));
+            this.TxbNomeCurso.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxbNomeCurso.ForeColor = System.Drawing.Color.Black;
             this.TxbNomeCurso.Location = new System.Drawing.Point(66, 413);
             this.TxbNomeCurso.Multiline = true;
             this.TxbNomeCurso.Name = "TxbNomeCurso";
@@ -84,8 +84,8 @@
             // 
             this.TxbCargaHoraria.BackColor = System.Drawing.Color.White;
             this.TxbCargaHoraria.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.TxbCargaHoraria.Font = new System.Drawing.Font("Century Gothic", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxbCargaHoraria.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(213)))), ((int)(((byte)(202)))));
+            this.TxbCargaHoraria.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxbCargaHoraria.ForeColor = System.Drawing.Color.Black;
             this.TxbCargaHoraria.Location = new System.Drawing.Point(66, 548);
             this.TxbCargaHoraria.Multiline = true;
             this.TxbCargaHoraria.Name = "TxbCargaHoraria";
@@ -95,7 +95,7 @@
             // BtnAddCourse
             // 
             this.BtnAddCourse.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(115)))), ((int)(((byte)(151)))));
-            this.BtnAddCourse.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnAddCourse.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnAddCourse.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(213)))), ((int)(((byte)(202)))));
             this.BtnAddCourse.Location = new System.Drawing.Point(173, 685);
             this.BtnAddCourse.Name = "BtnAddCourse";
@@ -114,7 +114,7 @@
             this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(143)))), ((int)(((byte)(177)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.HotPink;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -123,7 +123,7 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(228)))), ((int)(((byte)(236)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.PaleVioletRed;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
@@ -143,18 +143,18 @@
             // LblTable
             // 
             this.LblTable.AutoSize = true;
-            this.LblTable.Font = new System.Drawing.Font("Century Gothic", 21F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblTable.Font = new System.Drawing.Font("Microsoft Sans Serif", 21F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblTable.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(115)))), ((int)(((byte)(151)))));
             this.LblTable.Location = new System.Drawing.Point(855, 112);
             this.LblTable.Name = "LblTable";
-            this.LblTable.Size = new System.Drawing.Size(437, 68);
+            this.LblTable.Size = new System.Drawing.Size(406, 64);
             this.LblTable.TabIndex = 6;
             this.LblTable.Text = "Verifique se esse curso já foi\r\ncadastrado (se sim, selecione):";
             // 
             // BtnSaveCourse
             // 
             this.BtnSaveCourse.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(115)))), ((int)(((byte)(151)))));
-            this.BtnSaveCourse.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnSaveCourse.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnSaveCourse.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(213)))), ((int)(((byte)(202)))));
             this.BtnSaveCourse.Location = new System.Drawing.Point(1010, 685);
             this.BtnSaveCourse.Name = "BtnSaveCourse";
@@ -177,7 +177,7 @@
             // 
             this.TxbPesquisa3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(115)))), ((int)(((byte)(151)))));
             this.TxbPesquisa3.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.TxbPesquisa3.Font = new System.Drawing.Font("Century Gothic", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxbPesquisa3.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxbPesquisa3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(213)))), ((int)(((byte)(202)))));
             this.TxbPesquisa3.Location = new System.Drawing.Point(849, 217);
             this.TxbPesquisa3.Multiline = true;

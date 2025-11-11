@@ -26,6 +26,12 @@ namespace WindowsFormsApp1
 
         private void CarregarCursos()
         {
+            // Garante que o objeto DataTable exista (embora já declarado na classe)
+            if (dtCursos == null)
+            {
+                dtCursos = new DataTable();
+            }
+
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 string query = @"
@@ -37,21 +43,24 @@ namespace WindowsFormsApp1
 
                 SqlDataAdapter da = new SqlDataAdapter(query, conn);
 
-                // 1. Preenche a variável de classe (dtCursos) com os dados brutos
+                // 1. Limpa o DataTable antes de recarregar
                 dtCursos.Clear();
+
+                // 2. Preenche a variável de classe (dtCursos) com os novos dados brutos
                 da.Fill(dtCursos);
 
-                // 2. Cria uma DataView para a filtragem e a define como DataSource
+                // 3. Cria uma DataView para a filtragem e a define como DataSource
+                // NOTA: É fundamental que o DataGridView continue usando o DataView,
+                // pois é ele quem aplica o filtro da pesquisa (TxbPesquisa3_TextChanged).
                 DataView dv = new DataView(dtCursos);
                 dataGridView1.DataSource = dv;
 
-                // Configuração dos cabeçalhos
+                // ... (O restante da configuração das colunas) ...
                 dataGridView1.Columns["NOME_CURSO"].HeaderText = "CURSO";
                 dataGridView1.Columns["CARGA_HORARIA"].HeaderText = "CARGA HORÁRIA";
                 dataGridView1.Columns["NOME_PROFESSOR"].HeaderText = "PROFESSOR";
                 dataGridView1.Columns["ID_CURSO"].Visible = false;
                 dataGridView1.Columns["ID_PROFESSOR"].Visible = false;
-
             }
         }
 
@@ -62,9 +71,12 @@ namespace WindowsFormsApp1
 
         private void button1_Click(object sender, EventArgs e)
         {
-           
             string nomeCurso = TxbNomeCurso.Text.Trim();
             string cargaHoraria = TxbCargaHoraria.Text.Trim();
+
+            // Obter o ID do professor logado
+            string emailProfessor = SessaoUsuario.Email;
+            object idProfessorPK = null; // Vamos buscar o PK
 
             if (nomeCurso == "" || cargaHoraria == "")
             {
@@ -75,31 +87,67 @@ namespace WindowsFormsApp1
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 conn.Open();
+                SqlTransaction transaction = conn.BeginTransaction(); // Usar transação para 2 INSERTs
 
-                // Verifica se já existe curso com esse nome
-                SqlCommand checkCmd = new SqlCommand("SELECT COUNT(*) FROM CURSOS WHERE NOME_CURSO = @nome AND CARGA_HORARIA = @carga", conn);
-                checkCmd.Parameters.AddWithValue("@nome", nomeCurso);
-                checkCmd.Parameters.AddWithValue("@carga", cargaHoraria);
-
-                int existe = (int)checkCmd.ExecuteScalar();
-
-                if (existe > 0)
+                try
                 {
-                    MessageBox.Show("Esse curso já existe no banco de dados.");
-                    return;
+                    // PASSO 0: OBTER O ID DO PROFESSOR (CHAVE PRIMÁRIA)
+                    SqlCommand getIdCmd = new SqlCommand("SELECT ID_PROFESSOR FROM PROFESSORES WHERE EMAIL_PROFESSOR = @email", conn, transaction);
+                    getIdCmd.Parameters.AddWithValue("@email", emailProfessor);
+                    idProfessorPK = getIdCmd.ExecuteScalar();
+
+                    if (idProfessorPK == null)
+                    {
+                        MessageBox.Show("Erro: Professor logado não encontrado.", "Erro");
+                        transaction.Rollback();
+                        return;
+                    }
+
+                    // PASSO 1: VERIFICAR DUPLICIDADE (mantido)
+                    SqlCommand checkCmd = new SqlCommand("SELECT COUNT(*) FROM CURSOS WHERE NOME_CURSO = @nome AND CARGA_HORARIA = @carga", conn, transaction);
+                    checkCmd.Parameters.AddWithValue("@nome", nomeCurso);
+                    checkCmd.Parameters.AddWithValue("@carga", cargaHoraria);
+                    int existe = (int)checkCmd.ExecuteScalar();
+
+                    if (existe > 0)
+                    {
+                        MessageBox.Show("Esse curso já existe no banco de dados.");
+                        transaction.Rollback();
+                        return;
+                    }
+
+                    // PASSO 2: INSERIR O NOVO CURSO e OBTER O ID
+                    SqlCommand insertCursoCmd = new SqlCommand(
+                        "INSERT INTO CURSOS (NOME_CURSO, CARGA_HORARIA) VALUES (@nome, @carga); SELECT SCOPE_IDENTITY();", conn, transaction);
+                    insertCursoCmd.Parameters.AddWithValue("@nome", nomeCurso);
+                    insertCursoCmd.Parameters.AddWithValue("@carga", cargaHoraria);
+
+                    // EXECUTA O INSERT E PEGA O ID_CURSO RECÉM-CRIADO (se ID_CURSO for IDENTITY)
+                    int novoIdCurso = Convert.ToInt32(insertCursoCmd.ExecuteScalar());
+
+                    // PASSO 3: INSERIR O VÍNCULO DO PROFESSOR COM O NOVO CURSO
+                    SqlCommand insertVinculoCmd = new SqlCommand(
+                        "INSERT INTO CURSOS_PROFESSORES (ID_PROFESSOR, ID_CURSO) VALUES (@profId, @cursoId)", conn, transaction);
+                    insertVinculoCmd.Parameters.AddWithValue("@profId", idProfessorPK);
+                    insertVinculoCmd.Parameters.AddWithValue("@cursoId", novoIdCurso);
+                    insertVinculoCmd.ExecuteNonQuery();
+
+                    // SUCESSO: Confirma as duas inserções
+                    transaction.Commit();
+
+                    // PASSO 4: RECARRGAR A LISTA
+                    CarregarCursos();
+
+                    MessageBox.Show("Curso adicionado e vinculado com sucesso!");
+                    TxbNomeCurso.Text = "";
+                    TxbCargaHoraria.Text = "";
                 }
-
-                // Se não existir, adiciona
-                SqlCommand insertCmd = new SqlCommand(
-                    "INSERT INTO CURSOS (NOME_CURSO, CARGA_HORARIA) VALUES (@nome, @carga)", conn);
-                insertCmd.Parameters.AddWithValue("@nome", nomeCurso);
-                insertCmd.Parameters.AddWithValue("@carga", cargaHoraria);
-                insertCmd.ExecuteNonQuery();
-
-                MessageBox.Show("Curso adicionado com sucesso!");
+                catch (Exception ex)
+                {
+                    transaction.Rollback();
+                    MessageBox.Show("Erro ao adicionar curso: " + ex.Message);
+                }
             }
-
-            CarregarCursos(); // atualiza o DataGridView
         }
 
         private void BtnSaveCourse_Click(object sender, EventArgs e)
