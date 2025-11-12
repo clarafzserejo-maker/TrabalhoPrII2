@@ -170,7 +170,15 @@ namespace WindowsFormsApp1
 
         private void BtnSalvarAula_Click(object sender, EventArgs e)
         {
+            string linkMeet = txtLinkMeet.Text;
             string idProfessorStr = SessaoUsuario.IdUsuario;
+
+            if (string.IsNullOrWhiteSpace(linkMeet))
+            {
+                MessageBox.Show("Por favor, gere e cole o link do Google Meet antes de salvar.");
+                return;
+            }
+
             if (string.IsNullOrEmpty(idProfessorStr))
             {
                 MessageBox.Show("Erro de sessão. ID do professor não encontrado.", "Erro");
@@ -310,7 +318,7 @@ namespace WindowsFormsApp1
         private void SalvarAgendamento(string idProfessorStr, int idCurso, List<string> idsAlunos, DateTime dataEHora)
         {
             string idProfessor = idProfessorStr;
-
+            string linkMeet = txtLinkMeet.Text;
             string connectionString = @"Data Source=sqlexpress;Initial Catalog=CJ3027317PR2;User ID=aluno;Password=aluno";
             using (SqlConnection con = new SqlConnection(connectionString))
             {
@@ -321,13 +329,14 @@ namespace WindowsFormsApp1
                 {
                     // Query para inserção na tabela AULAS_AGENDADAS (ID_PROFESSOR é string/VARCHAR)
                     string query = @"
-                INSERT INTO AULAS_AGENDADAS (ID_PROFESSOR, ID_ALUNO, ID_CURSO, DATA_HORA)
-                VALUES (@idProfessor, @idAluno, @idCurso, @dataHora)";
+                INSERT INTO AULAS_AGENDADAS (ID_PROFESSOR, ID_ALUNO, ID_CURSO, DATA_HORA, LINK_MEET)
+                VALUES (@idProfessor, @idAluno, @idCurso, @dataHora, @linkMeet)";
 
                     SqlCommand cmd = new SqlCommand(query, con, transaction);
 
                     // CORREÇÃO: Define o parâmetro ID_PROFESSOR como STRING (NVarChar)
                     cmd.Parameters.Add("@idProfessor", SqlDbType.NVarChar, 50).Value = idProfessor;
+                    cmd.Parameters.AddWithValue("@linkMeet", linkMeet);
 
                     cmd.Parameters.Add("@idCurso", SqlDbType.Int).Value = idCurso;
                     cmd.Parameters.Add("@dataHora", SqlDbType.DateTime).Value = dataEHora;
@@ -351,6 +360,28 @@ namespace WindowsFormsApp1
                     transaction.Rollback();
                     MessageBox.Show("Erro ao salvar agendamento: " + ex.Message, "Erro Crítico");
                 }
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                MessageBox.Show(
+                   "Uma nova aba foi aberta no seu navegador.\n\nClique em 'Nova reunião' → 'Criar uma para mais tarde'.\nDepois copie o link gerado e cole no campo 'Link Meet' da aula.",
+                   "Gerar Link do Meet",
+                   MessageBoxButtons.OK,
+                   MessageBoxIcon.Information
+               );
+                // Abre o site do Google Meet
+                System.Diagnostics.Process.Start("https://meet.google.com/landing");
+
+                // Mostra uma mensagem para o usuário copiar o link
+               
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erro ao abrir o Google Meet: {ex.Message}");
             }
         }
     }

@@ -28,8 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SegundaProf));
             this.Panel3 = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.LblVerAulas = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.AgendarAulas = new System.Windows.Forms.Label();
@@ -45,8 +48,7 @@
             this.LblNameUser2 = new System.Windows.Forms.Label();
             this.LblPic2 = new System.Windows.Forms.Label();
             this.Panel4 = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.timerVerificarAulas = new System.Windows.Forms.Timer(this.components);
             this.Panel3.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -75,6 +77,30 @@
             this.Panel3.Name = "Panel3";
             this.Panel3.Size = new System.Drawing.Size(494, 1061);
             this.Panel3.TabIndex = 1;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F);
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(213)))), ((int)(((byte)(202)))));
+            this.label5.Location = new System.Drawing.Point(90, 944);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(183, 33);
+            this.label5.TabIndex = 15;
+            this.label5.Text = "Excluir conta";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 39.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(213)))), ((int)(((byte)(202)))));
+            this.label4.Location = new System.Drawing.Point(9, 928);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(87, 61);
+            this.label4.TabIndex = 14;
+            this.label4.Text = "🗑";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // LblVerAulas
             // 
@@ -249,29 +275,11 @@
             this.Panel4.Size = new System.Drawing.Size(1430, 1061);
             this.Panel4.TabIndex = 2;
             // 
-            // label4
+            // timerVerificarAulas
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 39.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(213)))), ((int)(((byte)(202)))));
-            this.label4.Location = new System.Drawing.Point(9, 928);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(87, 61);
-            this.label4.TabIndex = 14;
-            this.label4.Text = "🗑";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F);
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(213)))), ((int)(((byte)(202)))));
-            this.label5.Location = new System.Drawing.Point(90, 944);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(183, 33);
-            this.label5.TabIndex = 15;
-            this.label5.Text = "Excluir conta";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
+            this.timerVerificarAulas.Enabled = true;
+            this.timerVerificarAulas.Interval = 60000;
+            this.timerVerificarAulas.Tick += new System.EventHandler(this.timerVerificarAulas_Tick);
             // 
             // SegundaProf
             // 
@@ -312,5 +320,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Timer timerVerificarAulas;
     }
 }

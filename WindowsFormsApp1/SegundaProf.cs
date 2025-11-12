@@ -1,13 +1,16 @@
-﻿using System;
+﻿using ProjetoProg;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using ProjetoProg;
 using static ProjetoProg.Btn;
 
 namespace WindowsFormsApp1
@@ -70,6 +73,9 @@ namespace WindowsFormsApp1
                 var posicao = LblArrow3.PointToScreen(new Point(0, LblArrow3.Height));
                 cursos.Show(posicao); // abre exatamente abaixo da seta
             };
+
+            timerVerificarAulas.Tick += timerVerificarAulas_Tick;
+            timerVerificarAulas.Start(); // já começa ativo
         }
         
 
@@ -155,5 +161,80 @@ namespace WindowsFormsApp1
         {
 
         }
+
+        private void timerVerificarAulas_Tick(object sender, EventArgs e)
+        {
+            try
+            {
+                string connectionString = "Data Source=SQLEXPRESS;Initial Catalog=CJ3027317PR2;User ID=aluno;Password=aluno;";
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+
+                    string query = @"
+                SELECT 
+                    a.ID_AULA, 
+                    a.LINK_MEET, 
+                    c.NOME_CURSO, 
+                    p.EMAIL_PROFESSOR, 
+                    al.EMAIL_ALUNO
+                FROM AULAS_AGENDADAS a
+                INNER JOIN CURSOS c ON a.ID_CURSO = c.ID_CURSO
+                INNER JOIN PROFESSORES p ON a.ID_PROFESSOR = p.ID_PROFESSOR
+                INNER JOIN ALUNOS al ON a.ID_ALUNO = al.ID_ALUNO
+                WHERE DATEDIFF(MINUTE, GETDATE(), a.DATA_HORA) = 5
+            ";
+
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        string nomeCurso = reader["NOME_CURSO"].ToString();
+                        string emailProf = reader["EMAIL_PROFESSOR"].ToString();
+                        string emailAluno = reader["EMAIL_ALUNO"].ToString();
+                        string linkMeet = reader["LINK_MEET"].ToString();
+
+                        // Enviar emails
+                        EnviarEmail(emailProf, nomeCurso, linkMeet, "professor");
+                        EnviarEmail(emailAluno, nomeCurso, linkMeet, "aluno");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Erro no timer: {ex.Message}");
+            }
+        }
+
+        private void EnviarEmail(string destino, string curso, string link, string tipo)
+        {
+            try
+            {
+                string remetente = "clarafzserejo@gmail.com";
+                string senhaApp = "bwyz ldvp bvpt gqyg";
+
+                MailMessage mail = new MailMessage();
+                mail.From = new MailAddress(remetente);
+                mail.To.Add(destino);
+                mail.Subject = $"Aviso de Aula - {curso}";
+                mail.Body = $"Olá {tipo},\n\nSua aula de {curso} começará em 5 minutos!\n\nLink do Meet: {link}\n\nSistema de Notificação de Aulas";
+
+
+
+                SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
+                smtp.Credentials = new NetworkCredential(remetente, senhaApp);
+                smtp.EnableSsl = true;
+                smtp.Send(mail);
+
+                Console.WriteLine($"Email enviado para {tipo}: {destino}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Erro ao enviar e-mail para {destino}: {ex.Message}");
+            }
+        }
+
+
     }
 }

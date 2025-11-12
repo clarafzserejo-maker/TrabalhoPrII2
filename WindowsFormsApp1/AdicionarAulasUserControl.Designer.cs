@@ -37,6 +37,8 @@
             this.DtPickerDataAula = new System.Windows.Forms.DateTimePicker();
             this.TxbHoraAula = new System.Windows.Forms.MaskedTextBox();
             this.BtnSalvarAula = new System.Windows.Forms.Button();
+            this.btnGerarLinkMeet = new System.Windows.Forms.Button();
+            this.txtLinkMeet = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // LblSelecionarAula
@@ -111,7 +113,7 @@
             // 
             // BtnSalvarAula
             // 
-            this.BtnSalvarAula.Location = new System.Drawing.Point(29, 351);
+            this.BtnSalvarAula.Location = new System.Drawing.Point(29, 416);
             this.BtnSalvarAula.Name = "BtnSalvarAula";
             this.BtnSalvarAula.Size = new System.Drawing.Size(75, 23);
             this.BtnSalvarAula.TabIndex = 8;
@@ -119,10 +121,29 @@
             this.BtnSalvarAula.UseVisualStyleBackColor = true;
             this.BtnSalvarAula.Click += new System.EventHandler(this.BtnSalvarAula_Click);
             // 
+            // btnGerarLinkMeet
+            // 
+            this.btnGerarLinkMeet.Location = new System.Drawing.Point(29, 361);
+            this.btnGerarLinkMeet.Name = "btnGerarLinkMeet";
+            this.btnGerarLinkMeet.Size = new System.Drawing.Size(121, 23);
+            this.btnGerarLinkMeet.TabIndex = 9;
+            this.btnGerarLinkMeet.Text = "Gerar Link do Meet";
+            this.btnGerarLinkMeet.UseVisualStyleBackColor = true;
+            this.btnGerarLinkMeet.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // txtLinkMeet
+            // 
+            this.txtLinkMeet.Location = new System.Drawing.Point(29, 390);
+            this.txtLinkMeet.Name = "txtLinkMeet";
+            this.txtLinkMeet.Size = new System.Drawing.Size(200, 20);
+            this.txtLinkMeet.TabIndex = 10;
+            // 
             // AdicionarAulasUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.txtLinkMeet);
+            this.Controls.Add(this.btnGerarLinkMeet);
             this.Controls.Add(this.BtnSalvarAula);
             this.Controls.Add(this.TxbHoraAula);
             this.Controls.Add(this.DtPickerDataAula);
@@ -151,5 +172,7 @@
         private System.Windows.Forms.DateTimePicker DtPickerDataAula;
         private System.Windows.Forms.MaskedTextBox TxbHoraAula;
         private System.Windows.Forms.Button BtnSalvarAula;
+        private System.Windows.Forms.Button btnGerarLinkMeet;
+        private System.Windows.Forms.TextBox txtLinkMeet;
     }
 }
