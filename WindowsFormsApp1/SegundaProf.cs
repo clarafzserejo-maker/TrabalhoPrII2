@@ -218,8 +218,23 @@ namespace WindowsFormsApp1
                 mail.From = new MailAddress(remetente);
                 mail.To.Add(destino);
                 mail.Subject = $"Aviso de Aula - {curso}";
-                mail.Body = $"Olá {tipo},\n\nSua aula de {curso} começará em 5 minutos!\n\nLink do Meet: {link}\n\nSistema de Notificação de Aulas";
 
+                mail.Body = $@"
+            <html>
+            <body style='font-family: Arial, sans-serif; color: #333;'>
+                <h2 style='color: #386a8b;'>Redefinição de senha</h2>
+                <p>Olá 👋,</p>
+                <p>Sua aula de {curso} começará em 5 minutos!</p>
+                <p>Link do Meet: {link}</p>
+
+          
+                <p>Equipe Lumen Academy 🤓! </p>
+
+                <p style='margin-top: 30px; font-size: 12px; color: #888;'>Este é um e-mail automático. Por favor, não responda.</p>
+            </body>
+            </html>";
+
+                mail.IsBodyHtml = true;
 
 
                 SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);

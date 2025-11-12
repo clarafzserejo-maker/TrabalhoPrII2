@@ -45,7 +45,7 @@ namespace WindowsFormsApp1
 
                 <p>Esse código expira em <strong>15 minutos</strong>.</p>
                 <p>Se você não solicitou isso, pode ignorar este e-mail.</p>
-                <p>Equipe IQverse 🤓! </p>
+                <p>Equipe Lumen Academy 🤓! </p>
 
                 <p style='margin-top: 30px; font-size: 12px; color: #888;'>Este é um e-mail automático. Por favor, não responda.</p>
             </body>
