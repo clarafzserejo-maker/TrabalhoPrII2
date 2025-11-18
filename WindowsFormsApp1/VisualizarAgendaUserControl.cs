@@ -23,6 +23,10 @@ namespace WindowsFormsApp1
         {
             // O código de carregamento deve ser inteligente para saber quem está logado
             CarregarTodasAulasAgendadas();
+            DgvAgenda.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            DgvAgenda.MultiSelect = false;
+            DgvAgenda.ReadOnly = true; // opcional (mas recomendado)
+
         }
 
         // Método principal que decide qual consulta executar, verificando o tipo no DB
@@ -55,6 +59,8 @@ namespace WindowsFormsApp1
         // =========================================================================
         private bool CarregarAulasProfessor(string idProfessorStr)
         {
+            btnExcluirAula.Visible = true;
+
             using (SqlConnection con = new SqlConnection(connectionString))
             {
                 try
@@ -69,13 +75,14 @@ namespace WindowsFormsApp1
                             CONVERT(VARCHAR(10), A.DATA_HORA, 103) AS DATA,
                             CONVERT(VARCHAR(5), A.DATA_HORA, 108) AS HORA,
                             C.NOME_CURSO AS DISCIPLINA,
+A.ID_AULA,
                             L.NOME_ALUNO AS ALUNO
                         FROM 
                             AULAS_AGENDADAS A
                         INNER JOIN CURSOS C ON A.ID_CURSO = C.ID_CURSO
                         INNER JOIN ALUNOS L ON A.ID_ALUNO = L.ID_ALUNO
                         WHERE 
-                            A.ID_PROFESSOR = @idProfessor
+                            A.ID_PROFESSOR = @idProfessor AND DATA_HORA > GETDATE()
                         ORDER BY
                             A.DATA_HORA ASC";
 
@@ -122,6 +129,10 @@ namespace WindowsFormsApp1
         // =========================================================================
         private bool CarregarAulasAluno(string idAlunoStr)
         {
+            DateTime agora = DateTime.Now;
+            btnExcluirAula.Visible = false;
+
+
             using (SqlConnection con = new SqlConnection(connectionString))
             {
                 try
@@ -131,22 +142,25 @@ namespace WindowsFormsApp1
                     // Consulta que traz as aulas do aluno logado.
                     string query = @"
                         SELECT 
-                            A.DATA_HORA AS DATA_HORA_COMPLETA,
-                            CONVERT(VARCHAR(10), A.DATA_HORA, 103) AS DATA,
-                            CONVERT(VARCHAR(5), A.DATA_HORA, 108) AS HORA,
-                            C.NOME_CURSO AS DISCIPLINA,
-                            P.NOME_PROFESSOR AS PROFESSOR
-                        FROM 
-                            AULAS_AGENDADAS A
-                        INNER JOIN CURSOS C ON A.ID_CURSO = C.ID_CURSO
-                        INNER JOIN PROFESSORES P ON A.ID_PROFESSOR = P.ID_PROFESSOR
-                        WHERE 
-                            A.ID_ALUNO = @idAluno
-                        ORDER BY
-                            A.DATA_HORA ASC";
+    AA.DATA_HORA AS DATA_HORA_COMPLETA,
+    CONVERT(VARCHAR(10), AA.DATA_HORA, 103) AS DATA,
+    CONVERT(VARCHAR(5), AA.DATA_HORA, 108) AS HORA,
+    C.NOME_CURSO AS DISCIPLINA,
+    P.NOME_PROFESSOR AS PROFESSOR
+FROM 
+    AULAS_AGENDADAS AA
+INNER JOIN CURSOS C ON AA.ID_CURSO = C.ID_CURSO
+INNER JOIN PROFESSORES P ON AA.ID_PROFESSOR = P.ID_PROFESSOR
+WHERE 
+    AA.ID_ALUNO = @idAluno
+    AND AA.DATA_HORA > GETDATE()
+ORDER BY 
+    AA.DATA_HORA";
+
 
                     SqlCommand cmd = new SqlCommand(query, con);
                     cmd.Parameters.AddWithValue("@idAluno", idAlunoStr);
+                    cmd.Parameters.AddWithValue("@agora", agora.AddMinutes(-5));
 
                     DataTable dtAulas = new DataTable();
                     dtAulas.Load(cmd.ExecuteReader());
@@ -191,6 +205,8 @@ namespace WindowsFormsApp1
             {
                 DgvAgenda.Columns["DATA_HORA_COMPLETA"].Visible = false;
 
+                DgvAgenda.Columns["ID_AULA"].Visible = false;
+
                 DgvAgenda.Columns["DATA"].HeaderText = "Data";
                 DgvAgenda.Columns["HORA"].HeaderText = "Hora";
                 DgvAgenda.Columns["DISCIPLINA"].HeaderText = "Disciplina";
@@ -225,5 +241,66 @@ namespace WindowsFormsApp1
         {
             // Sem ação de filtro
         }
+
+        private void BtnNewCourse_Click(object sender, EventArgs e)
+        {
+            if (DgvAgenda.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Selecione uma aula para excluir.");
+                return;
+            }
+
+            int idAula = Convert.ToInt32(DgvAgenda.SelectedRows[0].Cells["ID_AULA"].Value);
+
+            ExcluirAula(idAula);
+        }
+
+        private void ExcluirAula(int idAula)
+        {
+            var confirm = MessageBox.Show(
+                "Tem certeza que deseja excluir esta aula?",
+                "Confirmar exclusão",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning);
+
+            if (confirm != DialogResult.Yes)
+                return;
+
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    con.Open();
+
+                    string query = "DELETE FROM AULAS_AGENDADAS WHERE ID_AULA = @id";
+
+                    SqlCommand cmd = new SqlCommand(query, con);
+                    cmd.Parameters.AddWithValue("@id", idAula);
+
+                    int result = cmd.ExecuteNonQuery();
+
+                    if (result > 0)
+                    {
+                        MessageBox.Show("Aula excluída com sucesso!");
+                        CarregarTodasAulasAgendadas(); // atualizar a lista
+                    }
+                    else
+                    {
+                        MessageBox.Show("Aula não encontrada.");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erro ao excluir aula: " + ex.Message);
+                }
+            }
+        }
+
+        private void DgvAgenda_SelectionChanged(object sender, EventArgs e)
+        {
+            btnExcluirAula.Enabled = DgvAgenda.SelectedRows.Count > 0;
+        }
+
     }
 }
+
