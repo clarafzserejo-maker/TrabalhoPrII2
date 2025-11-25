@@ -74,6 +74,36 @@ namespace WindowsFormsApp1
                 cursos.Show(posicao); // abre exatamente abaixo da seta
             };
 
+            ContextMenuStrip boletins = new ContextMenuStrip();
+            boletins.BackColor = Color.WhiteSmoke;
+            boletins.RenderMode = ToolStripRenderMode.System;
+            boletins.ShowImageMargin = false;
+            boletins.Items.Add("Visualizar boletins", null, (s, e) =>
+            {
+                CarregarTela(new VerBoletimProfUserControl());
+            });
+
+            // 🔹 Corrige a posição — abre logo abaixo da seta
+            LblArrow7.Click += (s, e) =>
+            {
+                // converte a posição da seta para coordenadas de tela
+                var posicao = LblArrow7.PointToScreen(new Point(0, LblArrow7.Height));
+                boletins.Show(posicao); // abre exatamente abaixo da seta
+            };
+
+            boletins.Items.Add("Editar boletins", null, (s, e) =>
+            {
+                CarregarTela(new AdicionarNotasUserControl());
+            });
+
+            // 🔹 Corrige a posição — abre logo abaixo da seta
+            LblArrow7.Click += (s, e) =>
+            {
+                // converte a posição da seta para coordenadas de tela
+                var posicao = LblArrow7.PointToScreen(new Point(0, LblArrow7.Height));
+                boletins.Show(posicao); // abre exatamente abaixo da seta
+            };
+
             timerVerificarAulas.Tick += timerVerificarAulas_Tick;
             timerVerificarAulas.Start(); // já começa ativo
         }
@@ -250,6 +280,14 @@ namespace WindowsFormsApp1
             }
         }
 
+        private void label6_Click(object sender, EventArgs e)
+        {
 
+        }
+
+        private void LblArrow7_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

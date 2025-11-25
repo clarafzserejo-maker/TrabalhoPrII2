@@ -49,12 +49,18 @@
             this.LblPic2 = new System.Windows.Forms.Label();
             this.Panel4 = new System.Windows.Forms.Panel();
             this.timerVerificarAulas = new System.Windows.Forms.Timer(this.components);
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.LblArrow7 = new System.Windows.Forms.Label();
             this.Panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // Panel3
             // 
             this.Panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(76)))), ((int)(((byte)(125)))));
+            this.Panel3.Controls.Add(this.LblArrow7);
+            this.Panel3.Controls.Add(this.label7);
+            this.Panel3.Controls.Add(this.label6);
             this.Panel3.Controls.Add(this.label5);
             this.Panel3.Controls.Add(this.label4);
             this.Panel3.Controls.Add(this.LblVerAulas);
@@ -189,7 +195,7 @@
             this.LblArrow3.AutoSize = true;
             this.LblArrow3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblArrow3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(213)))), ((int)(((byte)(202)))));
-            this.LblArrow3.Location = new System.Drawing.Point(222, 249);
+            this.LblArrow3.Location = new System.Drawing.Point(188, 249);
             this.LblArrow3.Name = "LblArrow3";
             this.LblArrow3.Size = new System.Drawing.Size(33, 31);
             this.LblArrow3.TabIndex = 6;
@@ -281,6 +287,41 @@
             this.timerVerificarAulas.Interval = 60000;
             this.timerVerificarAulas.Tick += new System.EventHandler(this.timerVerificarAulas_Tick);
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 39.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(213)))), ((int)(((byte)(202)))));
+            this.label6.Location = new System.Drawing.Point(9, 517);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(87, 61);
+            this.label6.TabIndex = 16;
+            this.label6.Text = "📝";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F);
+            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(213)))), ((int)(((byte)(202)))));
+            this.label7.Location = new System.Drawing.Point(91, 530);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(119, 33);
+            this.label7.TabIndex = 17;
+            this.label7.Text = "Boletins";
+            // 
+            // LblArrow7
+            // 
+            this.LblArrow7.AutoSize = true;
+            this.LblArrow7.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblArrow7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(213)))), ((int)(((byte)(202)))));
+            this.LblArrow7.Location = new System.Drawing.Point(205, 532);
+            this.LblArrow7.Name = "LblArrow7";
+            this.LblArrow7.Size = new System.Drawing.Size(33, 31);
+            this.LblArrow7.TabIndex = 18;
+            this.LblArrow7.Text = "▼";
+            this.LblArrow7.Click += new System.EventHandler(this.LblArrow7_Click);
+            // 
             // SegundaProf
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -321,5 +362,8 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Timer timerVerificarAulas;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label LblArrow7;
     }
 }

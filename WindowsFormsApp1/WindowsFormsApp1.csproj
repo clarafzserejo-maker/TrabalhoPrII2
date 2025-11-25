@@ -79,6 +79,12 @@
     <Compile Include="AdicionarCursoControl.Designer.cs">
       <DependentUpon>AdicionarCursoControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="AdicionarNotasUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AdicionarNotasUserControl.Designer.cs">
+      <DependentUpon>AdicionarNotasUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="AlunosUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -154,6 +160,12 @@
     <Compile Include="TodosOsAlunosUserControl.Designer.cs">
       <DependentUpon>TodosOsAlunosUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="VerBoletimProfUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="VerBoletimProfUserControl.Designer.cs">
+      <DependentUpon>VerBoletimProfUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="VerCursosAlunoUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -186,6 +198,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AdicionarCursoControl.resx">
       <DependentUpon>AdicionarCursoControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdicionarNotasUserControl.resx">
+      <DependentUpon>AdicionarNotasUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AlunosUserControl.resx">
       <DependentUpon>AlunosUserControl.cs</DependentUpon>
@@ -231,6 +246,9 @@
     </Compile>
     <EmbeddedResource Include="TodosOsAlunosUserControl.resx">
       <DependentUpon>TodosOsAlunosUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VerBoletimProfUserControl.resx">
+      <DependentUpon>VerBoletimProfUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VerCursosAlunoUserControl.resx">
       <DependentUpon>VerCursosAlunoUserControl.cs</DependentUpon>
