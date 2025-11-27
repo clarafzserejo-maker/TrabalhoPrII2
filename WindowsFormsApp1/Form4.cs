@@ -157,7 +157,7 @@ namespace WindowsFormsApp1
                 }
 
                 // Se não for aluno, verifica professor
-                string sqlProf = "SELECT ID_PROFESSOR, SENHA FROM PROFESSORES WHERE EMAIL_PROFESSOR = @EMAIL";
+                string sqlProf = "SELECT ID_PROFESSOR, SENHA_PROFESSOR FROM PROFESSORES WHERE EMAIL_PROFESSOR = @EMAIL";
                 SqlCommand cmdProf = new SqlCommand(sqlProf, con);
                 cmdProf.Parameters.AddWithValue("@EMAIL", emailUsuario);
 
@@ -165,7 +165,7 @@ namespace WindowsFormsApp1
                 {
                     if (reader.Read())
                     {
-                        string senhaAtual = reader["SENHA"].ToString();
+                        string senhaAtual = reader["SENHA_PROFESSOR"].ToString();
                         string idProf = reader["ID_PROFESSOR"].ToString();
 
                         // Verifica se a nova senha é igual à antiga

@@ -48,56 +48,51 @@ namespace WindowsFormsApp1
             string connectionString = @"Data Source=sqlexpress;Initial Catalog=CJ3027317PR2;User ID=aluno;Password=aluno";
             using (SqlConnection con = new SqlConnection(connectionString))
             {
-                con.Open();
-                SqlTransaction transaction = con.BeginTransaction();
-
                 try
                 {
-                    // =========================================================================
-                    // ETAPA 1: EXCLUIR DADOS FILHOS (Em ordem inversa de dependência)
-                    // =========================================================================
+                    con.Open();
+                    SqlTransaction transaction = con.BeginTransaction();
 
-                    // 1.a) NOVO PASSO: Excluir registros na tabela RESETSENHAALUNOS
-                    SqlCommand cmdReset = new SqlCommand(
-                        "DELETE FROM RESETSENHAALUNOS WHERE ID_ALUNO_RESET = @idAluno", con, transaction);
-                    cmdReset.Parameters.AddWithValue("@idAluno", idAlunoStr);
-                    cmdReset.ExecuteNonQuery();
-
-                    // 1.b) Excluir aulas agendadas
-                    SqlCommand cmdAulas = new SqlCommand(
-                        "DELETE FROM AULAS_AGENDADAS WHERE ID_ALUNO = @idAluno", con, transaction);
-                    cmdAulas.Parameters.AddWithValue("@idAluno", idAlunoStr);
-                    cmdAulas.ExecuteNonQuery();
-
-                    
-
-                    // =========================================================================
-                    // ETAPA 2: EXCLUIR O REGISTRO PRINCIPAL (ALUNOS)
-                    // =========================================================================
-
-                    SqlCommand cmdProfessor = new SqlCommand(
-                        "DELETE FROM ALUNOS WHERE ID_ALUNO = @idAluno", con, transaction);
-                    cmdProfessor.Parameters.AddWithValue("@idAluno", idAlunoStr);
-
-                    int rowsAffected = cmdProfessor.ExecuteNonQuery();
-
-                    if (rowsAffected == 0)
+                    try
                     {
-                        // Se não excluiu o registro principal, algo está errado
-                        throw new Exception("O professor não pôde ser excluído ou não existe.");
+                        // 1. Excluir Registros Dependentes na ordem correta
+
+                        // Exclui da tabela que causou o erro (BOLETINS)
+                        SqlCommand cmd1 = new SqlCommand("DELETE FROM BOLETINS WHERE ID_ALUNO = @idAluno", con, transaction);
+                        cmd1.Parameters.Add("@idAluno", SqlDbType.NVarChar, 50).Value = idAlunoStr;
+                        cmd1.ExecuteNonQuery();
+
+                        // Exclui de outras tabelas dependentes (EXEMPLOS COMUNS)
+                        SqlCommand cmd2 = new SqlCommand("DELETE FROM boletins WHERE ID_ALUNO = @idAluno", con, transaction);
+                        cmd2.Parameters.Add("@idAluno", SqlDbType.NVarChar, 50).Value = idAlunoStr;
+                        cmd2.ExecuteNonQuery();
+
+                        SqlCommand cmd3 = new SqlCommand("DELETE FROM ALUNOS_CURSOS WHERE ID_ALUNO = @idAluno", con, transaction);
+                        cmd3.Parameters.Add("@idAluno", SqlDbType.NVarChar, 50).Value = idAlunoStr;
+                        cmd3.ExecuteNonQuery();
+
+                        SqlCommand cmd4 = new SqlCommand("DELETE FROM RESETSENHAALUNOS WHERE ID_ALUNO = @idAluno", con, transaction);
+                        cmd3.Parameters.Add("@idAluno", SqlDbType.NVarChar, 50).Value = idAlunoStr;
+                        cmd3.ExecuteNonQuery();
+
+                        // 2. Excluir o registro principal (ALUNOS)
+                        SqlCommand cmdFinal = new SqlCommand("DELETE FROM ALUNOS WHERE ID_ALUNO = @idAluno", con, transaction);
+                        cmdFinal.Parameters.Add("@idAluno", SqlDbType.NVarChar, 50).Value = idAlunoStr;
+                        cmdFinal.ExecuteNonQuery();
+
+                        // Confirma a exclusão de todas as tabelas
+                        transaction.Commit();
+                        MessageBox.Show("Conta excluída com sucesso.", "Sucesso");
                     }
-
-                    // Confirma todas as exclusões
-                    transaction.Commit();
-
-                    // ... (Restante do código: MessageBox e SairESairDoSistema) ...
-                    MessageBox.Show("Sua conta foi excluída com sucesso.", "Exclusão Concluída", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    SairDoSistema();
+                    catch (Exception exTransacao)
+                    {
+                        transaction.Rollback();
+                        MessageBox.Show("Falha na exclusão da conta. Erro: " + exTransacao.Message, "Erro de Banco de Dados");
+                    }
                 }
-                catch (Exception ex)
+                catch (Exception exConexao)
                 {
-                    transaction.Rollback();
-                    MessageBox.Show("Erro ao excluir conta: " + ex.Message, "Erro Crítico de Exclusão", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Erro de conexão ao excluir conta: " + exConexao.Message, "Erro Crítico");
                 }
             }
         }

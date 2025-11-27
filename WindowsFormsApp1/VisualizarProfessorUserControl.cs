@@ -74,6 +74,8 @@ namespace WindowsFormsApp1
                     dtProfessoresConsolidado.Clear();
                     da.Fill(dtProfessoresConsolidado);
 
+                    DataGridViewStyleHelper.AplicarEstiloPadrao(dataGridViewProfessores);
+
                     // PASSO 3: Gerenciar a exibição
                     if (dtProfessoresConsolidado.Rows.Count > 0)
                     {

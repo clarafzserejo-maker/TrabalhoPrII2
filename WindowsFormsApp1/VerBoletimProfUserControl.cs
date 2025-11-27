@@ -83,6 +83,8 @@ namespace WindowsFormsApp1
                     DataTable dt = new DataTable();
                     dt.Load(reader);
 
+
+
                     // Se a consulta retornar dados, carrega no ComboBox
                     if (dt.Rows.Count > 0)
                     {
@@ -155,6 +157,8 @@ namespace WindowsFormsApp1
                     SqlDataReader reader = cmd.ExecuteReader();
                     DataTable dtBoletim = new DataTable();
                     dtBoletim.Load(reader);
+
+                    DataGridViewStyleHelper.AplicarEstiloPadrao(DgvBoletim);
 
                     // Carrega os dados no DataGridView
                     DgvBoletim.DataSource = dtBoletim;

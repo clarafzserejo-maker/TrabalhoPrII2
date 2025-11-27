@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApp1
 {
-    partial class AlunosUserControl
+    partial class VerBoletimAlunoUserControl
     {
         /// <summary> 
         /// Variável de designer necessária.
@@ -28,18 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.DgvBoletim2 = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvBoletim2)).BeginInit();
             this.SuspendLayout();
             // 
-            // AlunosUserControl
+            // DgvBoletim2
+            // 
+            this.DgvBoletim2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DgvBoletim2.Location = new System.Drawing.Point(106, 318);
+            this.DgvBoletim2.Name = "DgvBoletim2";
+            this.DgvBoletim2.Size = new System.Drawing.Size(724, 272);
+            this.DgvBoletim2.TabIndex = 7;
+            // 
+            // VerBoletimAlunoUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Name = "AlunosUserControl";
+            this.Controls.Add(this.DgvBoletim2);
+            this.Name = "VerBoletimAlunoUserControl";
             this.Size = new System.Drawing.Size(1940, 1100);
+            this.Load += new System.EventHandler(this.VerBoletimAlunoUserControl_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.DgvBoletim2)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+        private System.Windows.Forms.DataGridView DgvBoletim2;
     }
 }

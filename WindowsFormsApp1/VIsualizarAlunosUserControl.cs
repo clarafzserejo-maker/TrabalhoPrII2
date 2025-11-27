@@ -72,6 +72,8 @@ namespace WindowsFormsApp1
                     DataTable dt = new DataTable();
                     da.Fill(dt);
 
+                    DataGridViewStyleHelper.AplicarEstiloPadrao(dataGridViewAlunos);
+
                     // Assumindo que você tem um DataGridView chamado 'dataGridViewAlunos' neste controle
                     if (dt.Rows.Count > 0)
                     {

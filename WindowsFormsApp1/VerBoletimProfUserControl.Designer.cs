@@ -28,56 +28,45 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.LblSelecionarAula = new System.Windows.Forms.Label();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VerBoletimProfUserControl));
             this.CmbAluno = new System.Windows.Forms.ComboBox();
             this.DgvBoletim = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.DgvBoletim)).BeginInit();
             this.SuspendLayout();
             // 
-            // LblSelecionarAula
-            // 
-            this.LblSelecionarAula.AutoSize = true;
-            this.LblSelecionarAula.Location = new System.Drawing.Point(27, 76);
-            this.LblSelecionarAula.Name = "LblSelecionarAula";
-            this.LblSelecionarAula.Size = new System.Drawing.Size(212, 13);
-            this.LblSelecionarAula.TabIndex = 1;
-            this.LblSelecionarAula.Text = "Selecione um aluno para acessar o boletim:";
-            // 
             // CmbAluno
             // 
+            this.CmbAluno.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.CmbAluno.FormattingEnabled = true;
-            this.CmbAluno.Location = new System.Drawing.Point(30, 92);
+            this.CmbAluno.Location = new System.Drawing.Point(106, 264);
             this.CmbAluno.Name = "CmbAluno";
-            this.CmbAluno.Size = new System.Drawing.Size(121, 21);
+            this.CmbAluno.Size = new System.Drawing.Size(416, 33);
             this.CmbAluno.TabIndex = 5;
             // 
             // DgvBoletim
             // 
             this.DgvBoletim.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DgvBoletim.Location = new System.Drawing.Point(30, 131);
+            this.DgvBoletim.Location = new System.Drawing.Point(106, 318);
             this.DgvBoletim.Name = "DgvBoletim";
-            this.DgvBoletim.Size = new System.Drawing.Size(479, 272);
+            this.DgvBoletim.Size = new System.Drawing.Size(725, 272);
             this.DgvBoletim.TabIndex = 6;
             // 
             // VerBoletimProfUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.Controls.Add(this.DgvBoletim);
             this.Controls.Add(this.CmbAluno);
-            this.Controls.Add(this.LblSelecionarAula);
             this.Name = "VerBoletimProfUserControl";
             this.Size = new System.Drawing.Size(1940, 1100);
             this.Load += new System.EventHandler(this.VerBoletimProfUserControl_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DgvBoletim)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label LblSelecionarAula;
         private System.Windows.Forms.ComboBox CmbAluno;
         private System.Windows.Forms.DataGridView DgvBoletim;
     }

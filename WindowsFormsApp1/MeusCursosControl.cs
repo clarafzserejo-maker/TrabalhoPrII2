@@ -78,6 +78,8 @@ namespace WindowsFormsApp1
                     dtCursos.Clear();
                     da.Fill(dtCursos);
 
+                    DataGridViewStyleHelper.AplicarEstiloPadrao(dataGridView2);
+
                     // PASSO 3: Gerenciar a exibição
                     if (dtCursos.Rows.Count > 0)
                     {

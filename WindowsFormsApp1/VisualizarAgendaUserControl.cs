@@ -60,7 +60,7 @@ namespace WindowsFormsApp1
         private bool CarregarAulasProfessor(string idProfessorStr)
         {
             btnExcluirAula.Visible = true;
-
+            DataGridViewStyleHelper.AplicarEstiloPadrao(DgvAgenda);
             using (SqlConnection con = new SqlConnection(connectionString))
             {
                 try
@@ -132,6 +132,7 @@ A.ID_AULA,
             DateTime agora = DateTime.Now;
             btnExcluirAula.Visible = false;
 
+            DataGridViewStyleHelper.AplicarEstiloPadrao(DgvAgenda);
 
             using (SqlConnection con = new SqlConnection(connectionString))
             {
@@ -167,8 +168,11 @@ ORDER BY
 
                     DgvAgenda.DataSource = dtAulas;
 
+                    
+
                     if (dtAulas.Rows.Count > 0)
                     {
+
                         AjustarDgvAluno(dtAulas);
                         return true; // Encontrou dados, é aluno
                     }
@@ -201,6 +205,8 @@ ORDER BY
         // Métodos auxiliares para ajustar a visualização (mantidos)
         private void AjustarDgvProfessor(DataTable dtAulas)
         {
+            DataGridViewStyleHelper.AplicarEstiloPadrao(DgvAgenda);
+
             if (dtAulas.Rows.Count > 0)
             {
                 DgvAgenda.Columns["DATA_HORA_COMPLETA"].Visible = false;
@@ -221,6 +227,8 @@ ORDER BY
 
         private void AjustarDgvAluno(DataTable dtAulas)
         {
+
+            DataGridViewStyleHelper.AplicarEstiloPadrao(DgvAgenda);
             if (dtAulas.Rows.Count > 0)
             {
                 DgvAgenda.Columns["DATA_HORA_COMPLETA"].Visible = false;

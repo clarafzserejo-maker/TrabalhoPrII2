@@ -76,6 +76,8 @@ namespace WindowsFormsApp1
                     dtAlunosConsolidado.Clear();
                     da.Fill(dtAlunosConsolidado);
 
+                    DataGridViewStyleHelper.AplicarEstiloPadrao(dataGridViewTodosOsAlunos);
+
                     // PASSO 3: Gerenciar a exibição
                     if (dtAlunosConsolidado.Rows.Count > 0)
                     {

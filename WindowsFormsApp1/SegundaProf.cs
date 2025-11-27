@@ -17,7 +17,7 @@ namespace WindowsFormsApp1
 {
     public partial class SegundaProf : Form
     {
-
+        private readonly Font FonteMenuPadrao = new Font("Microsoft Sans Serif", 15f, FontStyle.Regular);
         public SegundaProf()
         {
             InitializeComponent();
@@ -28,6 +28,7 @@ namespace WindowsFormsApp1
             menuPerfil.BackColor = Color.WhiteSmoke;
             menuPerfil.RenderMode = ToolStripRenderMode.System;
             menuPerfil.ShowImageMargin = false;
+            menuPerfil.Font = FonteMenuPadrao;
             menuPerfil.Items.Add("📤 Sair da conta", null, (s, e) =>
             {
                 this.Hide();
@@ -48,6 +49,7 @@ namespace WindowsFormsApp1
             cursos.BackColor = Color.WhiteSmoke;
             cursos.RenderMode = ToolStripRenderMode.System;
             cursos.ShowImageMargin = false;
+            cursos.Font = FonteMenuPadrao;
             cursos.Items.Add("Meus cursos", null, (s, e) =>
             {
                 CarregarTela(new MeusCursosControl());
@@ -78,6 +80,7 @@ namespace WindowsFormsApp1
             boletins.BackColor = Color.WhiteSmoke;
             boletins.RenderMode = ToolStripRenderMode.System;
             boletins.ShowImageMargin = false;
+            boletins.Font = FonteMenuPadrao;
             boletins.Items.Add("Visualizar boletins", null, (s, e) =>
             {
                 CarregarTela(new VerBoletimProfUserControl());
@@ -286,6 +289,11 @@ namespace WindowsFormsApp1
         }
 
         private void LblArrow7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Panel4_Paint(object sender, PaintEventArgs e)
         {
 
         }

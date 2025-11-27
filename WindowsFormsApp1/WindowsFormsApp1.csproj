@@ -85,12 +85,7 @@
     <Compile Include="AdicionarNotasUserControl.Designer.cs">
       <DependentUpon>AdicionarNotasUserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="AlunosUserControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="AlunosUserControl.Designer.cs">
-      <DependentUpon>AlunosUserControl.cs</DependentUpon>
-    </Compile>
+    <Compile Include="DataGridViewStyleHelper.cs" />
     <Compile Include="ExcluirContaAlunoUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -160,6 +155,12 @@
     <Compile Include="TodosOsAlunosUserControl.Designer.cs">
       <DependentUpon>TodosOsAlunosUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="VerBoletimAlunoUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="VerBoletimAlunoUserControl.Designer.cs">
+      <DependentUpon>VerBoletimAlunoUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="VerBoletimProfUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -202,9 +203,6 @@
     <EmbeddedResource Include="AdicionarNotasUserControl.resx">
       <DependentUpon>AdicionarNotasUserControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AlunosUserControl.resx">
-      <DependentUpon>AlunosUserControl.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="ExcluirContaAlunoUserControl.resx">
       <DependentUpon>ExcluirContaAlunoUserControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -246,6 +244,9 @@
     </Compile>
     <EmbeddedResource Include="TodosOsAlunosUserControl.resx">
       <DependentUpon>TodosOsAlunosUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VerBoletimAlunoUserControl.resx">
+      <DependentUpon>VerBoletimAlunoUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VerBoletimProfUserControl.resx">
       <DependentUpon>VerBoletimProfUserControl.cs</DependentUpon>

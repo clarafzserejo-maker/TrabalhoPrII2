@@ -28,125 +28,84 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.LblSelecionarAula = new System.Windows.Forms.Label();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdicionarNotasUserControl));
             this.CmbAlunoNotas = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.CmbNotas = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.BtnSalvarNotas = new System.Windows.Forms.Button();
             this.DomNota = new System.Windows.Forms.DomainUpDown();
-            this.label3 = new System.Windows.Forms.Label();
             this.CmbDisciplina = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
-            // LblSelecionarAula
-            // 
-            this.LblSelecionarAula.AutoSize = true;
-            this.LblSelecionarAula.Location = new System.Drawing.Point(15, 54);
-            this.LblSelecionarAula.Name = "LblSelecionarAula";
-            this.LblSelecionarAula.Size = new System.Drawing.Size(214, 13);
-            this.LblSelecionarAula.TabIndex = 2;
-            this.LblSelecionarAula.Text = "Selecione um aluno para atualizar o boletim:";
-            // 
             // CmbAlunoNotas
             // 
+            this.CmbAlunoNotas.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.CmbAlunoNotas.FormattingEnabled = true;
-            this.CmbAlunoNotas.Location = new System.Drawing.Point(18, 70);
+            this.CmbAlunoNotas.Location = new System.Drawing.Point(108, 270);
             this.CmbAlunoNotas.Name = "CmbAlunoNotas";
-            this.CmbAlunoNotas.Size = new System.Drawing.Size(121, 21);
+            this.CmbAlunoNotas.Size = new System.Drawing.Size(416, 33);
             this.CmbAlunoNotas.TabIndex = 6;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(15, 167);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(170, 13);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "Selecione uma nota para atualizar:";
             // 
             // CmbNotas
             // 
+            this.CmbNotas.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.CmbNotas.FormattingEnabled = true;
-            this.CmbNotas.Location = new System.Drawing.Point(18, 183);
+            this.CmbNotas.Location = new System.Drawing.Point(108, 552);
             this.CmbNotas.Name = "CmbNotas";
-            this.CmbNotas.Size = new System.Drawing.Size(121, 21);
+            this.CmbNotas.Size = new System.Drawing.Size(416, 33);
             this.CmbNotas.TabIndex = 8;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(15, 228);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(111, 13);
-            this.label2.TabIndex = 9;
-            this.label2.Text = "Adicione a nova nota:";
             // 
             // BtnSalvarNotas
             // 
-            this.BtnSalvarNotas.Location = new System.Drawing.Point(18, 284);
+            this.BtnSalvarNotas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(115)))), ((int)(((byte)(151)))));
+            this.BtnSalvarNotas.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F);
+            this.BtnSalvarNotas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(213)))), ((int)(((byte)(202)))));
+            this.BtnSalvarNotas.Location = new System.Drawing.Point(110, 757);
             this.BtnSalvarNotas.Name = "BtnSalvarNotas";
-            this.BtnSalvarNotas.Size = new System.Drawing.Size(75, 23);
+            this.BtnSalvarNotas.Size = new System.Drawing.Size(191, 53);
             this.BtnSalvarNotas.TabIndex = 10;
             this.BtnSalvarNotas.Text = "Salvar";
-            this.BtnSalvarNotas.UseVisualStyleBackColor = true;
+            this.BtnSalvarNotas.UseVisualStyleBackColor = false;
             // 
             // DomNota
             // 
-            this.DomNota.Location = new System.Drawing.Point(19, 244);
+            this.DomNota.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.DomNota.Location = new System.Drawing.Point(108, 699);
             this.DomNota.Name = "DomNota";
-            this.DomNota.Size = new System.Drawing.Size(120, 20);
+            this.DomNota.Size = new System.Drawing.Size(189, 30);
             this.DomNota.TabIndex = 11;
             this.DomNota.Text = "domainUpDown1";
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(16, 105);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(126, 13);
-            this.label3.TabIndex = 12;
-            this.label3.Text = "Selecione uma disciplina:";
-            // 
             // CmbDisciplina
             // 
+            this.CmbDisciplina.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.CmbDisciplina.FormattingEnabled = true;
-            this.CmbDisciplina.Location = new System.Drawing.Point(18, 121);
+            this.CmbDisciplina.Location = new System.Drawing.Point(108, 410);
             this.CmbDisciplina.Name = "CmbDisciplina";
-            this.CmbDisciplina.Size = new System.Drawing.Size(121, 21);
+            this.CmbDisciplina.Size = new System.Drawing.Size(416, 33);
             this.CmbDisciplina.TabIndex = 13;
             // 
             // AdicionarNotasUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.Controls.Add(this.CmbDisciplina);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.DomNota);
             this.Controls.Add(this.BtnSalvarNotas);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.CmbNotas);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.CmbAlunoNotas);
-            this.Controls.Add(this.LblSelecionarAula);
             this.Name = "AdicionarNotasUserControl";
             this.Size = new System.Drawing.Size(1940, 1100);
             this.Load += new System.EventHandler(this.AdicionarNotasUserControl_Load);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label LblSelecionarAula;
         private System.Windows.Forms.ComboBox CmbAlunoNotas;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox CmbNotas;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button BtnSalvarNotas;
         private System.Windows.Forms.DomainUpDown DomNota;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox CmbDisciplina;
     }
 }

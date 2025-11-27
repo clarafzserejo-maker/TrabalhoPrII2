@@ -49,6 +49,8 @@ namespace WindowsFormsApp1
                 // 2. Preenche a variável de classe (dtCursos) com os novos dados brutos
                 da.Fill(dtCursos);
 
+                DataGridViewStyleHelper.AplicarEstiloPadrao(dataGridView1);
+
                 // 3. Cria uma DataView para a filtragem e a define como DataSource
                 // NOTA: É fundamental que o DataGridView continue usando o DataView,
                 // pois é ele quem aplica o filtro da pesquisa (TxbPesquisa3_TextChanged).

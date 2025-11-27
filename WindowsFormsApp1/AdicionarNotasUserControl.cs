@@ -40,14 +40,18 @@ namespace WindowsFormsApp1
             if (DomNota != null)
             {
                 DomNota.Items.Clear();
-                // Gera notas de 0.0 até 10.0, de 0.5 em 0.5
-                for (double nota = 0.0; nota <= 10.0; nota += 0.5)
+                // CORREÇÃO: Gera notas de 10.0 até 0.0, de 0.5 em 0.5 (ordem decrescente)
+                // Isso fará com que a seta 'para baixo' diminua a nota, e a seta 'para cima' aumente.
+                for (double nota = 10.0; nota >= 0.0; nota -= 0.5)
                 {
                     // Adiciona a nota formatada (ex: "7.5", "10.0")
                     DomNota.Items.Add(nota.ToString("N1"));
                 }
-                DomNota.SelectedIndex = 0; // Começa em 0.0
+                // Agora, a primeira nota (index 0) é 10.0. Vamos selecionar a nota mais baixa (0.0) ou deixar sem seleção inicial.
+                DomNota.SelectedIndex = DomNota.Items.Count - 1; // Começa em 0.0 (último item da lista)
                 DomNota.Wrap = false; // Não volta ao início ao chegar no fim
+
+
             }
 
             if (CmbNotas != null)

@@ -55,6 +55,8 @@ namespace WindowsFormsApp1
                 dtCursos.Clear();
                 da.Fill(dtCursos);
 
+                DataGridViewStyleHelper.AplicarEstiloPadrao(dataGridView1);
+
                 // 2. Cria uma DataView para a filtragem e a define como DataSource
                 DataView dv = new DataView(dtCursos);
                 dataGridView1.DataSource = dv;
