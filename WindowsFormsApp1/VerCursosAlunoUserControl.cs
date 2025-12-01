@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using static ProjetoProg.Btn;
 
@@ -14,20 +8,19 @@ namespace WindowsFormsApp1
 {
     public partial class VerCursosAlunoUserControl : UserControl
     {
-        string connectionString = @"Data Source=sqlexpress;Initial Catalog=CJ3027317PR2;User ID=aluno;Password=aluno";
+        // Connection string
+        private const string ConnectionString = @"Data Source=sqlexpress;Initial Catalog=CJ3027317PR2;User ID=aluno;Password=aluno";
         private DataTable dtCursos = new DataTable();
 
         public VerCursosAlunoUserControl()
         {
             InitializeComponent();
 
-            // Permite que a linha inteira seja selecionada e clicável
+            // Configuração do DataGridView
             dataGridView3.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView3.ReadOnly = true; // Apenas visualização
+            dataGridView3.ReadOnly = true;
 
-            // Adiciona o evento para lidar com o clique na linha
-           // dataGridView3.CellDoubleClick += dataGridView3_CellDoubleClick;
-
+            // Evento de pesquisa
             this.TxbPesquisa2.TextChanged += TxbPesquisa2_TextChanged;
         }
 
@@ -43,8 +36,10 @@ namespace WindowsFormsApp1
         private void CarregarCursosDoAluno()
         {
             string emailAluno = SessaoUsuario.Email;
+            // CORREÇÃO: idAluno agora é uma string (VARCHAR)
+            string idAluno = string.Empty;
 
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 try
                 {
@@ -56,21 +51,23 @@ namespace WindowsFormsApp1
                     getIdCmd.Parameters.AddWithValue("@email", emailAluno);
                     object idAlunoPK = getIdCmd.ExecuteScalar();
 
-                    if (idAlunoPK == null)
+                    if (idAlunoPK == null || idAlunoPK == DBNull.Value)
                     {
-                        // Exiba mensagem de erro e saia.
-                        MessageBox.Show("Erro: Aluno logado não encontrado na base de dados.");
+                        MessageBox.Show("Erro: Aluno logado não encontrado na base de dados.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
-                    string idAluno = idAlunoPK.ToString();
+
+                    // CORREÇÃO CRÍTICA: Atribui o valor como string, sem conversão forçada
+                    idAluno = idAlunoPK.ToString();
 
                     // PASSO 2: Buscar os cursos
+                    // Adicionando DISTINCT para evitar duplicação de cursos com vários professores
                     string query = @"
-                        SELECT 
+                        SELECT DISTINCT 
                             C.ID_CURSO,
-                            C.NOME_CURSO AS NOME_CURSO,
-                            C.CARGA_HORARIA AS CARGA_HORARIA,
-                            P.NOME_PROFESSOR AS NOME_PROFESSOR
+                            C.NOME_CURSO AS NomeCurso,
+                            C.CARGA_HORARIA AS CargaHoraria,
+                            P.NOME_PROFESSOR AS Professor
                         FROM 
                             ALUNOS_CURSOS AC
                             INNER JOIN CURSOS C ON AC.ID_CURSO = C.ID_CURSO
@@ -81,13 +78,18 @@ namespace WindowsFormsApp1
 
 
                     SqlDataAdapter da = new SqlDataAdapter(query, conn);
+                    // Passa o ID como string (o SqlClient infere o tipo, mas a variável agora é string)
                     da.SelectCommand.Parameters.AddWithValue("@idAluno", idAluno);
 
                     // Preenche a variável de classe com os dados brutos
                     dtCursos.Clear();
                     da.Fill(dtCursos);
 
-                    DataGridViewStyleHelper.AplicarEstiloPadrao(dataGridView3);
+                    // Verifica se o estilo padrão está disponível antes de tentar aplicá-lo
+                    if (typeof(DataGridViewStyleHelper).GetMethod("AplicarEstiloPadrao") != null)
+                    {
+                        DataGridViewStyleHelper.AplicarEstiloPadrao(dataGridView3);
+                    }
 
                     // PASSO 3: Gerenciar a exibição
                     if (dtCursos.Rows.Count > 0)
@@ -96,35 +98,42 @@ namespace WindowsFormsApp1
                         DataView dv = new DataView(dtCursos);
                         dataGridView3.DataSource = dv;
 
+                        // Configuração das colunas
+                        // Certifica-se de que os nomes das colunas estão corretos (NomeCurso, CargaHoraria, Professor)
+                        if (dataGridView3.Columns.Contains("ID_CURSO")) dataGridView3.Columns["ID_CURSO"].Visible = false;
+                        if (dataGridView3.Columns.Contains("NomeCurso")) dataGridView3.Columns["NomeCurso"].HeaderText = "Nome do Curso";
+                        if (dataGridView3.Columns.Contains("CargaHoraria")) dataGridView3.Columns["CargaHoraria"].HeaderText = "Carga Horária (h)";
+                        if (dataGridView3.Columns.Contains("Professor")) dataGridView3.Columns["Professor"].HeaderText = "Professor(a)";
+
                         dataGridView3.Visible = true;
-                        // TORNAR VISÍVEIS: TxbPesquisa2 e pictureBox1
-                        TxbPesquisa2.Visible = true; // Torna a TextBox visível
-                        pictureBox1.Visible = true;  // Torna a Imagem visível
+                        TxbPesquisa2.Visible = true;
+                        pictureBox1.Visible = true;
 
-                        // LblSemCurso deve ser uma Label no seu designer
-                        LblSemCurso.Visible = false;
-
-                        // ... (Configuração de colunas) ...
+                        if (LblSemCurso != null)
+                        {
+                            LblSemCurso.Visible = false;
+                        }
                     }
                     else
                     {
                         dataGridView3.Visible = false;
-                        // TORNAR INVISÍVEIS: TxbPesquisa2 e pictureBox1
-                        TxbPesquisa2.Visible = false; // Oculta a TextBox
-                        pictureBox1.Visible = false;  // Oculta a Imagem
+                        TxbPesquisa2.Visible = false;
+                        pictureBox1.Visible = false;
 
-                        // Se ela não existir, remova a linha abaixo
-                        LblSemCurso.Visible = true;
+                        if (LblSemCurso != null)
+                        {
+                            LblSemCurso.Visible = true;
+                            LblSemCurso.Text = "Você não está matriculado em nenhum curso.";
+                        }
                     }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Erro ao carregar cursos: " + ex.Message);
+                    // Mensagem de erro que agora não deve ser mais a de "Formato Incorreto"
+                    MessageBox.Show("Erro ao carregar cursos: " + ex.Message, "Erro de Banco de Dados", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
-
-      
 
         private void TxbPesquisa2_TextChanged(object sender, EventArgs e)
         {
@@ -147,7 +156,7 @@ namespace WindowsFormsApp1
                 {
                     // Cria a expressão de filtro para buscar na coluna de Curso OU na de Professor
                     string expressaoFiltro =
-                        $"NOME_CURSO LIKE '%{filtro}%' OR NOME_PROFESSOR LIKE '%{filtro}%'";
+                        $"NomeCurso LIKE '%{filtro}%' OR Professor LIKE '%{filtro}%'";
 
                     try
                     {
@@ -164,22 +173,22 @@ namespace WindowsFormsApp1
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-
+            // Deixado vazio
         }
 
         private void dataGridView3_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            // Deixado vazio
         }
 
         private void LblSemCurso_Click(object sender, EventArgs e)
         {
-
+            // Deixado vazio
         }
 
         private void dataGridView3_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
-
+            // Deixado vazio
         }
     }
 }

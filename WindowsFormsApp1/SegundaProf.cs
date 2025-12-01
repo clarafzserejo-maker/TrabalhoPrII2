@@ -215,7 +215,7 @@ namespace WindowsFormsApp1
                 INNER JOIN CURSOS c ON a.ID_CURSO = c.ID_CURSO
                 INNER JOIN PROFESSORES p ON a.ID_PROFESSOR = p.ID_PROFESSOR
                 INNER JOIN ALUNOS al ON a.ID_ALUNO = al.ID_ALUNO
-                WHERE DATEDIFF(MINUTE, GETDATE(), a.DATA_HORA) = 5
+                WHERE DATEDIFF(MINUTE, GETDATE() = a.DATA_HORA
             ";
 
                     SqlCommand cmd = new SqlCommand(query, conn);
@@ -255,7 +255,7 @@ namespace WindowsFormsApp1
                 mail.Body = $@"
             <html>
             <body style='font-family: Arial, sans-serif; color: #333;'>
-                <h2 style='color: #386a8b;'>Redefinição de senha</h2>
+                <h2 style='color: #386a8b;'>Sua aula começará em breve</h2>
                 <p>Olá 👋,</p>
                 <p>Sua aula de {curso} começará em 5 minutos!</p>
                 <p>Link do Meet: {link}</p>
