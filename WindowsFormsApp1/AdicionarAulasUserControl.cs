@@ -171,6 +171,32 @@ namespace WindowsFormsApp1
         private void BtnSalvarAula_Click(object sender, EventArgs e)
         {
             string linkMeet = txtLinkMeet.Text;
+
+            // VALIDAÇÃO DO LINK DO GOOGLE MEET
+            if (string.IsNullOrWhiteSpace(linkMeet))
+            {
+                MessageBox.Show("Por favor, cole o link do Google Meet.");
+                return;
+            }
+
+            // Remove espaços acidentais
+            linkMeet = linkMeet.Trim();
+
+            // REGEX para validar o formato do link do Meet
+            string padraoMeet = @"^https?:\/\/meet\.google\.com\/([a-z]{3}-[a-z]{4}-[a-z]{3}|lookup\/[A-Za-z0-9]+)(\?.*)?$";
+
+            if (!System.Text.RegularExpressions.Regex.IsMatch(linkMeet, padraoMeet))
+            {
+                MessageBox.Show(
+                    "O link inserido não parece ser um link válido do Google Meet.\n" +
+                    "Formato esperado: https://meet.google.com/abc-defg-hij",
+                    "Link inválido",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+                return;
+            }
+
+
             string idProfessorStr = SessaoUsuario.IdUsuario;
 
             if (string.IsNullOrWhiteSpace(linkMeet))

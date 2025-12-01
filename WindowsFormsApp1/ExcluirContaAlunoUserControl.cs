@@ -27,7 +27,6 @@ namespace WindowsFormsApp1
 
         private void ExcluirContaAluno()
         {
-            // 1. Obtém o ID do professor logado (VARCHAR/String)
             string idAlunoStr = SessaoUsuario.IdUsuario;
 
             if (string.IsNullOrEmpty(idAlunoStr))
@@ -36,9 +35,8 @@ namespace WindowsFormsApp1
                 return;
             }
 
-            // 2. Confirmação
             DialogResult confirmacao = MessageBox.Show(
-                "Tem certeza que deseja EXCLUIR PERMANENTEMENTE sua conta de professor? Todos os seus dados (aulas, cursos vinculados) serão APAGADOS.",
+                "Tem certeza que deseja EXCLUIR PERMANENTEMENTE sua conta de aluno? Todos os seus dados serão APAGADOS.",
                 "Confirmação de Exclusão",
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Warning);
@@ -46,6 +44,7 @@ namespace WindowsFormsApp1
             if (confirmacao == DialogResult.No) return;
 
             string connectionString = @"Data Source=sqlexpress;Initial Catalog=CJ3027317PR2;User ID=aluno;Password=aluno";
+
             using (SqlConnection con = new SqlConnection(connectionString))
             {
                 try
@@ -55,34 +54,37 @@ namespace WindowsFormsApp1
 
                     try
                     {
-                        // 1. Excluir Registros Dependentes na ordem correta
+                        // 1. Exclui dependências
 
-                        // Exclui da tabela que causou o erro (BOLETINS)
-                        SqlCommand cmd1 = new SqlCommand("DELETE FROM BOLETINS WHERE ID_ALUNO = @idAluno", con, transaction);
+                        SqlCommand cmd1 = new SqlCommand(
+                            "DELETE FROM BOLETINS WHERE ID_ALUNO = @idAluno",
+                            con, transaction);
                         cmd1.Parameters.Add("@idAluno", SqlDbType.NVarChar, 50).Value = idAlunoStr;
                         cmd1.ExecuteNonQuery();
 
-                        // Exclui de outras tabelas dependentes (EXEMPLOS COMUNS)
-                        SqlCommand cmd2 = new SqlCommand("DELETE FROM boletins WHERE ID_ALUNO = @idAluno", con, transaction);
+                        SqlCommand cmd2 = new SqlCommand(
+                            "DELETE FROM ALUNOS_CURSOS WHERE ID_ALUNO = @idAluno",
+                            con, transaction);
                         cmd2.Parameters.Add("@idAluno", SqlDbType.NVarChar, 50).Value = idAlunoStr;
                         cmd2.ExecuteNonQuery();
 
-                        SqlCommand cmd3 = new SqlCommand("DELETE FROM ALUNOS_CURSOS WHERE ID_ALUNO = @idAluno", con, transaction);
+                        SqlCommand cmd3 = new SqlCommand(
+                            "DELETE FROM RESETSENHAALUNOS WHERE ID_ALUNO_RESET = @idAluno",
+                            con, transaction);
                         cmd3.Parameters.Add("@idAluno", SqlDbType.NVarChar, 50).Value = idAlunoStr;
                         cmd3.ExecuteNonQuery();
 
-                        SqlCommand cmd4 = new SqlCommand("DELETE FROM RESETSENHAALUNOS WHERE ID_ALUNO = @idAluno", con, transaction);
-                        cmd3.Parameters.Add("@idAluno", SqlDbType.NVarChar, 50).Value = idAlunoStr;
-                        cmd3.ExecuteNonQuery();
-
-                        // 2. Excluir o registro principal (ALUNOS)
-                        SqlCommand cmdFinal = new SqlCommand("DELETE FROM ALUNOS WHERE ID_ALUNO = @idAluno", con, transaction);
+                        // 2. Exclui aluno
+                        SqlCommand cmdFinal = new SqlCommand(
+                            "DELETE FROM ALUNOS WHERE ID_ALUNO = @idAluno",
+                            con, transaction);
                         cmdFinal.Parameters.Add("@idAluno", SqlDbType.NVarChar, 50).Value = idAlunoStr;
                         cmdFinal.ExecuteNonQuery();
 
-                        // Confirma a exclusão de todas as tabelas
+                        // CONFIRMA TUDO
                         transaction.Commit();
                         MessageBox.Show("Conta excluída com sucesso.", "Sucesso");
+                        SairDoSistema();
                     }
                     catch (Exception exTransacao)
                     {
@@ -96,6 +98,7 @@ namespace WindowsFormsApp1
                 }
             }
         }
+
 
         private void SairDoSistema()
         {

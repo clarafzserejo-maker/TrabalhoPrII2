@@ -86,6 +86,12 @@ namespace WindowsFormsApp1
                 BtnSalvarNotas.Click -= BtnSalvarNotas_Click;
                 BtnSalvarNotas.Click += BtnSalvarNotas_Click;
             }
+
+            if (DomNota != null)
+            {
+                DomNota.Validating -= DomNota_Validating;
+                DomNota.Validating += DomNota_Validating;
+            }
         }
 
         // =========================================================================
@@ -294,5 +300,27 @@ namespace WindowsFormsApp1
             // 3. Liga os eventos
             LigarEventos();
         }
+
+        private void DomNota_Validating(object sender, CancelEventArgs e)
+        {
+            if (!decimal.TryParse(DomNota.Text, out decimal nota))
+            {
+                MessageBox.Show("Digite uma nota válida entre 0 e 10.", "Valor inválido");
+                e.Cancel = true;
+                return;
+            }
+
+            if (nota < 0 || nota > 10)
+            {
+                MessageBox.Show("A nota deve estar entre 0 e 10.", "Valor inválido");
+                e.Cancel = true;
+                return;
+            }
+
+            // Arredonda para 0.5
+            decimal arredondado = Math.Round(nota * 2, MidpointRounding.AwayFromZero) / 2;
+            DomNota.Text = arredondado.ToString("N1");
+        }
+
     }
 }

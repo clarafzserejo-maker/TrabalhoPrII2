@@ -107,35 +107,37 @@ namespace WindowsFormsApp1
                         // Se for professor
                         if (existeProfessor > 0)
                         {
-                            // Verifica se já existe um código não usado para este professor
-                            string verificaCodigoExistenteProf = @"
-                                SELECT COUNT(*) FROM RESETSENHAPROFESSORES 
-                                WHERE ID_PROFESSOR_RESET = (SELECT ID_PROFESSOR FROM PROFESSORES WHERE EMAIL_PROFESSOR = @EMAIL) 
-                                AND USADO = 0";
-                            SqlCommand cmdVerificaCodigoProf = new SqlCommand(verificaCodigoExistenteProf, con);
-                            cmdVerificaCodigoProf.Parameters.AddWithValue("@EMAIL", emailDestino);
-                            int codigoExistenteProf = Convert.ToInt32(cmdVerificaCodigoProf.ExecuteScalar());
+                            // Verifica se já existe registro para o professor
+                            string verificaRegistroProf = @"
+        SELECT COUNT(*) 
+        FROM RESETSENHAPROFESSORES 
+        WHERE ID_PROFESSOR_RESET = (SELECT ID_PROFESSOR FROM PROFESSORES WHERE EMAIL_PROFESSOR = @EMAIL)";
+                            SqlCommand cmdVerificaRegistroProf = new SqlCommand(verificaRegistroProf, con);
+                            cmdVerificaRegistroProf.Parameters.AddWithValue("@EMAIL", emailDestino);
+                            int existeRegistroProf = Convert.ToInt32(cmdVerificaRegistroProf.ExecuteScalar());
 
-                            if (codigoExistenteProf > 0)
+                            if (existeRegistroProf > 0)
                             {
-                                // Se já existe um código não usado, atualiza o código e a data de expiração
+                                // Atualiza código, expiração e zera USADO
                                 string updateCodigoProf = @"
-                                    UPDATE RESETSENHAPROFESSORES 
-                                    SET CODIGO = @CODIGO, EXPIRAEM = @EXPIRAEM 
-                                    WHERE ID_PROFESSOR_RESET = (SELECT ID_PROFESSOR FROM PROFESSORES WHERE EMAIL_PROFESSOR = @EMAIL) 
-                                    AND USADO = 0";
-                                SqlCommand cmdUpdateCodigoProf = new SqlCommand(updateCodigoProf, con);
-                                cmdUpdateCodigoProf.Parameters.AddWithValue("@CODIGO", codigo);
-                                cmdUpdateCodigoProf.Parameters.AddWithValue("@EXPIRAEM", dataExpiracao);
-                                cmdUpdateCodigoProf.Parameters.AddWithValue("@EMAIL", emailDestino);
-                                cmdUpdateCodigoProf.ExecuteNonQuery();
+            UPDATE RESETSENHAPROFESSORES
+            SET CODIGO = @CODIGO,
+                EXPIRAEM = @EXPIRAEM,
+                USADO = 0
+            WHERE ID_PROFESSOR_RESET = (SELECT ID_PROFESSOR FROM PROFESSORES WHERE EMAIL_PROFESSOR = @EMAIL)";
+                                SqlCommand cmdUpdateProf = new SqlCommand(updateCodigoProf, con);
+                                cmdUpdateProf.Parameters.AddWithValue("@CODIGO", codigo);
+                                cmdUpdateProf.Parameters.AddWithValue("@EXPIRAEM", dataExpiracao);
+                                cmdUpdateProf.Parameters.AddWithValue("@EMAIL", emailDestino);
+                                cmdUpdateProf.ExecuteNonQuery();
                             }
                             else
                             {
-                                // Se não existe código, insere um novo código de reset para o professor
+                                // Insere novo registro
                                 string insertProfessor = @"
-                                    INSERT INTO RESETSENHAPROFESSORES (ID_PROFESSOR_RESET, CODIGO, EXPIRAEM, USADO)
-                                    SELECT ID_PROFESSOR, @CODIGO, @EXPIRAEM, 0 FROM PROFESSORES WHERE EMAIL_PROFESSOR = @EMAIL";
+            INSERT INTO RESETSENHAPROFESSORES (ID_PROFESSOR_RESET, CODIGO, EXPIRAEM, USADO)
+            SELECT ID_PROFESSOR, @CODIGO, @EXPIRAEM, 0 
+            FROM PROFESSORES WHERE EMAIL_PROFESSOR = @EMAIL";
                                 SqlCommand cmdInsertProfessor = new SqlCommand(insertProfessor, con);
                                 cmdInsertProfessor.Parameters.AddWithValue("@CODIGO", codigo);
                                 cmdInsertProfessor.Parameters.AddWithValue("@EXPIRAEM", dataExpiracao);
@@ -143,6 +145,7 @@ namespace WindowsFormsApp1
                                 cmdInsertProfessor.ExecuteNonQuery();
                             }
                         }
+
                         else
                         {
                             MessageBox.Show("E-mail não encontrado.");

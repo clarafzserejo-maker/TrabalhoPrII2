@@ -111,6 +111,33 @@ namespace WindowsFormsApp1
             }
         }
 
+        private void LimparCodigo(string usuario, string email)
+        {
+            string connectionString = @"Data Source=sqlexpress;Initial Catalog=CJ3027317PR2;User ID=aluno;Password=aluno";
+
+            using (SqlConnection conexao = new SqlConnection(connectionString))
+            {
+                conexao.Open();
+
+                string updateAluno = "UPDATE ALUNOS SET CODREC = NULL WHERE ID_ALUNO = @usuario AND EMAIL_ALUNO = @email";
+                using (SqlCommand cmd = new SqlCommand(updateAluno, conexao))
+                {
+                    cmd.Parameters.AddWithValue("@usuario", usuario);
+                    cmd.Parameters.AddWithValue("@email", email);
+                    if (cmd.ExecuteNonQuery() > 0) return;
+                }
+
+                string updateProfessor = "UPDATE PROFESSORES SET CODREC = NULL WHERE ID_PROFESSOR = @usuario AND EMAIL_PROFESSOR = @email";
+                using (SqlCommand cmd = new SqlCommand(updateProfessor, conexao))
+                {
+                    cmd.Parameters.AddWithValue("@usuario", usuario);
+                    cmd.Parameters.AddWithValue("@email", email);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
+
 
 
     }

@@ -178,7 +178,7 @@ namespace WindowsFormsApp1
                         reader.Close();
 
                         // Atualiza senha do professor
-                        string update = "UPDATE PROFESSORES SET SENHA = @SENHA WHERE ID_PROFESSOR = @ID";
+                        string update = "UPDATE PROFESSORES SET SENHA_PROFESSOR = @SENHA WHERE ID_PROFESSOR = @ID";
                         SqlCommand cmdUpdate = new SqlCommand(update, con);
                         cmdUpdate.Parameters.AddWithValue("@SENHA", novaSenha);
                         cmdUpdate.Parameters.AddWithValue("@ID", idProf);
